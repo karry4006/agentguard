@@ -39,7 +39,7 @@
   "positioning": "PASS",
   "dependency_license_review": "OPEN_118_PACKAGES",
   "missing_supply_chain_attestations": true,
-  "git_history_secret_scan": "PASS_NO_FINDINGS",
+  "git_history_secret_scan": "PASS_ALLOWLISTED_TEST_FIXTURES_ONLY",
   "public_repository_audit": "PASS_PRIVATE_REPOSITORY",
   "github_ci": "PASS_PR_7_ALL_REQUIRED_CONTEXTS",
   "rc_fresh_clone": "PASS_MERGED_MASTER_9C3535F",
