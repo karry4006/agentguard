@@ -576,6 +576,17 @@ def component_record(
                 "evidence_type": "EXACT_IMAGE_EMBEDDED_AUDITWHEEL_SBOM",
                 "evidence_version": curated_entry.get("version", ""),
             })
+    if name in REVIEW_CLASSIFICATIONS:
+        classification = REVIEW_CLASSIFICATIONS[name]
+        record["release_action"] = REVIEW_ACTIONS[name]
+        record["status"] = "REVIEW_REQUIRED"
+        record["compatibility_review"] = (
+            "REQUIRED" if classification == "LICENSE_EXCEPTION_INTERPRETATION_REQUIRED"
+            else "NONE"
+        )
+    elif name == "gcc-14":
+        record["release_action"] = "Preserve exact file-scoped GCC license/source evidence; the grouped runtime exception question is recorded against the four distributed runtime records."
+        record["compatibility_review"] = "REVIEW_RECOMMENDED"
     if record.get("name") in ACTUAL_GPL_PRIMARY:
         record["gpl_family_role"] = record.get("gpl_family_role") or "PRIMARY"
     elif any(identifier.startswith(("GPL-", "AGPL-")) for identifier in record["observed_license_ids"]):
