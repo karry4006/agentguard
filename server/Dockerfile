@@ -7,8 +7,10 @@ RUN python -m pip install --no-cache-dir --target /opt/site --requirement ./requ
 COPY VERSION /opt/app/VERSION
 COPY server/pyproject.toml /opt/app/server/pyproject.toml
 COPY server/README.md /opt/app/server/README.md
+COPY server/src /opt/app/server/src
 COPY sdk/python/pyproject.toml /opt/app/sdk/python/pyproject.toml
 COPY sdk/python/README.md /opt/app/sdk/python/README.md
+COPY sdk/python/src /opt/app/sdk/python/src
 COPY server/alembic.ini /opt/app/alembic.ini
 COPY server/alembic /opt/app/alembic
 COPY server/src /opt/app/src
