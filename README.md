@@ -45,6 +45,17 @@ job, and the API server. Optional retention, ledger, integrity, and
 replication workers are Compose profiles. The V20 acceptance topology is
 separate and is not the local development default.
 
+## Scope and limitations
+
+AgentGuard is an observability, debugging, and evidence layer around an agent
+application; it is not the agent, an authorization boundary for the application,
+or a replacement for deployment security controls. The local Quick Start is a
+development topology with loopback HTTP, one PostgreSQL instance, and optional
+features disabled. Production operators must provide their own TLS, secret
+management, access controls, monitoring, backups, and operational risk review.
+AgentGuard makes no absolute security or compliance guarantee and is not
+designed to prevent prompt injection or other attacks.
+
 ## Quick Start
 
 ### Prerequisites
@@ -117,10 +128,10 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md). Read
 working on authentication, evidence integrity, replay, archives, or
 retention. This repository is licensed under
 [Apache-2.0](LICENSE). The configured target for vulnerability reports is
-GitHub Private Vulnerability Reporting, but it is unavailable on the current
-private-repository configuration. `SECURITY_CONTACT_REQUIRED` therefore
-remains unresolved pending an owner-approved private channel. Do not open
-public issues for security bugs.
+`agentguard.project@gmail.com`; do not file security vulnerabilities as public
+GitHub issues. Include reproduction information where appropriate and do not
+send secrets unnecessarily. No response SLA or vulnerability bounty is
+promised.
 
 AgentGuard V20 core remains sealed and complete. AgentGuard V21 has not
 started.

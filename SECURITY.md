@@ -13,15 +13,14 @@ and the initial GitHub repository is private. V21 has not started.
 
 ## Private reporting
 
-The configured target is GitHub Private Vulnerability Reporting. The current
-user-owned private repository reports this feature as
-`UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION`; `SECURITY_CONTACT_REQUIRED`
-therefore remains unresolved until the owner approves another private
-channel. Do not open public issues for security vulnerabilities.
+For private vulnerability reports, email
+`agentguard.project@gmail.com`. Security issues should **not** be filed as
+public GitHub issues. Include the affected version, reproduction information,
+impact, and suggested remediation where appropriate. Do not send secrets
+unnecessarily; redact credentials, private telemetry, and other sensitive
+values from reports. No response SLA or vulnerability bounty is promised.
 
-Include the affected version, reproduction steps, impact, and suggested
-remediation when available. Prefer encrypted/private reporting and omit
-secrets, private telemetry, and credentials.
+Prefer private/encrypted reporting where available.
 
 ## Reporting
 
