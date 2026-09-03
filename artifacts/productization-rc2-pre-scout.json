@@ -1,0 +1,79 @@
+{
+  "release": "AgentGuard 1.0.0rc2",
+  "change_class": "METADATA_ONLY",
+  "repository": "karry4006/agentguard",
+  "repository_visibility": "PRIVATE",
+  "master_commit": "3adc26b10b6f45f5975a93eba1704ce8e27af942",
+  "source_version": "1.0.0rc2",
+  "migration_head": "0018_v20_archive_quorum_bindings",
+  "rc1": {
+    "sealed_version": "1.0.0rc1",
+    "sealed_digest": "sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4",
+    "artifacts_unchanged": true
+  },
+  "dependency_changes": "NO",
+  "lockfiles_unchanged": true,
+  "core_schema_migrations_unchanged": true,
+  "gates": {
+    "compileall": "PASS",
+    "python_3_13_formal_ci": "PASS",
+    "python_3_12_sdk_ci": "PASS",
+    "full_local_tests": "PASS: 183 passed, 1 intentional PostgreSQL deselection",
+    "bandit": "PASS",
+    "pip_audit": "PASS: no known vulnerabilities",
+    "secret_scan": "PASS",
+    "license_validator": "PASS: 122 components, 120 third-party, unknown 0, ambiguous 0",
+    "docker_build_ci": "PASS",
+    "deterministic_demos_ci": "PASS",
+    "compose_configuration_ci": "PASS",
+    "security_ci": "PASS"
+  },
+  "fresh_clone": {
+    "master_commit": "3adc26b10b6f45f5975a93eba1704ce8e27af942",
+    "clean_before_bootstrap": true,
+    "no_inherited_local_configuration": true,
+    "bootstrap": "PASS",
+    "compose_quick_start": "PASS",
+    "health": "PASS",
+    "liveness": "PASS",
+    "readiness": "PASS",
+    "migrations": "PASS",
+    "tenant_and_key_creation": "PASS",
+    "no_paid_api_basic_demo": "PASS",
+    "authenticated_trace_query": "PASS",
+    "cleanup": "PASS"
+  },
+  "image": {
+    "tag": "agentguard:1.0.0-rc2",
+    "exact_digest": "sha256:4bcaadb7a5ad1e26cb1c014a502a984ee5f20f28b36ce9e272e1bedac80a1a93",
+    "image_id": "sha256:4bcaadb7a5ad1e26cb1c014a502a984ee5f20f28b36ce9e272e1bedac80a1a93",
+    "local_repo_digest": "agentguard@sha256:4bcaadb7a5ad1e26cb1c014a502a984ee5f20f28b36ce9e272e1bedac80a1a93",
+    "platform": "linux/amd64",
+    "user": "65532:65532",
+    "read_only_no_caps_no_new_privileges_version_check": "PASS",
+    "first_party_package_metadata": "PASS: agentguard 1.0.0rc2; agentguard-server 1.0.0rc2"
+  },
+  "sbom": {
+    "status": "PASS_LOCAL_PRE_SCOUT",
+    "format": "CycloneDX",
+    "artifact": "artifacts/agentguard-1.0.0rc2-sbom.cyclonedx.json",
+    "components": 122,
+    "third_party_components": 120,
+    "third_party_dependency_drift": "NONE",
+    "first_party_identity": "PASS: both 1.0.0rc2",
+    "image_digest_binding": "PASS",
+    "generation_method": "Local image metadata plus unchanged sealed RC1 third-party component baseline",
+    "docker_scout": "NOT_RUN"
+  },
+  "license_gate": {
+    "status": "PASS",
+    "source_closure": "PASS",
+    "mappings": "120/120",
+    "unknown": 0,
+    "ambiguous": 0,
+    "legal_certification": "NOT_PERFORMED"
+  },
+  "security_contact": "BLOCKED_DEFERRED",
+  "public_release_ready": false,
+  "next_required_owner_action": "NEW_EXACT_RC2_SCOUT_APPROVAL_REQUIRED"
+}
