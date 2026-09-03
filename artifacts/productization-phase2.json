@@ -1,0 +1,73 @@
+{
+  "phase": "AgentGuard 1.0 Productization Phase 2",
+  "repository_owner": "karry4006",
+  "repository_name": "agentguard",
+  "repository_visibility": "PRIVATE",
+  "remote_url_without_credentials": "https://github.com/karry4006/agentguard.git",
+  "github_authentication": "PASS",
+  "license": "Apache-2.0",
+  "security_reporting": {
+    "target": "GitHub Private Vulnerability Reporting",
+    "status": "UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION",
+    "contact_status": "SECURITY_CONTACT_REQUIRED"
+  },
+  "github_security_capabilities": {
+    "dependabot_alerts": "ENABLED",
+    "dependency_graph": "UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION",
+    "secret_scanning": "UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION",
+    "secret_scanning_push_protection": "UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION"
+  },
+  "initial_github_repository": "PRIVATE",
+  "initial_push": "PASS",
+  "pre_push_secret_scan": "PASS",
+  "final_remote_commit": "b13e110fc9aae12cc73dd57d427611f94b9cbcf6",
+  "GitHub_CI_workflows": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/security.yml",
+    ".github/workflows/quickstart.yml"
+  ],
+  "GitHub_CI_results": {
+    "master_commit": "b13e110fc9aae12cc73dd57d427611f94b9cbcf6",
+    "AgentGuard CI": { "run_id": 33705108995, "conclusion": "success" },
+    "AgentGuard Security Regression": { "run_id": 33705108989, "conclusion": "success" },
+    "AgentGuard Quick Start": { "run_id": 33705109010, "conclusion": "success" }
+  },
+  "Python_3_13_CI": "PASS",
+  "Python_3_12_CI": "PASS",
+  "static_CI": "PASS",
+  "migration_CI": "PASS",
+  "Docker_build_CI": "PASS",
+  "Quick_Start_CI": "PASS",
+  "branch_protection": {
+    "status": "ENABLED",
+    "branch": "master",
+    "pull_request_required": true,
+    "required_approving_review_count": 0,
+    "required_status_checks": [
+      "Python 3.13 canonical checks",
+      "Python 3.12 SDK compatibility",
+      "Docker build and Compose configuration",
+      "security"
+    ],
+    "force_pushes_allowed": false,
+    "deletions_allowed": false,
+    "signed_commits_required": false
+  },
+  "fresh_clone": "PASS",
+  "fresh_clone_quick_start": "PASS",
+  "fresh_clone_elapsed_seconds": 24,
+  "undocumented_manual_steps": 0,
+  "README_rendering": "PASS",
+  "documentation_links": "PASS",
+  "issue_templates": ["bug_report", "feature_request"],
+  "PR_template": "PASS",
+  "public_repository": false,
+  "public_release": false,
+  "package_publication": false,
+  "container_publication": false,
+  "v20_core_sealed": true,
+  "agentguard_core_complete": "YES",
+  "productization_phase1": "PASS",
+  "v21": "NOT_STARTED",
+  "status": "PASS_WITH_DECLARED_GITHUB_CAPABILITY_LIMITATIONS"
+}
