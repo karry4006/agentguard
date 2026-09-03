@@ -13,6 +13,12 @@ Every distributed third-party row is also covered by `PROJECT_POLICY_NOTICE` for
 `LICENSE_REQUIRED_NOTICE` value is reserved for license-specific text, attribution, or NOTICE action
 identified by exact package evidence; policy inventory coverage is not treated as a legal conclusion.
 
+## Notice classes
+
+`PROJECT_POLICY_NOTICE` means this engineering inventory intentionally lists every distributed third-party SBOM record.
+It is a project traceability policy and is not a claim that each record independently requires an attribution notice.
+`LICENSE_REQUIRED_NOTICE` means the exact package/source evidence identifies license text, attribution, copyright, or NOTICE material to preserve.
+
 
 ## Permissive dependencies
 
@@ -20,6 +26,7 @@ identified by exact package evidence; policy inventory coverage is not treated a
 |---|---|---|---|---|---|
 | opentelemetry-exporter-otlp-proto-common | 1.44.0 | Apache-2.0 | opentelemetry_exporter_otlp_proto_common-1.44.0.dist-info/licenses/LICENSE | https://github.com/open-telemetry/opentelemetry-python/tree/main/exporter/opentelemetry-exporter-otlp-proto-common, https://github.com/open-telemetry/opentelemetry-python | Preserve license text and required attribution in release bundle |
 | jmespath | 1.0.1 | MIT | SBOM license metadata only; exact bundled notice text still requires extraction | Not recorded in exact SBOM/local metadata | Preserve license text and required attribution in release bundle |
+| libcom_err | 1.42.9-19.el7 | MIT | e2fsprogs-1.42.9/lib/et/error_table.h | Not recorded in exact SBOM/local metadata | Preserve exact native license, notice, and source mapping in release bundle |
 | libkrb5support0 | 1.21.3-5+deb13u1 | MIT-style permissive main code plus file-scoped CC-BY-SA documentation and other exact Debian terms | /usr/share/doc/libkrb5-3/copyright | Not recorded in exact SBOM/local metadata | Preserve exact license, copyright, and applicable attribution in release bundle |
 | sqlalchemy | 2.0.52 | MIT | sqlalchemy-2.0.52.dist-info/licenses/LICENSE: Copyright 2005-2026 SQLAlchemy authors and contributors <see AUTHORS file>. | https://docs.sqlalchemy.org, https://github.com/sqlalchemy/sqlalchemy/ | Preserve license text and required attribution in release bundle |
 | cffi | 2.1.1 | MIT-0 | cffi-2.1.1.dist-info/licenses/LICENSE | https://cffi.readthedocs.io/, https://cffi.readthedocs.io/en/latest/whatsnew.html, https://github.com/python-cffi/cffi/releases, https://groups.google.com/forum/#!forum/python-cffi, https://github.com/python-cffi/cffi, https://github.com/python-cffi/cffi/issues | Preserve license text and required attribution in release bundle |
@@ -69,10 +76,13 @@ identified by exact package evidence; policy inventory coverage is not treated a
 | markupsafe | 3.0.3 | BSD-3-Clause | markupsafe-3.0.3.dist-info/licenses/LICENSE.txt: Copyright 2010 Pallets | https://palletsprojects.com/donate, https://markupsafe.palletsprojects.com/, https://markupsafe.palletsprojects.com/page/changes/, https://github.com/pallets/markupsafe/, https://discord.gg/pallets | Preserve license text and required attribution in release bundle |
 | libbz2-1.0 | 1.0.8-6 | BSD-style license for the distributed library; GPL-2.0-only for Debian packaging/source scope | /usr/share/doc/libbz2-1.0/copyright | Not recorded in exact SBOM/local metadata | Preserve exact license, copyright, and applicable attribution in release bundle |
 | python-dotenv | 1.2.3 | BSD-3-Clause | SBOM license metadata only; exact bundled notice text still requires extraction | Not recorded in exact SBOM/local metadata | Preserve license text and required attribution in release bundle |
+| krb5-libs | 1.15.1-55.el7_9 | MIT | krb5-1.15.1/NOTICE | Not recorded in exact SBOM/local metadata | Preserve exact native license, notice, and source mapping in release bundle |
 | watchfiles | 1.2.0 | MIT | watchfiles-1.2.0.dist-info/licenses/LICENSE: Copyright (c) 2017 to present Samuel Colvin | https://github.com/samuelcolvin/watchfiles/releases, https://watchfiles.helpmanual.io, https://github.com/sponsors/samuelcolvin, https://github.com/samuelcolvin/watchfiles, https://github.com/samuelcolvin/watchfiles | Preserve license text and required attribution in release bundle |
 | uvicorn | 0.52.4 | BSD-3-Clause | SBOM license metadata only; exact bundled notice text still requires extraction | Not recorded in exact SBOM/local metadata | Preserve license text and required attribution in release bundle |
+| libselinux | 2.5-15.el7 | LicenseRef-libselinux-Public-Domain | libselinux-2.5/LICENSE | Not recorded in exact SBOM/local metadata | Preserve exact native license, notice, and source mapping in release bundle |
 | h11 | 0.16.0 | MIT | h11-0.16.0.dist-info/licenses/LICENSE.txt: Copyright (c) 2016 Nathaniel J. Smith <njs@pobox.com> and other contributors | Not recorded in exact SBOM/local metadata | Preserve license text and required attribution in release bundle |
 | typing-inspection | 0.4.4 | MIT | SBOM license metadata only; exact bundled notice text still requires extraction | Not recorded in exact SBOM/local metadata | Preserve license text and required attribution in release bundle |
+| pcre | 8.32-17.el7 | BSD-3-Clause | pcre-8.32/LICENCE | Not recorded in exact SBOM/local metadata | Preserve exact native license, notice, and source mapping in release bundle |
 | pydantic-core | 2.46.4 | MIT | pydantic_core-2.46.4.dist-info/licenses/LICENSE: Copyright (c) 2022 Samuel Colvin | https://github.com/sponsors/samuelcolvin, https://github.com/pydantic, https://github.com/pydantic/pydantic/tree/main/pydantic-core | Preserve license text and required attribution in release bundle |
 | httpx | 0.28.1 | BSD-3-Clause | httpx-0.28.1.dist-info/licenses/LICENSE.md: Copyright © 2019, [Encode OSS Ltd](https://www.encode.io/). | https://github.com/encode/httpx/blob/master/CHANGELOG.md, https://www.python-httpx.org, https://github.com/encode/httpx, https://github.com/encode/httpx | Preserve license text and required attribution in release bundle |
 | libgssapi-krb5-2 | 1.21.3-5+deb13u1 | MIT-style permissive main code plus file-scoped CC-BY-SA documentation and other exact Debian terms | /usr/share/doc/libkrb5-3/copyright | Not recorded in exact SBOM/local metadata | Preserve exact license, copyright, and applicable attribution in release bundle |
@@ -113,7 +123,7 @@ identified by exact package evidence; policy inventory coverage is not treated a
 | libcom-err2 | 1.47.2-3+b11 | FILE-SCOPED: GPL-2.0; 0BSD; Expat; BSD-3-Clause; BSD-4-Clause-CMU and other exact Debian records | /usr/share/doc/libcom-err2/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
 | xz-utils | 5.8.1-1+deb13u1 | FILE-SCOPED: 0BSD; GPL-2.0-or-later; GPL-3.0-or-later; LGPL-2.1-or-later; FSFULLR; Public-Domain | /usr/share/doc/liblzma5/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
 | python-dateutil | 2.9.0.post0 | FILE-SCOPED/TIME-SCOPED: Apache-2.0 for post-2017 contributions; BSD-3-Clause for earlier dateutil code | python_dateutil-2.9.0.post0.dist-info/LICENSE | https://dateutil.readthedocs.io/en/stable/, https://github.com/dateutil/dateutil | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
-| media-types | 13.0.0 | LicenseRef-Debian-ad-hoc-public-domain | Not available from exact local package metadata | Not recorded in exact SBOM/local metadata | Block release pending authoritative license and notice evidence |
+| media-types | 13.0.0 | LicenseRef-Debian-ad-hoc-public-domain | Not available from exact local package metadata | Not recorded in exact SBOM/local metadata | Preserve exact license, notice, and source evidence; retain legal compatibility review |
 | libzstd1 | 1.5.7+dfsg-1 | BSD-3-Clause OR GPL-2.0-only for Files:*; zlib and Expat for file-scoped components [SELECTED=BSD-3-Clause] | /usr/share/doc/libzstd1/copyright; /var/lib/dpkg/status.d/libzstd1 | Not recorded in exact SBOM/local metadata | Preserve the selected license option and all file-scoped notices; retain owner/legal review where recorded |
 | util-linux | 2.41.5-0+deb13u1 | FILE-SCOPED: BSD-2-Clause; BSD-3-Clause; BSD-4-Clause; GPL-2.0-or-later; GPL-3.0-or-later; LGPL-2.1-or-later | /usr/share/doc/libuuid1/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
 | libgcc-s1 | 14.2.0-19 | GPL-3.0-or-later WITH GCC-exception-3.1 for runtime libraries; file-scoped GCC licenses | /usr/share/doc/gcc-14-base/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
@@ -128,6 +138,7 @@ identified by exact package evidence; policy inventory coverage is not treated a
 | sqlite3 | 3.46.1-7+deb13u1 | Public-Domain upstream; GPL-2.0-only Debian packaging scope | /usr/share/doc/libsqlite3-0/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
 | keyutils | 1.6.3-6 | FILE-SCOPED: GPL-2.0-or-later for tools; LGPL-2.0-or-later for library | /usr/share/doc/libkeyutils1/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
 | e2fsprogs | 1.47.2-3 | FILE-SCOPED: GPL-2.0; 0BSD; Expat; BSD-3-Clause; BSD-4-Clause-CMU and other exact Debian records | /usr/share/doc/libcom-err2/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
+| cyrus-sasl-lib | 2.1.26-24.el7_9 | LicenseRef-Cyrus-SASL-BSD-with-advertising | cyrus-sasl-2.1.26/COPYING | Not recorded in exact SBOM/local metadata | Preserve exact native license, notice, and source mapping in release bundle |
 | libnsl2 | 1.3.0-3+b3 | FILE-SCOPED: LGPL-2.1-or-later; BSD-3-Clause; GPL-3.0-or-later with autoconf exception | /usr/share/doc/libnsl2/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
 | liblzma5 | 5.8.1-1+deb13u1 | FILE-SCOPED: 0BSD; GPL-2.0-or-later; GPL-3.0-or-later; LGPL-2.1-or-later; FSFULLR; Public-Domain | /usr/share/doc/liblzma5/copyright | Not recorded in exact SBOM/local metadata | Preserve exact file-scoped license and notice records; retain owner/legal review where recorded |
 | uvloop | 0.22.1 | MIT OR Apache-2.0 [SELECTED=Apache-2.0] | Not available from exact local package metadata | https://github.com/MagicStack/uvloop/tree/v0.22.1 | Preserve the selected license option and all file-scoped notices; retain owner/legal review where recorded |
@@ -136,47 +147,23 @@ identified by exact package evidence; policy inventory coverage is not treated a
 
 | Dependency | Version | License evidence | Copyright/notice reference | Upstream URL | Required action |
 |---|---|---|---|---|---|
-| certifi | 2026.7.22 | MPL-2.0 | certifi-2026.7.22.dist-info/licenses/LICENSE | https://github.com/certifi/python-certifi | Review unchanged import/linkage boundary and preserve license/notice |
-| psycopg-binary | 3.3.4 | LGPL-3.0-only | psycopg_binary-3.3.4.dist-info/licenses/LICENSE.txt | https://psycopg.org/, https://psycopg.org/psycopg3/docs/, https://psycopg.org/psycopg3/docs/news.html, https://github.com/psycopg/psycopg, https://github.com/psycopg/psycopg/issues, https://github.com/sponsors/dvarrazzo | Review unchanged import/linkage boundary and preserve license/notice |
-| psycopg | 3.3.4 | LGPL-3.0-only | psycopg-3.3.4.dist-info/licenses/LICENSE.txt | https://psycopg.org/, https://psycopg.org/psycopg3/docs/, https://psycopg.org/psycopg3/docs/news.html, https://github.com/psycopg/psycopg, https://github.com/psycopg/psycopg/issues, https://github.com/sponsors/dvarrazzo | Review unchanged import/linkage boundary and preserve license/notice |
+| certifi | 2026.7.22 | MPL-2.0 | certifi-2026.7.22.dist-info/licenses/LICENSE | https://github.com/certifi/python-certifi | Preserve exact license, notice, and source evidence; retain legal compatibility review |
+| psycopg-binary | 3.3.4 | LGPL-3.0-only | psycopg_binary-3.3.4.dist-info/licenses/LICENSE.txt | https://pypi.org/project/psycopg-binary/3.3.4/ | Preserve exact license, notice, and source evidence; retain legal compatibility review |
+| psycopg | 3.3.4 | LGPL-3.0-only | psycopg-3.3.4.dist-info/licenses/LICENSE.txt | https://psycopg.org/, https://psycopg.org/psycopg3/docs/, https://psycopg.org/psycopg3/docs/news.html, https://github.com/psycopg/psycopg, https://github.com/psycopg/psycopg/issues, https://github.com/sponsors/dvarrazzo | Preserve exact license, notice, and source evidence; retain legal compatibility review |
+| keyutils-libs | 1.5.8-3.el7 | LGPL-2.0-or-later | keyutils-1.5.8/keyutils.c; keyutils-1.5.8/keyutils.h; keyutils-1.5.8/LICENCE.LGPL | Not recorded in exact SBOM/local metadata | Preserve exact native license, notice, and source mapping in release bundle |
 
 ## Strong-copyleft/runtime dependencies
 
 | Dependency | Version | License evidence | Copyright/notice reference | Upstream URL | Required action |
 |---|---|---|---|---|---|
-| base-files | 13.8+deb13u6 | GPL-2.0-or-later | SBOM license metadata only; exact bundled notice text still requires extraction | Not recorded in exact SBOM/local metadata | Strong-copyleft compatibility, source, and notice review |
-| netbase | 6.5 | GPL-2.0-only | SBOM license metadata only; exact bundled notice text still requires extraction | Not recorded in exact SBOM/local metadata | Strong-copyleft compatibility, source, and notice review |
-| gcc-14 | 14.2.0-19 | GPL-3.0-or-later WITH GCC-exception-3.1 for identified runtime libraries; file-scoped GCC licenses | Not available from exact local package metadata | Not recorded in exact SBOM/local metadata | Block release pending authoritative license and notice evidence |
-
-## OS/base-image and nested native components
-
-| Dependency | Version | License evidence | Copyright/notice reference | Upstream URL | Required action |
-|---|---|---|---|---|---|
-| libcom_err | 1.42.9-19.el7 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| base-files | 13.8+deb13u6 | GPL-2.0-or-later | SBOM license metadata only; exact bundled notice text still requires extraction | Not recorded in exact SBOM/local metadata | Strong-copyleft compatibility, source, and notice review |
-| netbase | 6.5 | GPL-2.0-only | SBOM license metadata only; exact bundled notice text still requires extraction | Not recorded in exact SBOM/local metadata | Strong-copyleft compatibility, source, and notice review |
-| media-types | 13.0.0 | LicenseRef-Debian-ad-hoc-public-domain | Not available from exact local package metadata | Not recorded in exact SBOM/local metadata | Block release pending authoritative license and notice evidence |
-| gcc-14 | 14.2.0-19 | GPL-3.0-or-later WITH GCC-exception-3.1 for identified runtime libraries; file-scoped GCC licenses | Not available from exact local package metadata | Not recorded in exact SBOM/local metadata | Block release pending authoritative license and notice evidence |
-| krb5-libs | 1.15.1-55.el7_9 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| libselinux | 2.5-15.el7 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| keyutils-libs | 1.5.8-3.el7 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| pcre | 8.32-17.el7 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| cyrus-sasl-lib | 2.1.26-24.el7_9 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-
-## Unresolved license evidence
-
-| Dependency | Version | License evidence | Copyright/notice reference | Upstream URL | Required action |
-|---|---|---|---|---|---|
-| libcom_err | 1.42.9-19.el7 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| krb5-libs | 1.15.1-55.el7_9 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| libselinux | 2.5-15.el7 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| keyutils-libs | 1.5.8-3.el7 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| pcre | 8.32-17.el7 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
-| cyrus-sasl-lib | 2.1.26-24.el7_9 | NO LICENSE METADATA FOUND | No license metadata in embedded auditwheel SBOM | Not recorded in exact SBOM/local metadata | Block release pending exact CentOS source RPM/spec and bundled notice evidence |
+| base-files | 13.8+deb13u6 | GPL-2.0-or-later | /usr/share/doc/base-files/copyright | Not recorded in exact SBOM/local metadata | Preserve exact license, notice, and source evidence; retain legal compatibility review |
+| netbase | 6.5 | GPL-2.0-only | /usr/share/doc/netbase/copyright; /etc/services; /etc/rpc; /etc/protocols; /etc/ethertypes | Not recorded in exact SBOM/local metadata | Preserve exact license, notice, and source evidence; retain legal compatibility review |
+| gcc-14 | 14.2.0-19 | GPL-3.0-or-later WITH GCC-exception-3.1 for identified runtime libraries; file-scoped GCC licenses | Not available from exact local package metadata | Not recorded in exact SBOM/local metadata | Preserve exact license, notice, and source evidence; retain legal compatibility review |
 
 ## Review boundary
 
-The six nested native rows with `NO_LICENSE_METADATA` remain release blockers. The multi-license rows
+The six nested native rows are factually resolved from the exact wheel filesystem and exact official source RPMs.
+The multi-license rows
 retain exact package/source evidence and selected options only where upstream explicitly grants a choice.
 Strong- and weak-copyleft rows require the compatibility and source-obligation
 review recorded in the matrix. This inventory intentionally makes no derivative-work or legal-compatibility

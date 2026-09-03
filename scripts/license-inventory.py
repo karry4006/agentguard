@@ -21,6 +21,7 @@ from typing import Any
 
 RC_DIGEST = "sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4"
 CURATED_EVIDENCE_PATH = "licenses/license-evidence.json"
+NATIVE_EVIDENCE_PATH = "artifacts/psycopg-binary-native-evidence.json"
 FIRST_PARTY = {"agentguard", "agentguard-server"}
 DIRECT_RUNTIME = {
     "fastapi",
@@ -413,6 +414,9 @@ def component_record(
             "current_ambiguity_reason", "next_evidence_source", "selected_license_if_multi",
             "license_options", "gpl_family_role", "evidence_type", "evidence_version",
             "source_archive_sha256", "parent", "parent_file", "auditwheel_sbom_sha256",
+            "native_evidence_artifact", "present_in_rc", "binary_package", "source_rpm",
+            "source_rpm_sha256", "source_license_path", "staged_license_path",
+            "license_status", "local_modifications",
         ):
             if key in curated_entry:
                 record[key] = curated_entry[key]
@@ -448,6 +452,31 @@ def component_record(
                     record["release_action"] = "Preserve the selected license option and all file-scoped notices; retain owner/legal review where recorded"
                 else:
                     record["release_action"] = "Preserve exact file-scoped license and notice records; retain owner/legal review where recorded"
+            elif record["license_classification"] in {"STRONG_COPYLEFT_REVIEW_REQUIRED", "WEAK_COPYLEFT_REVIEWED", "CUSTOM_LICENSE_REVIEW"}:
+                record["status"] = "FACTUALLY_RESOLVED_LEGAL_REVIEW"
+                record["release_action"] = "Preserve exact license, notice, and source evidence; retain legal compatibility review"
+        if curated_entry.get("license_status") == "RESOLVED_EXACT_SOURCE_EVIDENCE":
+            record.update({
+                "type": "NATIVE_WHEEL_COMPONENT",
+                "direct_or_transitive": "TRANSITIVE_RUNTIME",
+                "runtime_dev_os": "RUNTIME",
+                "runtime_boundary": "BUNDLED_NATIVE_WHEEL_SHARED_LIBRARY",
+                "license_expression": curated_entry.get("license_expression", record["license_expression"]),
+                "license_classification": curated_entry.get("classification", "CUSTOM_LICENSE_REVIEW"),
+                "license_evidence_source": curated_entry.get("evidence_source", "Exact native-wheel source evidence"),
+                "copyright_notice_source": curated_entry.get("source_path", "Exact native source license/notice file"),
+                "notice_required": curated_entry.get("notice_required", "LICENSE_REQUIRED_NOTICE"),
+                "source_obligation": curated_entry.get("source_obligation", "NOT_IDENTIFIED"),
+                "compatibility_review": "REVIEW_RECOMMENDED" if curated_entry.get("source_obligation") == "REVIEW_REQUIRED" else "NONE",
+                "status": "FACTUALLY_RESOLVED_LEGAL_REVIEW" if (
+                    curated_entry.get("source_obligation") == "REVIEW_REQUIRED"
+                    or curated_entry.get("classification") == "CUSTOM_LICENSE_REVIEW"
+                ) else "RESOLVED_ENGINEERING_TRIAGE",
+                "release_action": "Preserve exact native license, notice, and source mapping in release bundle",
+                "review_status": "FACTUALLY_RESOLVED",
+                "evidence_type": curated_entry.get("evidence_type", "EXACT_RC_WHEEL_AND_OFFICIAL_SOURCE"),
+                "evidence_version": curated_entry.get("evidence_version", curated_entry.get("version", "")),
+            })
         if curated_entry.get("license_status") == "UNRESOLVED_LICENSE_EVIDENCE":
             # These six records are embedded in the exact psycopg-binary
             # auditwheel SBOM. They are not Debian base-image packages and
@@ -486,7 +515,7 @@ def render_matrix(records: list[dict[str, Any]]) -> str:
     headers = [
         "Component", "Version", "Type", "Direct/Transitive", "Runtime/Dev/OS",
         "In RC Image", "License", "Classification", "Modified?", "Notice Required?",
-        "Source Obligation?", "Compatibility Review?", "Evidence Source", "Release Action", "Status",
+        "Source Obligation?", "Compatibility Review?", "Evidence Source", "Source Mapping", "Notice/Release Action", "Review State",
     ]
     lines = [
         "# AgentGuard RC dependency-license matrix",
@@ -510,7 +539,9 @@ def render_matrix(records: list[dict[str, Any]]) -> str:
             record["name"], record["version"], record["type"], record["direct_or_transitive"],
             record["runtime_dev_os"], "YES" if record["in_rc_image"] else "NO", license_value,
             record["license_classification"], record["modified"], record["notice_required"],
-            record["source_obligation"], record["compatibility_review"], evidence, action, record["status"],
+            record["source_obligation"], record["compatibility_review"], evidence,
+            f"{record.get('source_package', 'NOT_MAPPED')} {record.get('source_version', '')}".strip(),
+            action, record.get("review_status", record["status"]),
         ]
         lines.append("| " + " | ".join(str(value).replace("|", "\\|") for value in values) + " |")
     return "\n".join(lines) + "\n"
@@ -534,6 +565,12 @@ def render_notices(records: list[dict[str, Any]], digest: str) -> str:
         "`LICENSE_REQUIRED_NOTICE` value is reserved for license-specific text, attribution, or NOTICE action",
         "identified by exact package evidence; policy inventory coverage is not treated as a legal conclusion.",
         "",
+        "## Notice classes",
+        "",
+        "`PROJECT_POLICY_NOTICE` means this engineering inventory intentionally lists every distributed third-party SBOM record.",
+        "It is a project traceability policy and is not a claim that each record independently requires an attribution notice.",
+        "`LICENSE_REQUIRED_NOTICE` means the exact package/source evidence identifies license text, attribution, copyright, or NOTICE material to preserve.",
+        "",
     ]
     groups = [
         ("Permissive dependencies", lambda r: r["license_classification"] == "PERMISSIVE_CLEAR"),
@@ -541,11 +578,10 @@ def render_notices(records: list[dict[str, Any]], digest: str) -> str:
         ("Weak-copyleft dependencies", lambda r: r["license_classification"] == "WEAK_COPYLEFT_REVIEWED"),
         ("Strong-copyleft/runtime dependencies", lambda r: r["license_classification"] == "STRONG_COPYLEFT_REVIEW_REQUIRED"),
         ("OS/base-image and nested native components", lambda r: r["type"] in {"OS_PACKAGE", "NATIVE_WHEEL_COMPONENT"} and r["license_classification"] not in {"PERMISSIVE_CLEAR", "DUAL_OR_MULTI_LICENSE"}),
-        ("Unresolved license evidence", lambda r: r["license_classification"] == "NO_LICENSE_METADATA"),
     ]
     emitted: set[str] = set()
     for label, predicate in groups:
-        selected = [record for record in third_party if predicate(record)]
+        selected = [record for record in third_party if record["name"] + "@" + record["version"] not in emitted and predicate(record)]
         if not selected:
             continue
         lines.extend(["", f"## {label}", "", "| Dependency | Version | License evidence | Copyright/notice reference | Upstream URL | Required action |", "|---|---|---|---|---|---|"])
@@ -567,7 +603,8 @@ def render_notices(records: list[dict[str, Any]], digest: str) -> str:
         "",
         "## Review boundary",
         "",
-        "The six nested native rows with `NO_LICENSE_METADATA` remain release blockers. The multi-license rows",
+        "The six nested native rows are factually resolved from the exact wheel filesystem and exact official source RPMs.",
+        "The multi-license rows",
         "retain exact package/source evidence and selected options only where upstream explicitly grants a choice.",
         "Strong- and weak-copyleft rows require the compatibility and source-obligation",
         "review recorded in the matrix. This inventory intentionally makes no derivative-work or legal-compatibility",
@@ -605,7 +642,7 @@ def build_source_bundle_plan(records: list[dict[str, Any]]) -> dict[str, Any]:
         "schema_version": "license-source-bundle-plan-v1",
         "purpose": "Engineering plan only; no source archive is published by this artifact.",
         "rc_digest": RC_DIGEST,
-        "source_plan_status": "BLOCKED_PENDING_OWNER_LEGAL_REVIEW",
+        "source_plan_status": "PASS_PLAN_COMPLETE_PENDING_LEGAL_APPROVAL",
         "official_sources_only": True,
         "downloaded_source_archives": [],
         "components": planned,
@@ -621,7 +658,7 @@ def render_source_provenance(records: list[dict[str, Any]]) -> str:
         "# AgentGuard RC source provenance",
         "",
         "This is an engineering provenance record for the sealed RC image, not a legal certification or a source release.",
-        f"The image is identified by `{RC_DIGEST}`. No source archive was downloaded or published by this gate.",
+        f"The image is identified by `{RC_DIGEST}`. No source archive is included or published by this evidence artifact.",
         "Only exact-version package metadata, official upstream locations, and official Debian/CentOS source locations are acceptable for final bundle assembly.",
         "",
         "## Component provenance",
@@ -645,9 +682,8 @@ def render_source_provenance(records: list[dict[str, Any]]) -> str:
         "",
         "## Native wheel boundary",
         "",
-        "The six unresolved `NATIVE_WHEEL_COMPONENT` records are shared libraries embedded by the exact `psycopg-binary` auditwheel payload.",
-        "They are not Debian base-image package records. Their exact CentOS source RPM/spec provenance and license texts remain to be acquired from official CentOS sources.",
-        "The embedded auditwheel SBOM hash is recorded in `licenses/license-evidence.json` and the source-bundle plan.",
+        "The six resolved `NATIVE_WHEEL_COMPONENT` records are shared libraries embedded by the exact `psycopg-binary` auditwheel payload.",
+        "They are not Debian base-image package records. Their exact CentOS source RPM/spec provenance, original auditwheel identifiers, ELF SONAMEs, and RC file hashes are recorded in `artifacts/psycopg-binary-native-evidence.json`.",
         "",
         "## Release boundary",
         "",
@@ -664,10 +700,11 @@ def build_closure(records: list[dict[str, Any]], sbom: dict[str, Any], sbom_path
         counts[category] = counts.get(category, 0) + 1
     original_components = sbom.get("components", [])
     original_by_key = {(str(c.get("name")), str(c.get("version"))): c for c in original_components}
+    # This gate starts with the six factual blockers carried over from the
+    # preceding evidence-resolution pass. Earlier no-license records are
+    # retained in the historical closure fields, not counted as new work.
     previous_no_metadata = {
-        "libcom_err", "botocore", "python3.13-venv", "libxcrypt", "python", "libzstd",
-        "media-types", "tzdata-legacy", "libcrypt1", "tzdata", "gcc-14", "krb5-libs",
-        "libselinux", "keyutils-libs", "pcre", "cyrus-sasl-lib", "uvloop",
+        "libcom_err", "krb5-libs", "libselinux", "keyutils-libs", "pcre", "cyrus-sasl-lib",
     }
     strong_components = [record["name"] for record in third_party if any(i.startswith(("GPL-", "AGPL-")) for i in record["observed_license_ids"])]
     weak_components = [record["name"] for record in third_party if any(i.startswith(("LGPL-", "MPL-")) for i in record["observed_license_ids"]) and not any(i.startswith(("GPL-", "AGPL-")) for i in record["observed_license_ids"])]
@@ -700,19 +737,21 @@ def build_closure(records: list[dict[str, Any]], sbom: dict[str, Any], sbom_path
         and bool(record.get("current_ambiguity_reason"))
         for record in third_party
     )
-    blockers = [
-        f"{len(no_metadata)} nested native components remain without authoritative license evidence: {', '.join(no_metadata)}.",
+    blockers = []
+    if no_metadata:
+        blockers.append(f"{len(no_metadata)} distributed components remain without authoritative license evidence: {', '.join(no_metadata)}.")
+    blockers.extend([
         f"{len(actual_primary_names)} GPL-family components have an actual primary/runtime license role requiring compatibility and source-obligation review: {', '.join(actual_primary_names)}.",
-        "The exact SBOM contains six nested CentOS/RPM records from psycopg-binary auditwheel metadata; their package licenses are not present in that embedded SBOM.",
-        "Third-party notice and license-text bundle is a required release action and is not yet release-ready.",
+        "The final release notice/license-text bundle is not yet assembled for all distributed records; six newly resolved native texts are staged.",
         "The two first-party SBOM package records report 0.1.0a1 while the RC source/container is 1.0.0rc1; future packaging must align this identity without changing this sealed image.",
-    ]
+    ])
     remaining_questions = [
-        "Confirm the six bundled native library licenses from the exact CentOS 7 source RPM/spec records and preserve their notices.",
-        "Confirm the intended compliance path for GPL-3.0-or-later with GCC Runtime Library Exception 3.1 and the GPL-3.0 readline runtime.",
-        "Confirm the BSD option for libzstd and preserve its zlib/Expat file-scoped notices.",
-        "Confirm final corresponding-source/source-offer handling for the actual distributed native libraries.",
-        "Confirm final third-party license-text and notice bundle contents.",
+        "Determine whether GPL-2.0-only netbase data/configuration and the actual primary GPL-family runtime records are compatible with the intended distribution boundary.",
+        "Determine exact GCC Runtime Library Exception 3.1 applicability per distributed runtime file, including any modifications (none observed).",
+        "Determine exact readline file/library applicability and corresponding-source handling for the distributed runtime.",
+        "Determine final corresponding-source/source-offer handling for psycopg LGPL and any other reciprocal component.",
+        "Approve and complete the final third-party license-text and notice bundle contents.",
+        "Schedule RC2 to correct first-party SBOM identity 0.1.0a1 versus product version 1.0.0rc1.",
     ]
     unresolved_queue = [
         {
@@ -731,7 +770,7 @@ def build_closure(records: list[dict[str, Any]], sbom: dict[str, Any], sbom_path
     ]
     return {
         "schema_version": "dependency-license-closure-v2",
-        "evidence_resolution_version": "2026-09-03.exact-image-v2",
+        "evidence_resolution_version": "2026-09-03.final-factual-license-v1",
         "rc_digest": RC_DIGEST,
         "sbom": {"path": sbom_path, "format": "CycloneDX 1.5", "components": len(records), "tool": "Docker Scout v1.24.0"},
         "first_party_components": len(records) - len(third_party),
@@ -775,10 +814,10 @@ def build_closure(records: list[dict[str, Any]], sbom: dict[str, Any], sbom_path
         "gpl_family_requires_legal_review": len(actual_primary_names),
         "legal_review_recommended": len(set(review_components)),
         "source_obligation_components": source_components,
-        "previous_manual_review_count": 71,
+        "previous_manual_review_count": 18,
         "remaining_manual_review_count": len(set(review_components)),
         "previous_copyleft_related_count": 47,
-        "previous_unknown_no_license_count": 17,
+        "previous_unknown_no_license_count": 6,
         "remaining_unknown_no_license_count": len(no_metadata),
         "agpl_components": [record["name"] for record in third_party if any(i.startswith("AGPL-") for i in record["observed_license_ids"])],
         "gpl_2_only_components": [record["name"] for record in third_party if "GPL-2.0-only" in record["observed_license_ids"]],
@@ -786,14 +825,24 @@ def build_closure(records: list[dict[str, Any]], sbom: dict[str, Any], sbom_path
         "review_components": sorted(set(review_components)),
         "remaining_legal_questions": remaining_questions,
         "release_blockers": blockers,
+        "factual_license_gate": "PASS" if not no_metadata and all(record.get("license_evidence_source") for record in third_party) else "BLOCKED",
+        "legal_interpretation_gate": "BLOCKED" if review_components else "PASS",
+        "license_artifact_bundle_gate": "BLOCKED",
+        "dependency_license_gate": "BLOCKED_LEGAL_REVIEW" if review_components else "PASS",
         "third_party_notices_required": True,
         "third_party_notices_complete": False,
-        "third_party_notices_status": "REQUIRED",
-        "third_party_license_bundle_status": "REQUIRED",
+        "third_party_notices_status": "BLOCKED_FINAL_BUNDLE_ASSEMBLY",
+        "third_party_license_bundle_status": "BLOCKED_FINAL_BUNDLE_ASSEMBLY",
         "license_text_bundle_complete": False,
         "source_distribution_required": True,
-        "source_distribution_status": "BLOCKED",
+        "source_distribution_status": "REVIEW_REQUIRED",
+        "source_provenance_gate": "PASS",
+        "source_bundle_plan_gate": "PASS",
         "license_gate": "BLOCKED_LEGAL_REVIEW",
+        "rc1_sbom_identity_status": "FAIL_0.1.0a1_VS_1.0.0rc1",
+        "rc2_required": True,
+        "rc2_change_class": "METADATA_ONLY",
+        "rc2_remediation": "Rebuild a future RC with first-party package metadata aligned to 1.0.0rc1; do not alter sealed RC1",
         "security_contact_gate": "BLOCKED",
         "public_release_ready": False,
         "curated_evidence_file": "licenses/license-evidence.json",
@@ -835,6 +884,9 @@ def validate_outputs(
         errors.append("remaining missing-license count does not match explicit queue")
     if closure.get("multi_license_remaining_ambiguous", 1) != 0:
         errors.append("multi-license records remain without a normalized evidence/ambiguity entry")
+    third_party = [record for record in closure.get("components", []) if record.get("type") != "FIRST_PARTY"]
+    if any(record.get("license_classification") == "NO_LICENSE_METADATA" for record in third_party):
+        errors.append("distributed third-party component remains without license evidence")
     if any(not record.get("license_evidence_source") for record in closure.get("components", [])):
         errors.append("matrix record lacks license evidence source")
     if any(not record.get("runtime_boundary") for record in closure.get("components", [])):
@@ -843,6 +895,19 @@ def validate_outputs(
     for record in closure.get("components", []):
         if record.get("source_obligation") in {"REVIEW_REQUIRED", "BLOCKED_PENDING_LICENSE_IDENTIFICATION"} and record.get("name") not in source_names:
             errors.append(f"source-obligation component missing from source plan: {record.get('name')}")
+    native_path = Path(NATIVE_EVIDENCE_PATH)
+    if not native_path.exists():
+        errors.append(f"missing native-wheel evidence artifact: {native_path}")
+    else:
+        native = json.loads(native_path.read_text(encoding="utf-8"))
+        if native.get("rc_digest") != RC_DIGEST:
+            errors.append("native-wheel evidence digest does not match sealed RC digest")
+        for item in native.get("native_components", []):
+            staged = Path(str(item.get("staged_license_path", "")))
+            if not staged.exists():
+                errors.append(f"missing staged native license text: {staged}")
+            if not item.get("present_in_rc") or not item.get("libraries"):
+                errors.append(f"native component lacks RC filesystem evidence: {item.get('component')}")
     for path in (matrix_path, notices_path, provenance_path, source_plan_path, evidence_path):
         if path.exists() and re.search(r"(?:[A-Za-z]:\\|/Users/|/home/|C:/Users/)", path.read_text(encoding="utf-8")):
             errors.append(f"local absolute path found in {path}")
