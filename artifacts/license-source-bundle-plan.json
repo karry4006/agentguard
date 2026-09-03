@@ -2,7 +2,7 @@
   "schema_version": "license-source-bundle-plan-v1",
   "purpose": "Engineering plan only; no source archive is published by this artifact.",
   "rc_digest": "sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4",
-  "source_plan_status": "PASS_PLAN_COMPLETE_PENDING_LEGAL_APPROVAL",
+  "source_plan_status": "PASS_READY_FOR_RELEASE_PACKAGING",
   "official_sources_only": true,
   "downloaded_source_archives": [],
   "components": [
@@ -22,7 +22,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/base-files-13.8+deb13u6-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "bzip2",
@@ -40,7 +40,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/bzip2-1.0.8-6-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "ca-certificates",
@@ -58,7 +58,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/ca-certificates-20250419-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "certifi",
@@ -78,7 +78,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/certifi-2026.7.22-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "cryptography",
@@ -102,7 +102,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/cryptography-50.0.1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "db5.3",
@@ -120,7 +120,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/db5.3-5.3.28+dfsg2-9-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "e2fsprogs",
@@ -138,7 +138,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/e2fsprogs-1.47.2-3-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "gcc-14",
@@ -156,7 +156,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/gcc-14-14.2.0-19-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "gcc-14-base",
@@ -174,7 +174,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/gcc-14-base-14.2.0-19-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "glibc",
@@ -192,7 +192,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/glibc-2.41-12+deb13u3-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "greenlet",
@@ -216,7 +216,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/greenlet-3.5.5-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "keyutils",
@@ -234,7 +234,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/keyutils-1.6.3-6-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "keyutils-libs",
@@ -252,7 +252,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
       "planned_release_location": "licenses/third-party/keyutils-libs-1.5.8-3.el7-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "krb5",
@@ -270,7 +270,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/krb5-1.21.3-5+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libbz2-1.0",
@@ -288,7 +288,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libbz2-1.0-1.0.8-6-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libc-bin",
@@ -306,7 +306,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libc-bin-2.41-12+deb13u3-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libc6",
@@ -324,7 +324,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libc6-2.41-12+deb13u3-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libcom-err2",
@@ -342,7 +342,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libcom-err2-1.47.2-3+b11-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libcrypt1",
@@ -360,7 +360,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libcrypt1-1:4.4.38-1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libdb5.3t64",
@@ -378,7 +378,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libdb5.3t64-5.3.28+dfsg2-9-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libffi",
@@ -396,7 +396,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libffi-3.4.8-2-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libffi8",
@@ -414,7 +414,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libffi8-3.4.8-2-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libgcc-s1",
@@ -432,7 +432,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libgcc-s1-14.2.0-19-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libgomp1",
@@ -450,7 +450,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libgomp1-14.2.0-19-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libgssapi-krb5-2",
@@ -468,7 +468,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libgssapi-krb5-2-1.21.3-5+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libk5crypto3",
@@ -486,7 +486,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libk5crypto3-1.21.3-5+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libkeyutils1",
@@ -504,7 +504,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libkeyutils1-1.6.3-6-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libkrb5-3",
@@ -522,7 +522,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libkrb5-3-1.21.3-5+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libkrb5support0",
@@ -540,7 +540,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libkrb5support0-1.21.3-5+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "liblzma5",
@@ -558,7 +558,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/liblzma5-5.8.1-1+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libncursesw6",
@@ -576,7 +576,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libncursesw6-6.5+20250216-2-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libnsl",
@@ -594,7 +594,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libnsl-1.3.0-3-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libnsl2",
@@ -612,7 +612,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libnsl2-1.3.0-3+b3-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libpython3.13-minimal",
@@ -630,7 +630,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libpython3.13-minimal-3.13.5-2+deb13u4-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libpython3.13-stdlib",
@@ -648,7 +648,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libpython3.13-stdlib-3.13.5-2+deb13u4-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libreadline8t64",
@@ -666,7 +666,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libreadline8t64-8.2-6-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libsqlite3-0",
@@ -684,7 +684,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libsqlite3-0-3.46.1-7+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libssl3t64",
@@ -702,7 +702,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libssl3t64-3.5.7-1~deb13u2-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libstdc++6",
@@ -720,7 +720,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libstdc-6-14.2.0-19-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libtinfo6",
@@ -738,7 +738,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libtinfo6-6.5+20250216-2-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libtirpc",
@@ -756,7 +756,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libtirpc-1.3.6+ds-1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libtirpc3t64",
@@ -774,7 +774,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libtirpc3t64-1.3.6+ds-1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libuuid1",
@@ -792,7 +792,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libuuid1-2.41.5-0+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libxcrypt",
@@ -810,7 +810,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libxcrypt-1:4.4.38-1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libzstd",
@@ -828,7 +828,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libzstd-1.5.7+dfsg-1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "libzstd1",
@@ -846,7 +846,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libzstd1-1.5.7+dfsg-1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "media-types",
@@ -864,7 +864,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/media-types-13.0.0-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "ncurses",
@@ -882,7 +882,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/ncurses-6.5+20250216-2-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "netbase",
@@ -900,7 +900,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/netbase-6.5-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "openssl",
@@ -918,7 +918,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/openssl-3.5.7-1~deb13u2-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "psycopg",
@@ -926,24 +926,19 @@
       "purl": "pkg:pypi/psycopg@3.3.4",
       "source_package": "psycopg",
       "source_version": "3.3.4",
-      "download_or_source_origin": "psycopg-3.3.4 source/project release",
+      "download_or_source_origin": "PyPI exact release https://pypi.org/project/psycopg/3.3.4/",
       "upstream_urls": [
-        "https://psycopg.org/",
-        "https://psycopg.org/psycopg3/docs/",
-        "https://psycopg.org/psycopg3/docs/news.html",
-        "https://github.com/psycopg/psycopg",
-        "https://github.com/psycopg/psycopg/issues",
-        "https://github.com/sponsors/dvarrazzo"
+        "https://pypi.org/project/psycopg/3.3.4/"
       ],
       "hash_if_acquired": null,
       "license": "LGPL-3.0-only",
       "required_files": [
-        "psycopg-3.3.4.dist-info/licenses/LICENSE.txt"
+        "Exact-version wheel LICENSE/COPYING/NOTICE members"
       ],
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/psycopg-3.3.4-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "psycopg-binary",
@@ -951,19 +946,19 @@
       "purl": "pkg:pypi/psycopg-binary@3.3.4",
       "source_package": "psycopg-binary",
       "source_version": "3.3.4",
-      "download_or_source_origin": "psycopg_binary-3.3.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "download_or_source_origin": "PyPI exact release https://pypi.org/project/psycopg-binary/3.3.4/",
       "upstream_urls": [
         "https://pypi.org/project/psycopg-binary/3.3.4/"
       ],
       "hash_if_acquired": null,
       "license": "LGPL-3.0-only",
       "required_files": [
-        "psycopg_binary-3.3.4.dist-info/licenses/LICENSE.txt; /opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json"
+        "Exact-version wheel LICENSE/COPYING/NOTICE members"
       ],
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/psycopg-binary-3.3.4-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "python",
@@ -981,7 +976,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/python-3.13.5-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "python-dateutil",
@@ -1002,7 +997,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/python-dateutil-2.9.0.post0-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "python3.13",
@@ -1020,7 +1015,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/python3.13-3.13.5-2+deb13u4-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "python3.13-minimal",
@@ -1038,7 +1033,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/python3.13-minimal-3.13.5-2+deb13u4-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "python3.13-venv",
@@ -1056,7 +1051,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/python3.13-venv-3.13.5-2+deb13u4-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "readline",
@@ -1074,7 +1069,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/readline-8.2-6-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "sniffio",
@@ -1096,7 +1091,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/sniffio-1.3.1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "sqlite3",
@@ -1114,7 +1109,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/sqlite3-3.46.1-7+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "util-linux",
@@ -1132,7 +1127,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/util-linux-2.41.5-0+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     },
     {
       "component": "xz-utils",
@@ -1150,7 +1145,7 @@
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/xz-utils-5.8.1-1+deb13u1-LICENSE.txt",
-      "status": "REVIEW_REQUIRED"
+      "status": "READY_FOR_RELEASE_PACKAGING"
     }
   ]
 }
