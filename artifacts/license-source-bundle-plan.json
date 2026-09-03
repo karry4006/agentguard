@@ -1,0 +1,1251 @@
+{
+  "schema_version": "license-source-bundle-plan-v1",
+  "purpose": "Engineering plan only; no source archive is published by this artifact.",
+  "rc_digest": "sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4",
+  "source_plan_status": "BLOCKED_PENDING_OWNER_LEGAL_REVIEW",
+  "official_sources_only": true,
+  "downloaded_source_archives": [],
+  "components": [
+    {
+      "component": "base-files",
+      "version": "13.8+deb13u6",
+      "purl": "pkg:deb/debian/base-files@13.8%2Bdeb13u6?os_name=debian&os_version=Debian",
+      "source_package": "base-files",
+      "source_version": "13.8+deb13u6",
+      "download_or_source_origin": "Official exact-version source required",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-2.0-or-later",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/base-files-13.8+deb13u6-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "bzip2",
+      "version": "1.0.8-6",
+      "purl": "pkg:deb/debian/bzip2@1.0.8-6?os_name=debian&os_version=Debian",
+      "source_package": "bzip2",
+      "source_version": "1.0.8-6",
+      "download_or_source_origin": "Debian source package bzip2 1.0.8-6",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "BSD-style license for the distributed library; GPL-2.0-only for Debian packaging/source scope",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/bzip2-1.0.8-6-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "ca-certificates",
+      "version": "20250419",
+      "purl": "pkg:deb/debian/ca-certificates@20250419?os_name=debian&os_version=Debian",
+      "source_package": "ca-certificates",
+      "source_version": "20250419",
+      "download_or_source_origin": "Debian source package ca-certificates 20250419",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: GPL-2.0-or-later for Debian scripts; MPL-2.0 for certificate material",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/ca-certificates-20250419-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "certifi",
+      "version": "2026.7.22",
+      "purl": "pkg:pypi/certifi@2026.7.22",
+      "source_package": "certifi",
+      "source_version": "2026.7.22",
+      "download_or_source_origin": "Official exact-version source required",
+      "upstream_urls": [
+        "https://github.com/certifi/python-certifi"
+      ],
+      "hash_if_acquired": null,
+      "license": "MPL-2.0",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/certifi-2026.7.22-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "cryptography",
+      "version": "50.0.1",
+      "purl": "pkg:pypi/cryptography@50.0.1",
+      "source_package": "cryptography",
+      "source_version": "50.0.1",
+      "download_or_source_origin": "Debian source package cryptography 50.0.1",
+      "upstream_urls": [
+        "https://cryptography.io/en/latest/changelog/",
+        "https://cryptography.io/",
+        "https://github.com/pyca/cryptography",
+        "https://github.com/pyca/cryptography/issues",
+        "https://github.com/pyca/cryptography/"
+      ],
+      "hash_if_acquired": null,
+      "license": "Apache-2.0 OR BSD-3-Clause; contributions under both",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/cryptography-50.0.1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "cyrus-sasl-lib",
+      "version": "2.1.26-24.el7_9",
+      "purl": "pkg:rpm/centos/cyrus-sasl-lib@2.1.26-24.el7_9?os_name=debian&os_version=Debian",
+      "source_package": "cyrus-sasl-lib",
+      "source_version": "2.1.26-24.el7_9",
+      "download_or_source_origin": "Official CentOS 7 source RPM/spec for cyrus-sasl exact 2.1.26-24.el7_9",
+      "upstream_urls": [],
+      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
+      "license": "NO LICENSE METADATA FOUND",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
+      "planned_release_location": "licenses/third-party/cyrus-sasl-lib-2.1.26-24.el7_9-LICENSE.txt",
+      "status": "BLOCKED"
+    },
+    {
+      "component": "db5.3",
+      "version": "5.3.28+dfsg2-9",
+      "purl": "pkg:deb/debian/db5.3@5.3.28%2Bdfsg2-9?os_name=debian&os_version=Debian",
+      "source_package": "db5.3",
+      "source_version": "5.3.28+dfsg2-9",
+      "download_or_source_origin": "Debian source package db5.3 5.3.28+dfsg2-9",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: Sleepycat; BSD-3-Clause; MS-PL; GPL-3.0-only; X11; Zlib",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/db5.3-5.3.28+dfsg2-9-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "e2fsprogs",
+      "version": "1.47.2-3",
+      "purl": "pkg:deb/debian/e2fsprogs@1.47.2-3?os_name=debian&os_version=Debian",
+      "source_package": "e2fsprogs",
+      "source_version": "1.47.2-3",
+      "download_or_source_origin": "Debian source package e2fsprogs 1.47.2-3",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: GPL-2.0; 0BSD; Expat; BSD-3-Clause; BSD-4-Clause-CMU and other exact Debian records",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/e2fsprogs-1.47.2-3-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "gcc-14",
+      "version": "14.2.0-19",
+      "purl": "pkg:deb/debian/gcc-14@14.2.0-19?os_name=debian&os_version=Debian",
+      "source_package": "gcc-14",
+      "source_version": "14.2.0-19",
+      "download_or_source_origin": "Debian source package gcc-14 14.2.0-19",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-3.0-or-later WITH GCC-exception-3.1 for identified runtime libraries; file-scoped GCC licenses",
+      "required_files": [
+        "/usr/share/doc/gcc-14-base/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/gcc-14-14.2.0-19-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "gcc-14-base",
+      "version": "14.2.0-19",
+      "purl": "pkg:deb/debian/gcc-14-base@14.2.0-19?os_name=debian&os_version=Debian",
+      "source_package": "gcc-14",
+      "source_version": "14.2.0-19",
+      "download_or_source_origin": "Debian source package gcc-14 14.2.0-19",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-3.0-or-later WITH GCC-exception-3.1 for runtime libraries; file-scoped GCC licenses",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/gcc-14-base-14.2.0-19-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "glibc",
+      "version": "2.41-12+deb13u3",
+      "purl": "pkg:deb/debian/glibc@2.41-12%2Bdeb13u3?os_name=debian&os_version=Debian",
+      "source_package": "glibc",
+      "source_version": "2.41-12+deb13u3",
+      "download_or_source_origin": "Debian source package glibc 2.41-12+deb13u3",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: LGPL-2.1-or-later; GPL-2.0-or-later; GPL-3.0-or-later; documented link exceptions",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/glibc-2.41-12+deb13u3-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "greenlet",
+      "version": "3.5.5",
+      "purl": "pkg:pypi/greenlet@3.5.5",
+      "source_package": "greenlet",
+      "source_version": "3.5.5",
+      "download_or_source_origin": "Debian source package greenlet 3.5.5",
+      "upstream_urls": [
+        "https://greenlet.readthedocs.io",
+        "https://greenlet.readthedocs.io",
+        "https://github.com/python-greenlet/greenlet",
+        "https://github.com/python-greenlet/greenlet/issues",
+        "https://greenlet.readthedocs.io/en/latest/changes.html"
+      ],
+      "hash_if_acquired": null,
+      "license": "MIT AND PSF-2.0",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/greenlet-3.5.5-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "keyutils",
+      "version": "1.6.3-6",
+      "purl": "pkg:deb/debian/keyutils@1.6.3-6?os_name=debian&os_version=Debian",
+      "source_package": "keyutils",
+      "source_version": "1.6.3-6",
+      "download_or_source_origin": "Debian source package keyutils 1.6.3-6",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: GPL-2.0-or-later for tools; LGPL-2.0-or-later for library",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/keyutils-1.6.3-6-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "keyutils-libs",
+      "version": "1.5.8-3.el7",
+      "purl": "pkg:rpm/centos/keyutils-libs@1.5.8-3.el7?os_name=debian&os_version=Debian",
+      "source_package": "keyutils-libs",
+      "source_version": "1.5.8-3.el7",
+      "download_or_source_origin": "Official CentOS 7 source RPM/spec for keyutils exact 1.5.8-3.el7",
+      "upstream_urls": [],
+      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
+      "license": "NO LICENSE METADATA FOUND",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
+      "planned_release_location": "licenses/third-party/keyutils-libs-1.5.8-3.el7-LICENSE.txt",
+      "status": "BLOCKED"
+    },
+    {
+      "component": "krb5",
+      "version": "1.21.3-5+deb13u1",
+      "purl": "pkg:deb/debian/krb5@1.21.3-5%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "krb5",
+      "source_version": "1.21.3-5+deb13u1",
+      "download_or_source_origin": "Debian source package krb5 1.21.3-5+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "MIT-style permissive main code plus file-scoped CC-BY-SA documentation and other exact Debian terms",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/krb5-1.21.3-5+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "krb5-libs",
+      "version": "1.15.1-55.el7_9",
+      "purl": "pkg:rpm/centos/krb5-libs@1.15.1-55.el7_9?os_name=debian&os_version=Debian",
+      "source_package": "krb5-libs",
+      "source_version": "1.15.1-55.el7_9",
+      "download_or_source_origin": "Official CentOS 7 source RPM/spec for krb5 exact 1.15.1-55.el7_9",
+      "upstream_urls": [],
+      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
+      "license": "NO LICENSE METADATA FOUND",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
+      "planned_release_location": "licenses/third-party/krb5-libs-1.15.1-55.el7_9-LICENSE.txt",
+      "status": "BLOCKED"
+    },
+    {
+      "component": "libbz2-1.0",
+      "version": "1.0.8-6",
+      "purl": "pkg:deb/debian/libbz2-1.0@1.0.8-6?os_name=debian&os_version=Debian",
+      "source_package": "bzip2",
+      "source_version": "1.0.8-6",
+      "download_or_source_origin": "Debian source package bzip2 1.0.8-6",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "BSD-style license for the distributed library; GPL-2.0-only for Debian packaging/source scope",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libbz2-1.0-1.0.8-6-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libc-bin",
+      "version": "2.41-12+deb13u3",
+      "purl": "pkg:deb/debian/libc-bin@2.41-12%2Bdeb13u3?os_name=debian&os_version=Debian",
+      "source_package": "glibc",
+      "source_version": "2.41-12+deb13u3",
+      "download_or_source_origin": "Debian source package glibc 2.41-12+deb13u3",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: LGPL-2.1-or-later; GPL-2.0-or-later; GPL-3.0-or-later; documented link exceptions",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libc-bin-2.41-12+deb13u3-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libc6",
+      "version": "2.41-12+deb13u3",
+      "purl": "pkg:deb/debian/libc6@2.41-12%2Bdeb13u3?os_name=debian&os_version=Debian",
+      "source_package": "glibc",
+      "source_version": "2.41-12+deb13u3",
+      "download_or_source_origin": "Debian source package glibc 2.41-12+deb13u3",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: LGPL-2.1-or-later; GPL-2.0-or-later; GPL-3.0-or-later; documented link exceptions",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libc6-2.41-12+deb13u3-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libcom-err2",
+      "version": "1.47.2-3+b11",
+      "purl": "pkg:deb/debian/libcom-err2@1.47.2-3%2Bb11?os_name=debian&os_version=Debian",
+      "source_package": "e2fsprogs",
+      "source_version": "1.47.2-3",
+      "download_or_source_origin": "Debian source package e2fsprogs 1.47.2-3",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: GPL-2.0; 0BSD; Expat; BSD-3-Clause; BSD-4-Clause-CMU and other exact Debian records",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libcom-err2-1.47.2-3+b11-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libcom_err",
+      "version": "1.42.9-19.el7",
+      "purl": "pkg:rpm/centos/libcom_err@1.42.9-19.el7?os_name=debian&os_version=Debian",
+      "source_package": "libcom_err",
+      "source_version": "1.42.9-19.el7",
+      "download_or_source_origin": "Official CentOS 7 source RPM/spec for e2fsprogs/libcom_err exact 1.42.9-19.el7",
+      "upstream_urls": [],
+      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
+      "license": "NO LICENSE METADATA FOUND",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
+      "planned_release_location": "licenses/third-party/libcom_err-1.42.9-19.el7-LICENSE.txt",
+      "status": "BLOCKED"
+    },
+    {
+      "component": "libcrypt1",
+      "version": "1:4.4.38-1",
+      "purl": "pkg:deb/debian/libcrypt1@1%3A4.4.38-1?os_name=debian&os_version=Debian",
+      "source_package": "libxcrypt",
+      "source_version": "1:4.4.38-1",
+      "download_or_source_origin": "Debian source package libxcrypt 1:4.4.38-1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "LGPL-2.1-or-later overall; file-scoped BSD-3-Clause, BSD-2-Clause, 0BSD, and Public-Domain terms",
+      "required_files": [
+        "/usr/share/doc/libcrypt1/copyright; /var/lib/dpkg/status.d/libcrypt1"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libcrypt1-1:4.4.38-1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libdb5.3t64",
+      "version": "5.3.28+dfsg2-9",
+      "purl": "pkg:deb/debian/libdb5.3t64@5.3.28%2Bdfsg2-9?os_name=debian&os_version=Debian",
+      "source_package": "db5.3",
+      "source_version": "5.3.28+dfsg2-9",
+      "download_or_source_origin": "Debian source package db5.3 5.3.28+dfsg2-9",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: Sleepycat; BSD-3-Clause; MS-PL; GPL-3.0-only; X11; Zlib",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libdb5.3t64-5.3.28+dfsg2-9-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libffi",
+      "version": "3.4.8-2",
+      "purl": "pkg:deb/debian/libffi@3.4.8-2?os_name=debian&os_version=Debian",
+      "source_package": "libffi",
+      "source_version": "3.4.8-2",
+      "download_or_source_origin": "Debian source package libffi 3.4.8-2",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: Expat; X11; GPL-2.0-or-later; GPL-3.0-or-later; MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libffi-3.4.8-2-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libffi8",
+      "version": "3.4.8-2",
+      "purl": "pkg:deb/debian/libffi8@3.4.8-2?os_name=debian&os_version=Debian",
+      "source_package": "libffi",
+      "source_version": "3.4.8-2",
+      "download_or_source_origin": "Debian source package libffi 3.4.8-2",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: Expat; X11; GPL-2.0-or-later; GPL-3.0-or-later; MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libffi8-3.4.8-2-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libgcc-s1",
+      "version": "14.2.0-19",
+      "purl": "pkg:deb/debian/libgcc-s1@14.2.0-19?os_name=debian&os_version=Debian",
+      "source_package": "gcc-14",
+      "source_version": "14.2.0-19",
+      "download_or_source_origin": "Debian source package gcc-14 14.2.0-19",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-3.0-or-later WITH GCC-exception-3.1 for runtime libraries; file-scoped GCC licenses",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libgcc-s1-14.2.0-19-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libgomp1",
+      "version": "14.2.0-19",
+      "purl": "pkg:deb/debian/libgomp1@14.2.0-19?os_name=debian&os_version=Debian",
+      "source_package": "gcc-14",
+      "source_version": "14.2.0-19",
+      "download_or_source_origin": "Debian source package gcc-14 14.2.0-19",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-3.0-or-later WITH GCC-exception-3.1 for runtime libraries; file-scoped GCC licenses",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libgomp1-14.2.0-19-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libgssapi-krb5-2",
+      "version": "1.21.3-5+deb13u1",
+      "purl": "pkg:deb/debian/libgssapi-krb5-2@1.21.3-5%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "krb5",
+      "source_version": "1.21.3-5+deb13u1",
+      "download_or_source_origin": "Debian source package krb5 1.21.3-5+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "MIT-style permissive main code plus file-scoped CC-BY-SA documentation and other exact Debian terms",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libgssapi-krb5-2-1.21.3-5+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libk5crypto3",
+      "version": "1.21.3-5+deb13u1",
+      "purl": "pkg:deb/debian/libk5crypto3@1.21.3-5%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "krb5",
+      "source_version": "1.21.3-5+deb13u1",
+      "download_or_source_origin": "Debian source package krb5 1.21.3-5+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "MIT-style permissive main code plus file-scoped CC-BY-SA documentation and other exact Debian terms",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libk5crypto3-1.21.3-5+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libkeyutils1",
+      "version": "1.6.3-6",
+      "purl": "pkg:deb/debian/libkeyutils1@1.6.3-6?os_name=debian&os_version=Debian",
+      "source_package": "keyutils",
+      "source_version": "1.6.3-6",
+      "download_or_source_origin": "Debian source package keyutils 1.6.3-6",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: GPL-2.0-or-later for tools; LGPL-2.0-or-later for library",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libkeyutils1-1.6.3-6-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libkrb5-3",
+      "version": "1.21.3-5+deb13u1",
+      "purl": "pkg:deb/debian/libkrb5-3@1.21.3-5%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "krb5",
+      "source_version": "1.21.3-5+deb13u1",
+      "download_or_source_origin": "Debian source package krb5 1.21.3-5+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "MIT-style permissive main code plus file-scoped CC-BY-SA documentation and other exact Debian terms",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libkrb5-3-1.21.3-5+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libkrb5support0",
+      "version": "1.21.3-5+deb13u1",
+      "purl": "pkg:deb/debian/libkrb5support0@1.21.3-5%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "krb5",
+      "source_version": "1.21.3-5+deb13u1",
+      "download_or_source_origin": "Debian source package krb5 1.21.3-5+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "MIT-style permissive main code plus file-scoped CC-BY-SA documentation and other exact Debian terms",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libkrb5support0-1.21.3-5+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "liblzma5",
+      "version": "5.8.1-1+deb13u1",
+      "purl": "pkg:deb/debian/liblzma5@5.8.1-1%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "xz",
+      "source_version": "5.8.1-1+deb13u1",
+      "download_or_source_origin": "Debian source package xz 5.8.1-1+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: 0BSD; GPL-2.0-or-later; GPL-3.0-or-later; LGPL-2.1-or-later; FSFULLR; Public-Domain",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/liblzma5-5.8.1-1+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libncursesw6",
+      "version": "6.5+20250216-2",
+      "purl": "pkg:deb/debian/libncursesw6@6.5%2B20250216-2?os_name=debian&os_version=Debian",
+      "source_package": "ncurses",
+      "source_version": "6.5+20250216-2",
+      "download_or_source_origin": "Debian source package ncurses 6.5+20250216-2",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: MIT/X11; X11; BSD-3-Clause",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libncursesw6-6.5+20250216-2-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libnsl",
+      "version": "1.3.0-3",
+      "purl": "pkg:deb/debian/libnsl@1.3.0-3?os_name=debian&os_version=Debian",
+      "source_package": "libnsl",
+      "source_version": "1.3.0-3",
+      "download_or_source_origin": "Debian source package libnsl 1.3.0-3",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: LGPL-2.1-or-later; BSD-3-Clause; GPL-3.0-or-later with autoconf exception",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libnsl-1.3.0-3-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libnsl2",
+      "version": "1.3.0-3+b3",
+      "purl": "pkg:deb/debian/libnsl2@1.3.0-3%2Bb3?os_name=debian&os_version=Debian",
+      "source_package": "libnsl",
+      "source_version": "1.3.0-3",
+      "download_or_source_origin": "Debian source package libnsl 1.3.0-3",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: LGPL-2.1-or-later; BSD-3-Clause; GPL-3.0-or-later with autoconf exception",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libnsl2-1.3.0-3+b3-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libpython3.13-minimal",
+      "version": "3.13.5-2+deb13u4",
+      "purl": "pkg:deb/debian/libpython3.13-minimal@3.13.5-2%2Bdeb13u4?os_name=debian&os_version=Debian",
+      "source_package": "python3.13",
+      "source_version": "3.13.5-2+deb13u4",
+      "download_or_source_origin": "Debian source package python3.13 3.13.5-2+deb13u4",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "PSF-2.0 for CPython plus file-scoped incorporated licenses recorded by Debian copyright",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libpython3.13-minimal-3.13.5-2+deb13u4-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libpython3.13-stdlib",
+      "version": "3.13.5-2+deb13u4",
+      "purl": "pkg:deb/debian/libpython3.13-stdlib@3.13.5-2%2Bdeb13u4?os_name=debian&os_version=Debian",
+      "source_package": "python3.13",
+      "source_version": "3.13.5-2+deb13u4",
+      "download_or_source_origin": "Debian source package python3.13 3.13.5-2+deb13u4",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "PSF-2.0 for CPython plus file-scoped incorporated licenses recorded by Debian copyright",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libpython3.13-stdlib-3.13.5-2+deb13u4-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libreadline8t64",
+      "version": "8.2-6",
+      "purl": "pkg:deb/debian/libreadline8t64@8.2-6?os_name=debian&os_version=Debian",
+      "source_package": "readline",
+      "source_version": "8.2-6",
+      "download_or_source_origin": "Debian source package readline 8.2-6",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-3.0-or-later for readline library; file-scoped GPL-2 and GFDL records",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libreadline8t64-8.2-6-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libselinux",
+      "version": "2.5-15.el7",
+      "purl": "pkg:rpm/centos/libselinux@2.5-15.el7?os_name=debian&os_version=Debian",
+      "source_package": "libselinux",
+      "source_version": "2.5-15.el7",
+      "download_or_source_origin": "Official CentOS 7 source RPM/spec for libselinux exact 2.5-15.el7",
+      "upstream_urls": [],
+      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
+      "license": "NO LICENSE METADATA FOUND",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
+      "planned_release_location": "licenses/third-party/libselinux-2.5-15.el7-LICENSE.txt",
+      "status": "BLOCKED"
+    },
+    {
+      "component": "libsqlite3-0",
+      "version": "3.46.1-7+deb13u1",
+      "purl": "pkg:deb/debian/libsqlite3-0@3.46.1-7%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "sqlite3",
+      "source_version": "3.46.1-7+deb13u1",
+      "download_or_source_origin": "Debian source package sqlite3 3.46.1-7+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "Public-Domain upstream; GPL-2.0-only Debian packaging scope",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libsqlite3-0-3.46.1-7+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libssl3t64",
+      "version": "3.5.7-1~deb13u2",
+      "purl": "pkg:deb/debian/libssl3t64@3.5.7-1~deb13u2?os_name=debian&os_version=Debian",
+      "source_package": "openssl",
+      "source_version": "3.5.7-1~deb13u2",
+      "download_or_source_origin": "Debian source package openssl 3.5.7-1~deb13u2",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: Apache-2.0; Artistic-1.0 OR GPL-1.0-or-later",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libssl3t64-3.5.7-1~deb13u2-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libstdc++6",
+      "version": "14.2.0-19",
+      "purl": "pkg:deb/debian/libstdc%2B%2B6@14.2.0-19?os_name=debian&os_version=Debian",
+      "source_package": "gcc-14",
+      "source_version": "14.2.0-19",
+      "download_or_source_origin": "Debian source package gcc-14 14.2.0-19",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-3.0-or-later WITH GCC-exception-3.1 for runtime libraries; file-scoped GCC licenses",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libstdc-6-14.2.0-19-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libtinfo6",
+      "version": "6.5+20250216-2",
+      "purl": "pkg:deb/debian/libtinfo6@6.5%2B20250216-2?os_name=debian&os_version=Debian",
+      "source_package": "ncurses",
+      "source_version": "6.5+20250216-2",
+      "download_or_source_origin": "Debian source package ncurses 6.5+20250216-2",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: MIT/X11; X11; BSD-3-Clause",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libtinfo6-6.5+20250216-2-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libtirpc",
+      "version": "1.3.6+ds-1",
+      "purl": "pkg:deb/debian/libtirpc@1.3.6%2Bds-1?os_name=debian&os_version=Debian",
+      "source_package": "libtirpc",
+      "source_version": "1.3.6+ds-1",
+      "download_or_source_origin": "Debian source package libtirpc 1.3.6+ds-1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: BSD-3-Clause; GPL-2.0-only; LGPL-2.1-only",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libtirpc-1.3.6+ds-1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libtirpc3t64",
+      "version": "1.3.6+ds-1",
+      "purl": "pkg:deb/debian/libtirpc3t64@1.3.6%2Bds-1?os_name=debian&os_version=Debian",
+      "source_package": "libtirpc",
+      "source_version": "1.3.6+ds-1",
+      "download_or_source_origin": "Debian source package libtirpc 1.3.6+ds-1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: BSD-3-Clause; GPL-2.0-only; LGPL-2.1-only",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libtirpc3t64-1.3.6+ds-1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libuuid1",
+      "version": "2.41.5-0+deb13u1",
+      "purl": "pkg:deb/debian/libuuid1@2.41.5-0%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "util-linux",
+      "source_version": "2.41.5-0+deb13u1",
+      "download_or_source_origin": "Debian source package util-linux 2.41.5-0+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: BSD-2-Clause; BSD-3-Clause; BSD-4-Clause; GPL-2.0-or-later; GPL-3.0-or-later; LGPL-2.1-or-later",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libuuid1-2.41.5-0+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libxcrypt",
+      "version": "1:4.4.38-1",
+      "purl": "pkg:deb/debian/libxcrypt@1%3A4.4.38-1?os_name=debian&os_version=Debian",
+      "source_package": "libxcrypt",
+      "source_version": "1:4.4.38-1",
+      "download_or_source_origin": "Debian source package libxcrypt 1:4.4.38-1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "LGPL-2.1-or-later overall; file-scoped BSD-3-Clause, BSD-2-Clause, 0BSD, and Public-Domain terms",
+      "required_files": [
+        "/usr/share/doc/libcrypt1/copyright; /var/lib/dpkg/status.d/libcrypt1"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libxcrypt-1:4.4.38-1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libzstd",
+      "version": "1.5.7+dfsg-1",
+      "purl": "pkg:deb/debian/libzstd@1.5.7%2Bdfsg-1?os_name=debian&os_version=Debian",
+      "source_package": "libzstd",
+      "source_version": "1.5.7+dfsg-1",
+      "download_or_source_origin": "Debian source package libzstd 1.5.7+dfsg-1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "BSD-3-Clause OR GPL-2.0-only for Files:*; zlib and Expat for file-scoped components",
+      "required_files": [
+        "/usr/share/doc/libzstd1/copyright; /var/lib/dpkg/status.d/libzstd1"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libzstd-1.5.7+dfsg-1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "libzstd1",
+      "version": "1.5.7+dfsg-1",
+      "purl": "pkg:deb/debian/libzstd1@1.5.7%2Bdfsg-1?os_name=debian&os_version=Debian",
+      "source_package": "libzstd",
+      "source_version": "1.5.7+dfsg-1",
+      "download_or_source_origin": "Debian source package libzstd 1.5.7+dfsg-1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "BSD-3-Clause OR GPL-2.0-only for Files:*; zlib and Expat for file-scoped components",
+      "required_files": [
+        "/usr/share/doc/libzstd1/copyright; /var/lib/dpkg/status.d/libzstd1"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/libzstd1-1.5.7+dfsg-1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "media-types",
+      "version": "13.0.0",
+      "purl": "pkg:deb/debian/media-types@13.0.0?os_name=debian&os_version=Debian",
+      "source_package": "media-types",
+      "source_version": "13.0.0",
+      "download_or_source_origin": "Debian source package media-types 13.0.0",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "LicenseRef-Debian-ad-hoc-public-domain",
+      "required_files": [
+        "/usr/share/doc/media-types/copyright; /var/lib/dpkg/status.d/media-types"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/media-types-13.0.0-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "ncurses",
+      "version": "6.5+20250216-2",
+      "purl": "pkg:deb/debian/ncurses@6.5%2B20250216-2?os_name=debian&os_version=Debian",
+      "source_package": "ncurses",
+      "source_version": "6.5+20250216-2",
+      "download_or_source_origin": "Debian source package ncurses 6.5+20250216-2",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: MIT/X11; X11; BSD-3-Clause",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/ncurses-6.5+20250216-2-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "netbase",
+      "version": "6.5",
+      "purl": "pkg:deb/debian/netbase@6.5?os_name=debian&os_version=Debian",
+      "source_package": "netbase",
+      "source_version": "6.5",
+      "download_or_source_origin": "Official exact-version source required",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-2.0-only",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/netbase-6.5-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "openssl",
+      "version": "3.5.7-1~deb13u2",
+      "purl": "pkg:deb/debian/openssl@3.5.7-1~deb13u2?os_name=debian&os_version=Debian",
+      "source_package": "openssl",
+      "source_version": "3.5.7-1~deb13u2",
+      "download_or_source_origin": "Debian source package openssl 3.5.7-1~deb13u2",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: Apache-2.0; Artistic-1.0 OR GPL-1.0-or-later",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/openssl-3.5.7-1~deb13u2-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "pcre",
+      "version": "8.32-17.el7",
+      "purl": "pkg:rpm/centos/pcre@8.32-17.el7?os_name=debian&os_version=Debian",
+      "source_package": "pcre",
+      "source_version": "8.32-17.el7",
+      "download_or_source_origin": "Official CentOS 7 source RPM/spec for pcre exact 8.32-17.el7",
+      "upstream_urls": [],
+      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
+      "license": "NO LICENSE METADATA FOUND",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
+      "planned_release_location": "licenses/third-party/pcre-8.32-17.el7-LICENSE.txt",
+      "status": "BLOCKED"
+    },
+    {
+      "component": "psycopg",
+      "version": "3.3.4",
+      "purl": "pkg:pypi/psycopg@3.3.4",
+      "source_package": "psycopg",
+      "source_version": "3.3.4",
+      "download_or_source_origin": "Official exact-version source required",
+      "upstream_urls": [
+        "https://psycopg.org/",
+        "https://psycopg.org/psycopg3/docs/",
+        "https://psycopg.org/psycopg3/docs/news.html",
+        "https://github.com/psycopg/psycopg",
+        "https://github.com/psycopg/psycopg/issues",
+        "https://github.com/sponsors/dvarrazzo"
+      ],
+      "hash_if_acquired": null,
+      "license": "LGPL-3.0-only",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/psycopg-3.3.4-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "psycopg-binary",
+      "version": "3.3.4",
+      "purl": "pkg:pypi/psycopg-binary@3.3.4",
+      "source_package": "psycopg-binary",
+      "source_version": "3.3.4",
+      "download_or_source_origin": "Official exact-version source required",
+      "upstream_urls": [
+        "https://psycopg.org/",
+        "https://psycopg.org/psycopg3/docs/",
+        "https://psycopg.org/psycopg3/docs/news.html",
+        "https://github.com/psycopg/psycopg",
+        "https://github.com/psycopg/psycopg/issues",
+        "https://github.com/sponsors/dvarrazzo"
+      ],
+      "hash_if_acquired": null,
+      "license": "LGPL-3.0-only",
+      "required_files": [
+        "Exact LICENSE/COPYING/NOTICE/copyright files"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/psycopg-binary-3.3.4-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "python",
+      "version": "3.13.5",
+      "purl": "pkg:generic/python@3.13.5",
+      "source_package": "python3.13",
+      "source_version": "3.13.5",
+      "download_or_source_origin": "Debian source package python3.13 3.13.5-2+deb13u4",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "PSF-2.0 plus file-scoped licenses recorded by Debian copyright",
+      "required_files": [
+        "/usr/share/doc/python3.13-minimal/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/python-3.13.5-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "python-dateutil",
+      "version": "2.9.0.post0",
+      "purl": "pkg:pypi/python-dateutil@2.9.0.post0",
+      "source_package": "python-dateutil",
+      "source_version": "2.9.0.post0",
+      "download_or_source_origin": "Debian source package python-dateutil 2.9.0.post0",
+      "upstream_urls": [
+        "https://dateutil.readthedocs.io/en/stable/",
+        "https://github.com/dateutil/dateutil"
+      ],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED/TIME-SCOPED: Apache-2.0 for post-2017 contributions; BSD-3-Clause for earlier dateutil code",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/python-dateutil-2.9.0.post0-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "python3.13",
+      "version": "3.13.5-2+deb13u4",
+      "purl": "pkg:deb/debian/python3.13@3.13.5-2%2Bdeb13u4?os_name=debian&os_version=Debian",
+      "source_package": "python3.13",
+      "source_version": "3.13.5-2+deb13u4",
+      "download_or_source_origin": "Debian source package python3.13 3.13.5-2+deb13u4",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "PSF-2.0 for CPython plus file-scoped incorporated licenses recorded by Debian copyright",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/python3.13-3.13.5-2+deb13u4-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "python3.13-minimal",
+      "version": "3.13.5-2+deb13u4",
+      "purl": "pkg:deb/debian/python3.13-minimal@3.13.5-2%2Bdeb13u4?os_name=debian&os_version=Debian",
+      "source_package": "python3.13",
+      "source_version": "3.13.5-2+deb13u4",
+      "download_or_source_origin": "Debian source package python3.13 3.13.5-2+deb13u4",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "PSF-2.0 for CPython plus file-scoped incorporated licenses recorded by Debian copyright",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/python3.13-minimal-3.13.5-2+deb13u4-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "python3.13-venv",
+      "version": "3.13.5-2+deb13u4",
+      "purl": "pkg:deb/debian/python3.13-venv@3.13.5-2%2Bdeb13u4?os_name=debian&os_version=Debian",
+      "source_package": "python3.13",
+      "source_version": "3.13.5-2+deb13u4",
+      "download_or_source_origin": "Debian source package python3.13 3.13.5-2+deb13u4",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "PSF-2.0 plus file-scoped licenses recorded by Debian copyright",
+      "required_files": [
+        "/usr/share/doc/python3.13-minimal/copyright; /var/lib/dpkg/status.d/python3.13-venv"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/python3.13-venv-3.13.5-2+deb13u4-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "readline",
+      "version": "8.2-6",
+      "purl": "pkg:deb/debian/readline@8.2-6?os_name=debian&os_version=Debian",
+      "source_package": "readline",
+      "source_version": "8.2-6",
+      "download_or_source_origin": "Debian source package readline 8.2-6",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "GPL-3.0-or-later for readline library; file-scoped GPL-2 and GFDL records",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/readline-8.2-6-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "sniffio",
+      "version": "1.3.1",
+      "purl": "pkg:pypi/sniffio@1.3.1",
+      "source_package": "sniffio",
+      "source_version": "1.3.1",
+      "download_or_source_origin": "Debian source package sniffio 1.3.1",
+      "upstream_urls": [
+        "https://github.com/python-trio/sniffio",
+        "https://sniffio.readthedocs.io/",
+        "https://sniffio.readthedocs.io/en/latest/history.html"
+      ],
+      "hash_if_acquired": null,
+      "license": "MIT OR Apache-2.0; contributions under both",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/sniffio-1.3.1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "sqlite3",
+      "version": "3.46.1-7+deb13u1",
+      "purl": "pkg:deb/debian/sqlite3@3.46.1-7%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "sqlite3",
+      "source_version": "3.46.1-7+deb13u1",
+      "download_or_source_origin": "Debian source package sqlite3 3.46.1-7+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "Public-Domain upstream; GPL-2.0-only Debian packaging scope",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/sqlite3-3.46.1-7+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "util-linux",
+      "version": "2.41.5-0+deb13u1",
+      "purl": "pkg:deb/debian/util-linux@2.41.5-0%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "util-linux",
+      "source_version": "2.41.5-0+deb13u1",
+      "download_or_source_origin": "Debian source package util-linux 2.41.5-0+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: BSD-2-Clause; BSD-3-Clause; BSD-4-Clause; GPL-2.0-or-later; GPL-3.0-or-later; LGPL-2.1-or-later",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/util-linux-2.41.5-0+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "component": "xz-utils",
+      "version": "5.8.1-1+deb13u1",
+      "purl": "pkg:deb/debian/xz-utils@5.8.1-1%2Bdeb13u1?os_name=debian&os_version=Debian",
+      "source_package": "xz",
+      "source_version": "5.8.1-1+deb13u1",
+      "download_or_source_origin": "Debian source package xz 5.8.1-1+deb13u1",
+      "upstream_urls": [],
+      "hash_if_acquired": null,
+      "license": "FILE-SCOPED: 0BSD; GPL-2.0-or-later; GPL-3.0-or-later; LGPL-2.1-or-later; FSFULLR; Public-Domain",
+      "required_files": [
+        "Exact RC image /usr/share/doc/*/copyright"
+      ],
+      "patches": "NONE_FOUND",
+      "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
+      "planned_release_location": "licenses/third-party/xz-utils-5.8.1-1+deb13u1-LICENSE.txt",
+      "status": "REVIEW_REQUIRED"
+    }
+  ]
+}
