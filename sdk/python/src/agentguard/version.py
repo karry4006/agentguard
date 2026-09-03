@@ -11,7 +11,7 @@ def _read_version() -> str:
             value = (root / "VERSION").read_text(encoding="utf-8").strip()
         except (OSError, UnicodeError):
             continue
-        if re.fullmatch(r"\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?", value):
+        if re.fullmatch(r"\d+\.\d+\.\d+(?:(?:a|b|rc)\d+|-[0-9A-Za-z.-]+)?", value):
             return value
     try:
         return importlib.metadata.version("agentguard")

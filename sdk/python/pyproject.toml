@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agentguard"
-version = "0.1.0a1"
+version = "1.0.0rc1"
 description = "Vendor-neutral AI Agent flight recorder SDK"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {text = "Apache-2.0"}

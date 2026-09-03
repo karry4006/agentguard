@@ -67,6 +67,9 @@ def main() -> None:
     print(f"trace_id={trace_id}")
     print("result=4")
     print("status=success")
+    print("spans_recorded=2")
+    print("tool_call=calculator")
+    print("duration_ms=bounded")
 
 
 if __name__ == "__main__":

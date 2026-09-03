@@ -8,7 +8,8 @@ performed.
 
 - The repository currently has zero tracked files in the local Git index.
 - No Git remote is configured.
-- VERSION is 0.1.0-alpha.1; server and SDK package metadata are 0.1.0a1.
+- Historical baseline recorded VERSION as 0.1.0-alpha.1 and package metadata
+  as 0.1.0a1; the current Phase 3 RC is 1.0.0rc1 consistently.
 - No public 1.0.0 version or release tag was created; versioning should be
   changed only with an owner-approved release decision.
 - The canonical Compose file is compose.yaml.

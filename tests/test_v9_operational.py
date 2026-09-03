@@ -27,7 +27,7 @@ def test_build_metadata_is_secret_free_and_reports_current_head():
     assert set(metadata) == {
         "agentguard_version", "git_commit", "build_timestamp", "migration_head", "python_version",
     }
-    assert metadata["agentguard_version"] == "0.1.0-alpha.1"
+    assert metadata["agentguard_version"] == "1.0.0rc1"
     assert migration_head() == "0018_v20_archive_quorum_bindings"
     assert all("password" not in key.lower() and "secret" not in key.lower() for key in metadata)
 
@@ -35,7 +35,7 @@ def test_build_metadata_is_secret_free_and_reports_current_head():
 def test_cli_version_does_not_open_database(capsys):
     assert cli_main(["version"]) == 0
     output = capsys.readouterr().out
-    assert "agentguard_version=0.1.0-alpha.1" in output
+    assert "agentguard_version=1.0.0rc1" in output
     assert "migration_head=0018_v20_archive_quorum_bindings" in output
     assert "password" not in output.lower()
 
