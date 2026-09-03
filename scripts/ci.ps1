@@ -14,7 +14,11 @@ $env:PYTHONPATH = ($sdkSrc, $serverSrc) -join [IO.Path]::PathSeparator
 & $Python -m pytest -q -p no:cacheprovider tests/test_security_gate.py tests/test_evaluation.py tests/test_evaluation_api.py tests/test_evaluation_cli.py
 & $Python -m bandit -q -r server/src sdk/python/src examples
 if ($LASTEXITCODE -ne 0) { throw "Bandit failed" }
-& $Python -m pip_audit --skip-editable
+if ($IsWindows) {
+    & $Python -m pip_audit --skip-editable
+} else {
+    & $Python -m pip_audit --requirement requirements.lock --requirement requirements-dev.lock --no-deps
+}
 if ($LASTEXITCODE -ne 0) { throw "pip-audit failed" }
 & (Join-Path $PSScriptRoot "secret-scan.ps1")
 if ($LASTEXITCODE -ne 0) { throw "secret scan failed" }
