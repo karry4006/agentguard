@@ -8,10 +8,10 @@ After creation, verify the authenticated owner, repository name, remote URL,
 and PRIVATE visibility before pushing. Enable GitHub Private Vulnerability
 Reporting, Dependabot alerts, the dependency graph, secret scanning, and push
 protection wherever the account and repository configuration supports them.
-The current owner-owned private repository exposes Dependabot alerts, but
-reports Private Vulnerability Reporting, the dependency graph, secret
-scanning, and push protection as
-UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION. Record those exact capability
+The current owner-owned private repository exposes Dependabot alerts and the
+dependency graph (the read-only SBOM endpoint returned successfully). It
+reports Private Vulnerability Reporting, secret scanning, and push protection
+as UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION. Record those exact capability
 limits rather than claiming they are enabled; keep SECURITY_CONTACT_REQUIRED
 unresolved until the owner approves another private channel.
 
