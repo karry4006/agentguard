@@ -7,7 +7,7 @@ $patterns = @(
 )
 $files = @()
 foreach ($pattern in $patterns) {
-    $files += @(rg -l --hidden --glob '!.env' --glob '!.env.*' --glob '!**/__pycache__/**' --glob '!.tmp/**' --glob '!.pytest-tmp-*/**' --glob '!.pip-audit-cache*/**' -- $pattern . 2>$null)
+    $files += @(git grep -l -I -P -- $pattern -- . 2>$null)
 }
 $unique = @($files | Sort-Object -Unique)
 $allowlisted = @(
