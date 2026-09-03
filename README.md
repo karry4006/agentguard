@@ -110,7 +110,11 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md). Read
 working on authentication, evidence integrity, replay, archives, or
 retention. This repository is licensed under
 [Apache-2.0](LICENSE). Vulnerabilities should be reported through GitHub
-Private Vulnerability Reporting; do not open public issues for security bugs.
+The configured target is GitHub Private Vulnerability Reporting. The current
+user-owned private repository reports that feature as unavailable on the
+current GitHub configuration, so `SECURITY_CONTACT_REQUIRED` remains
+unresolved pending an owner-approved private channel. Do not open public
+issues for security bugs.
 
 AgentGuard V20 core remains sealed and complete. AgentGuard V21 has not
 started.

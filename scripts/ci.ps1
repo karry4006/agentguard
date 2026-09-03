@@ -5,7 +5,9 @@ param(
 $ErrorActionPreference = "Stop"
 $repo = (Resolve-Path (Join-Path $PSScriptRoot ".."))
 Set-Location $repo
-$env:PYTHONPATH = "$repo\sdk\python\src;$repo\server\src"
+$sdkSrc = Join-Path $repo "sdk/python/src"
+$serverSrc = Join-Path $repo "server/src"
+$env:PYTHONPATH = ($sdkSrc, $serverSrc) -join [IO.Path]::PathSeparator
 
 & $Python -m compileall -q server/src sdk/python/src examples
 & $Python -m pytest -q -p no:cacheprovider --ignore-glob='*_live.py' --deselect tests/test_server.py::test_postgresql_integration_trace_spans_jsonb_idempotency_and_query

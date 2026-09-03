@@ -21,4 +21,4 @@ jobs:
           python -m pip install --no-deps --editable server --editable sdk/python
       - name: Run canonical security checks
         shell: pwsh
-        run: ./scripts/ci.ps1 -SkipDocker
+        run: ./scripts/ci.ps1 -SkipDocker -Python python

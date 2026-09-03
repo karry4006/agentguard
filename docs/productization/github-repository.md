@@ -8,8 +8,12 @@ After creation, verify the authenticated owner, repository name, remote URL,
 and PRIVATE visibility before pushing. Enable GitHub Private Vulnerability
 Reporting, Dependabot alerts, the dependency graph, secret scanning, and push
 protection wherever the account and repository configuration supports them.
-If a capability is unavailable, record
-UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION rather than claiming it is on.
+The current owner-owned private repository exposes Dependabot alerts, but
+reports Private Vulnerability Reporting, the dependency graph, secret
+scanning, and push protection as
+UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION. Record those exact capability
+limits rather than claiming they are enabled; keep SECURITY_CONTACT_REQUIRED
+unresolved until the owner approves another private channel.
 
 Configure branch protection only after the required CI check names have run
 successfully. The intended policy is pull requests for mainline changes,

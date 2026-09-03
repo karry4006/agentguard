@@ -13,9 +13,11 @@ and the initial GitHub repository is private. V21 has not started.
 
 ## Private reporting
 
-Use GitHub Private Vulnerability Reporting from the repository Security tab
-once the private repository is available. Do not open public issues for
-security vulnerabilities.
+The configured target is GitHub Private Vulnerability Reporting. The current
+user-owned private repository reports this feature as
+`UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION`; `SECURITY_CONTACT_REQUIRED`
+therefore remains unresolved until the owner approves another private
+channel. Do not open public issues for security vulnerabilities.
 
 Include the affected version, reproduction steps, impact, and suggested
 remediation when available. Prefer encrypted/private reporting and omit
