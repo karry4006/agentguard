@@ -25,5 +25,5 @@ Remove API keys, credentials, private telemetry, and other sensitive data.
 ## Impact and logs
 
 Describe user or operational impact. Include sanitized logs or test output
-only. Do not use this template for security vulnerabilities; report those
-through GitHub Private Vulnerability Reporting.
+only. Do not use this template for security vulnerabilities; report them
+privately to `agentguard.project@gmail.com`.
