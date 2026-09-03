@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0rc2 — Release candidate (unreleased)
+
+- Corrected first-party package and SBOM identity to `1.0.0rc2`.
+- Installed first-party package metadata during the production image build so clean
+  clones produce the same release identity.
+- Completed the exact third-party license artifact closure and release documentation.
+- No runtime dependency, core behavior, schema, or migration changes.
+- RC2 is a metadata-only successor; Docker Scout approval and release publication
+  remain pending.
+
 ## 1.0.0rc1 — Release candidate (unreleased)
 
 - Added six deterministic product demos for basic tracing, failure analysis,
