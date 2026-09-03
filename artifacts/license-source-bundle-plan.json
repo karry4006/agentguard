@@ -2,7 +2,7 @@
   "schema_version": "license-source-bundle-plan-v1",
   "purpose": "Engineering plan only; no source archive is published by this artifact.",
   "rc_digest": "sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4",
-  "source_plan_status": "BLOCKED_PENDING_OWNER_LEGAL_REVIEW",
+  "source_plan_status": "PASS_PLAN_COMPLETE_PENDING_LEGAL_APPROVAL",
   "official_sources_only": true,
   "downloaded_source_archives": [],
   "components": [
@@ -12,12 +12,12 @@
       "purl": "pkg:deb/debian/base-files@13.8%2Bdeb13u6?os_name=debian&os_version=Debian",
       "source_package": "base-files",
       "source_version": "13.8+deb13u6",
-      "download_or_source_origin": "Official exact-version source required",
+      "download_or_source_origin": "https://sources.debian.org/src/base-files/13.8+deb13u6/",
       "upstream_urls": [],
       "hash_if_acquired": null,
       "license": "GPL-2.0-or-later",
       "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
+        "/usr/share/doc/base-files/copyright"
       ],
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
@@ -66,14 +66,14 @@
       "purl": "pkg:pypi/certifi@2026.7.22",
       "source_package": "certifi",
       "source_version": "2026.7.22",
-      "download_or_source_origin": "Official exact-version source required",
+      "download_or_source_origin": "Preserve exact certifi MPL-2.0 text and certificate attribution in final bundle",
       "upstream_urls": [
         "https://github.com/certifi/python-certifi"
       ],
       "hash_if_acquired": null,
       "license": "MPL-2.0",
       "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
+        "certifi-2026.7.22.dist-info/licenses/LICENSE"
       ],
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
@@ -103,24 +103,6 @@
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/cryptography-50.0.1-LICENSE.txt",
       "status": "REVIEW_REQUIRED"
-    },
-    {
-      "component": "cyrus-sasl-lib",
-      "version": "2.1.26-24.el7_9",
-      "purl": "pkg:rpm/centos/cyrus-sasl-lib@2.1.26-24.el7_9?os_name=debian&os_version=Debian",
-      "source_package": "cyrus-sasl-lib",
-      "source_version": "2.1.26-24.el7_9",
-      "download_or_source_origin": "Official CentOS 7 source RPM/spec for cyrus-sasl exact 2.1.26-24.el7_9",
-      "upstream_urls": [],
-      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
-      "license": "NO LICENSE METADATA FOUND",
-      "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
-      ],
-      "patches": "NONE_FOUND",
-      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
-      "planned_release_location": "licenses/third-party/cyrus-sasl-lib-2.1.26-24.el7_9-LICENSE.txt",
-      "status": "BLOCKED"
     },
     {
       "component": "db5.3",
@@ -258,19 +240,19 @@
       "component": "keyutils-libs",
       "version": "1.5.8-3.el7",
       "purl": "pkg:rpm/centos/keyutils-libs@1.5.8-3.el7?os_name=debian&os_version=Debian",
-      "source_package": "keyutils-libs",
+      "source_package": "keyutils (libkeyutils library subpackage)",
       "source_version": "1.5.8-3.el7",
-      "download_or_source_origin": "Official CentOS 7 source RPM/spec for keyutils exact 1.5.8-3.el7",
+      "download_or_source_origin": "keyutils-1.5.8-3.el7.src.rpm",
       "upstream_urls": [],
-      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
-      "license": "NO LICENSE METADATA FOUND",
+      "hash_if_acquired": "eff16e16f707fd28436afe4cf7b7c2e34b9f827e7f6beacbf3c6eecbf74e9f850",
+      "license": "LGPL-2.0-or-later",
       "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
+        "keyutils-1.5.8/keyutils.c; keyutils-1.5.8/keyutils.h; keyutils-1.5.8/LICENCE.LGPL"
       ],
       "patches": "NONE_FOUND",
       "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
       "planned_release_location": "licenses/third-party/keyutils-libs-1.5.8-3.el7-LICENSE.txt",
-      "status": "BLOCKED"
+      "status": "REVIEW_REQUIRED"
     },
     {
       "component": "krb5",
@@ -289,24 +271,6 @@
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/krb5-1.21.3-5+deb13u1-LICENSE.txt",
       "status": "REVIEW_REQUIRED"
-    },
-    {
-      "component": "krb5-libs",
-      "version": "1.15.1-55.el7_9",
-      "purl": "pkg:rpm/centos/krb5-libs@1.15.1-55.el7_9?os_name=debian&os_version=Debian",
-      "source_package": "krb5-libs",
-      "source_version": "1.15.1-55.el7_9",
-      "download_or_source_origin": "Official CentOS 7 source RPM/spec for krb5 exact 1.15.1-55.el7_9",
-      "upstream_urls": [],
-      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
-      "license": "NO LICENSE METADATA FOUND",
-      "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
-      ],
-      "patches": "NONE_FOUND",
-      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
-      "planned_release_location": "licenses/third-party/krb5-libs-1.15.1-55.el7_9-LICENSE.txt",
-      "status": "BLOCKED"
     },
     {
       "component": "libbz2-1.0",
@@ -379,24 +343,6 @@
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
       "planned_release_location": "licenses/third-party/libcom-err2-1.47.2-3+b11-LICENSE.txt",
       "status": "REVIEW_REQUIRED"
-    },
-    {
-      "component": "libcom_err",
-      "version": "1.42.9-19.el7",
-      "purl": "pkg:rpm/centos/libcom_err@1.42.9-19.el7?os_name=debian&os_version=Debian",
-      "source_package": "libcom_err",
-      "source_version": "1.42.9-19.el7",
-      "download_or_source_origin": "Official CentOS 7 source RPM/spec for e2fsprogs/libcom_err exact 1.42.9-19.el7",
-      "upstream_urls": [],
-      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
-      "license": "NO LICENSE METADATA FOUND",
-      "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
-      ],
-      "patches": "NONE_FOUND",
-      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
-      "planned_release_location": "licenses/third-party/libcom_err-1.42.9-19.el7-LICENSE.txt",
-      "status": "BLOCKED"
     },
     {
       "component": "libcrypt1",
@@ -723,24 +669,6 @@
       "status": "REVIEW_REQUIRED"
     },
     {
-      "component": "libselinux",
-      "version": "2.5-15.el7",
-      "purl": "pkg:rpm/centos/libselinux@2.5-15.el7?os_name=debian&os_version=Debian",
-      "source_package": "libselinux",
-      "source_version": "2.5-15.el7",
-      "download_or_source_origin": "Official CentOS 7 source RPM/spec for libselinux exact 2.5-15.el7",
-      "upstream_urls": [],
-      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
-      "license": "NO LICENSE METADATA FOUND",
-      "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
-      ],
-      "patches": "NONE_FOUND",
-      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
-      "planned_release_location": "licenses/third-party/libselinux-2.5-15.el7-LICENSE.txt",
-      "status": "BLOCKED"
-    },
-    {
       "component": "libsqlite3-0",
       "version": "3.46.1-7+deb13u1",
       "purl": "pkg:deb/debian/libsqlite3-0@3.46.1-7%2Bdeb13u1?os_name=debian&os_version=Debian",
@@ -962,12 +890,12 @@
       "purl": "pkg:deb/debian/netbase@6.5?os_name=debian&os_version=Debian",
       "source_package": "netbase",
       "source_version": "6.5",
-      "download_or_source_origin": "Official exact-version source required",
+      "download_or_source_origin": "Debian source package netbase 6.5",
       "upstream_urls": [],
       "hash_if_acquired": null,
       "license": "GPL-2.0-only",
       "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
+        "/usr/share/doc/netbase/copyright; /etc/services; /etc/rpc; /etc/protocols; /etc/ethertypes"
       ],
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
@@ -993,30 +921,12 @@
       "status": "REVIEW_REQUIRED"
     },
     {
-      "component": "pcre",
-      "version": "8.32-17.el7",
-      "purl": "pkg:rpm/centos/pcre@8.32-17.el7?os_name=debian&os_version=Debian",
-      "source_package": "pcre",
-      "source_version": "8.32-17.el7",
-      "download_or_source_origin": "Official CentOS 7 source RPM/spec for pcre exact 8.32-17.el7",
-      "upstream_urls": [],
-      "hash_if_acquired": "0b0c4c9cc05556a09ffc439edbb9da5cbf74a7f2d9c808aba2ccb5c217d46b85",
-      "license": "NO LICENSE METADATA FOUND",
-      "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
-      ],
-      "patches": "NONE_FOUND",
-      "build_install_information": "/opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json",
-      "planned_release_location": "licenses/third-party/pcre-8.32-17.el7-LICENSE.txt",
-      "status": "BLOCKED"
-    },
-    {
       "component": "psycopg",
       "version": "3.3.4",
       "purl": "pkg:pypi/psycopg@3.3.4",
       "source_package": "psycopg",
       "source_version": "3.3.4",
-      "download_or_source_origin": "Official exact-version source required",
+      "download_or_source_origin": "psycopg-3.3.4 source/project release",
       "upstream_urls": [
         "https://psycopg.org/",
         "https://psycopg.org/psycopg3/docs/",
@@ -1028,7 +938,7 @@
       "hash_if_acquired": null,
       "license": "LGPL-3.0-only",
       "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
+        "psycopg-3.3.4.dist-info/licenses/LICENSE.txt"
       ],
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",
@@ -1041,19 +951,14 @@
       "purl": "pkg:pypi/psycopg-binary@3.3.4",
       "source_package": "psycopg-binary",
       "source_version": "3.3.4",
-      "download_or_source_origin": "Official exact-version source required",
+      "download_or_source_origin": "psycopg_binary-3.3.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
       "upstream_urls": [
-        "https://psycopg.org/",
-        "https://psycopg.org/psycopg3/docs/",
-        "https://psycopg.org/psycopg3/docs/news.html",
-        "https://github.com/psycopg/psycopg",
-        "https://github.com/psycopg/psycopg/issues",
-        "https://github.com/sponsors/dvarrazzo"
+        "https://pypi.org/project/psycopg-binary/3.3.4/"
       ],
       "hash_if_acquired": null,
       "license": "LGPL-3.0-only",
       "required_files": [
-        "Exact LICENSE/COPYING/NOTICE/copyright files"
+        "psycopg_binary-3.3.4.dist-info/licenses/LICENSE.txt; /opt/site/psycopg_binary-3.3.4.dist-info/sboms/auditwheel.cdx.json"
       ],
       "patches": "NONE_FOUND",
       "build_install_information": "NO_AGENTGUARD_MODIFICATION_OR_PATCH_OVERLAY_FOUND",

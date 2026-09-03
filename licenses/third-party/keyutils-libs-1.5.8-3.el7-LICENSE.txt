@@ -1,0 +1,18 @@
+keyutils-libs 1.5.8-3.el7 — exact source evidence
+Source: keyutils-1.5.8/keyutils.h and keyutils-1.5.8/LICENCE.LGPL
+
+/* keyutils.h: key utility library interface
+ *
+ * Copyright (C) 2005,2011 Red Hat, Inc. All Rights Reserved.
+ * Written by David Howells
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License
+ * as published by the Free Software Foundation; either version
+ * 2 of the License, or (at your option) any later version.
+ */
+
+The exact source package contains the GNU Lesser General Public License,
+Version 2.1, February 1999, in keyutils-1.5.8/LICENCE.LGPL. The command-line
+tools have separate GPLv2+ headers; they are not present in the RC's bundled
+psycopg-binary .libs directory. This staged text applies to libkeyutils only.
