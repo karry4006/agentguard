@@ -16,7 +16,7 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
       - name: Set up Python 3.13
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.13"
       - name: Install SDK runtime dependencies
