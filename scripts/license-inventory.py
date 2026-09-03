@@ -949,7 +949,7 @@ def materialized_license_evidence(document: dict[str, Any], records: list[dict[s
             "authoritative_source": record.get("source_archive_or_tag") or record.get("license_evidence_source"),
             "source_version": record.get("source_version", record["version"]),
             "local_license_file": local_file,
-            "content_hash": "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest(),
+            "content_hash": "sha256:" + hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest(),
             "evidence_status": status,
             "notice_file": record.get("staged_notice_path", "NONE — no separate notice file recorded"),
         })
@@ -1327,7 +1327,7 @@ def validate_outputs(
             elif not Path(item["local_license_file"]).exists():
                 errors.append(f"materialized license evidence file missing: {item['local_license_file']}")
             else:
-                actual_hash = "sha256:" + hashlib.sha256(Path(item["local_license_file"]).read_bytes()).hexdigest()
+                actual_hash = "sha256:" + hashlib.sha256(Path(item["local_license_file"]).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
                 if item.get("content_hash") != actual_hash:
                     errors.append(f"materialized license evidence hash mismatch: {record['name']} {record['version']}")
                 if not Path(item["local_license_file"]).read_text(encoding="utf-8").strip():
