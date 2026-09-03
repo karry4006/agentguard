@@ -1,10 +1,16 @@
 # AgentGuard
 
-AgentGuard is a vendor-neutral flight recorder and reliability layer for AI
-agents. It records trace and span events, preserves evidence integrity, and
-provides operational views for investigating agent behavior. It is designed
-to make important runs inspectable; it does not claim perfect security or
-replace application-level authorization.
+AgentGuard is an AI-agent flight recorder and reliability/debugging platform.
+It records trace and span events, preserves verifiable evidence, and helps
+teams understand failures and regressions. It is an observability and evidence
+layer around an agent application, not another agent.
+
+**Observe. Replay safely. Diagnose failures. Detect regressions. Preserve
+verifiable evidence.**
+
+![AgentGuard local workflow](docs/assets/agentguard-overview.svg)
+
+Start with the [examples](examples/README.md) or the short Quick Start below.
 
 AI agents combine LLMs, tools, APIs, browsers, and databases. When a run
 fails, teams need to know what happened, which call caused it, what evidence
@@ -73,7 +79,7 @@ then run the no-paid-API example:
     $env:AGENTGUARD_INGEST_URL = "http://127.0.0.1:8000/v1/ingest"
     $env:AGENTGUARD_API_KEY = "<one-time-key>"
     python -m pip install -e .\sdk\python
-    python .\examples\basic_agent\demo.py
+    python .\examples\basic_agent\run.py
 
 Retrieve the trace through the API and open the dashboard:
 
@@ -90,13 +96,14 @@ witness, archive, replica, OIDC, or TLS deployment. This is a development
 topology, not a production configuration.
 
 For the full workflow, troubleshooting, and Linux/macOS equivalents, see
-[docs/quickstart.md](docs/quickstart.md).
+[docs/quickstart.md](docs/quickstart.md). The local API reference is available
+at `http://127.0.0.1:8000/docs` and `/openapi.json` while the stack is running.
 
 ## Repository layout
 
 - server: FastAPI service, migrations, and server-side domain logic
 - sdk/python: Python tracing SDK
-- examples: small SDK, OpenTelemetry, and optional OpenAI examples
+- examples: deterministic demos plus optional OpenTelemetry and OpenAI examples
 - postgres: local database initialization
 - docs: architecture, security, operations, replay, and release guidance
 - scripts: development bootstrap, checks, CI, and security scanning
@@ -109,12 +116,11 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md). Read
 [docs/security.md](docs/security.md) and [SECURITY.md](SECURITY.md) before
 working on authentication, evidence integrity, replay, archives, or
 retention. This repository is licensed under
-[Apache-2.0](LICENSE). Vulnerabilities should be reported through GitHub
-The configured target is GitHub Private Vulnerability Reporting. The current
-user-owned private repository reports that feature as unavailable on the
-current GitHub configuration, so `SECURITY_CONTACT_REQUIRED` remains
-unresolved pending an owner-approved private channel. Do not open public
-issues for security bugs.
+[Apache-2.0](LICENSE). The configured target for vulnerability reports is
+GitHub Private Vulnerability Reporting, but it is unavailable on the current
+private-repository configuration. `SECURITY_CONTACT_REQUIRED` therefore
+remains unresolved pending an owner-approved private channel. Do not open
+public issues for security bugs.
 
 AgentGuard V20 core remains sealed and complete. AgentGuard V21 has not
 started.

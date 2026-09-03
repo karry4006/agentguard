@@ -61,7 +61,8 @@ The V0/V1/V2 Security Gate, V3 Evidence Integrity, V4 Safe Replay, V5 Failure An
 
 Status: **INCOMPLETE — blocked on upstream base-image CVEs**
 
-- Version/provenance: PASS; `VERSION` is `0.1.0-alpha.1`, `/version` and the
+- Historical pre-RC audit snapshot: PASS; at that time `VERSION` was
+  `0.1.0-alpha.1`, `/version` and the
   `agentguard-server version` CLI command expose secret-free metadata.
 - Configuration/health: PASS in unit/live checks; direct and `_FILE` conflicts,
   malformed secret files, placeholders, invalid URLs, production SQLite, and

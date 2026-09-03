@@ -8,7 +8,7 @@ from sqlalchemy import select
 
 from agentguard_server.config import get_settings
 from agentguard_server.db.session import get_session_factory
-from agentguard_server.provenance import build_metadata
+from agentguard_server.provenance import build_metadata, read_version
 from agentguard_server.models import ApiKey, ArchiveRecord, ArchiveReplica, EvaluationRun, EvaluationSuite, IntegrityArchiveSegment, IntegrityCheckpoint, ReplaySession, Tenant, Trace
 from agentguard_server.services.auth import SCOPES, create_api_key, create_tenant, revoke_api_key
 from agentguard_server.services.integrity import verify_trace_integrity
@@ -49,6 +49,7 @@ def _parse_expiry(value: str | None) -> datetime | None:
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="agentguard-server", description="AgentGuard tenant and API key administration")
+    parser.add_argument("--version", action="version", version=read_version())
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("version", help="show safe build provenance")
     witness = commands.add_parser("witness", help="inspect V20 witness quorum state")

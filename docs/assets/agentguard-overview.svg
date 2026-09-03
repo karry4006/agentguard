@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" role="img" aria-labelledby="title desc">
+  <title id="title">AgentGuard local workflow</title>
+  <desc id="desc">An agent application sends traces through the SDK to the AgentGuard API and PostgreSQL, with safe replay, analysis, regression, and evidence verification as downstream workflows.</desc>
+  <rect width="900" height="260" rx="18" fill="#0f172a"/>
+  <g font-family="Arial, sans-serif" fill="#e2e8f0">
+    <text x="36" y="42" font-size="22" font-weight="700">AgentGuard · observe and verify agent runs</text>
+    <g font-size="15" text-anchor="middle">
+      <rect x="34" y="88" width="170" height="72" rx="12" fill="#1e3a8a"/><text x="119" y="117">Agent application</text><text x="119" y="140" fill="#bfdbfe">tools · models · APIs</text>
+      <rect x="250" y="88" width="170" height="72" rx="12" fill="#155e75"/><text x="335" y="117">Python SDK</text><text x="335" y="140" fill="#a5f3fc">redact · batch · spool</text>
+      <rect x="466" y="88" width="170" height="72" rx="12" fill="#166534"/><text x="551" y="117">AgentGuard API</text><text x="551" y="140" fill="#bbf7d0">ingest · query · integrity</text>
+      <rect x="682" y="88" width="180" height="72" rx="12" fill="#854d0e"/><text x="772" y="117">PostgreSQL</text><text x="772" y="140" fill="#fef08a">traces · evidence ledger</text>
+    </g>
+    <g stroke="#94a3b8" stroke-width="3" fill="none"><path d="M204 124h46"/><path d="M420 124h46"/><path d="M636 124h46"/></g>
+    <g font-size="14" text-anchor="middle"><text x="227" y="116">events</text><text x="443" y="116">verified</text><text x="659" y="116">durable</text></g>
+    <g font-size="14"><text x="58" y="215" fill="#c4b5fd">safe replay</text><text x="220" y="215" fill="#c4b5fd">failure analysis</text><text x="410" y="215" fill="#c4b5fd">regression gates</text><text x="604" y="215" fill="#c4b5fd">multi-witness quorum</text></g>
+  </g>
+</svg>
