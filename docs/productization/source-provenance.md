@@ -1,7 +1,7 @@
 # AgentGuard RC source provenance
 
 This is an engineering provenance record for the sealed RC image, not a legal certification or a source release.
-The image is identified by `sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4`. No source archive was downloaded or published by this gate.
+The image is identified by `sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4`. No source archive is included or published by this evidence artifact.
 Only exact-version package metadata, official upstream locations, and official Debian/CentOS source locations are acceptable for final bundle assembly.
 
 ## Component provenance

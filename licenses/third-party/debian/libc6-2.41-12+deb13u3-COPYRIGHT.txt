@@ -1,0 +1,769 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: GNU C Library
+Source: https://sourceware.org/git/glibc.git
+Files-Excluded:
+ manual/*
+
+Files: *
+Copyright: 1991-2025 Free Software Foundation, Inc.
+License: LGPL-2.1+
+
+Files:
+ nptl/default-sched.h
+ nss/nss_db/db-initgroups.c
+ sysdeps/powerpc/fpu/round_to_integer.h
+ sysdeps/powerpc/fpu/s_ceil.c
+ sysdeps/powerpc/fpu/s_ceilf.c
+ sysdeps/powerpc/fpu/s_floor.c
+ sysdeps/powerpc/fpu/s_floorf.c
+ sysdeps/powerpc/fpu/s_modf.c
+ sysdeps/powerpc/fpu/s_modff.c
+ sysdeps/powerpc/fpu/s_nearbyint.c
+ sysdeps/powerpc/fpu/s_nearbyintf.c
+ sysdeps/powerpc/fpu/s_round.c
+ sysdeps/powerpc/fpu/s_roundf.c
+ sysdeps/powerpc/fpu/s_trunc.c
+ sysdeps/powerpc/fpu/s_truncf.c
+ sysdeps/powerpc/powerpc32/fpu/s_lrint.c
+ sysdeps/powerpc/powerpc64/dl-machine.c
+ sysdeps/powerpc/powerpc64/dl-machine.h
+ sysdeps/powerpc/powerpc64/fpu/s_llrint.c
+ sysdeps/powerpc/powerpc64/fpu/s_llround.c
+ sysdeps/powerpc/powerpc64/fpu/s_llroundf.c
+ sysdeps/sparc/backtrace.c
+ sysdeps/unix/sysv/linux/alpha/bits/pthread_stack_min.h
+ sysdeps/unix/sysv/linux/default-sched.h
+ sysdeps/unix/sysv/linux/sparc/bits/pthread_stack_min.h
+Copyright: 1995-2025 Free Software Foundation, Inc.
+License: LGPL-2+
+
+Files:
+ soft-fp/*.c
+ soft-fp/*.h
+ stdlib/longlong.h
+ sysdeps/ieee754/soft-fp/s_fma*.c
+ sysdeps/powerpc/nofpu/sqrt*f2.c
+ sysdeps/powerpc/powerpc64/le/fpu/e_sqrtf128.c
+ sysdeps/x86/fpu/e_sqrtf128.c
+Copyright: 1997-2025 Free Software Foundation, Inc.
+License: LGPL-2.1+-with-link-exception
+
+Files: sysdeps/htl/raise.c
+Copyright: 2008-2025 Free Software Foundation, Inc.
+License: LGPL-3+
+
+Files:
+ catgets/gencat.c
+ catgets/xopen-msg.awk
+ elf/cache.c
+ elf/chroot_canon.c
+ elf/endswith.h
+ elf/ldconfig.c
+ elf/readlib.c
+ elf/stringtable.c
+ elf/stringtable.h
+ elf/stringtable_free.c
+ elf/tst-stringtable.c
+ iconv/dummy-repertoire.c
+ iconv/iconv_charmap.c
+ iconv/iconv_prog.c
+ iconv/iconvconfig.c
+ iconv/strtab.c
+ include/programs/xasprintf.h
+ include/programs/xmalloc.h
+ intl/locale.alias
+ intl/po2test.awk
+ io/tst-fcntl-lock.c
+ io/tst-lockf.c
+ locale/programs/3level.h
+ locale/programs/charmap-dir.c
+ locale/programs/charmap-dir.h
+ locale/programs/charmap-kw.gperf
+ locale/programs/charmap-kw.h
+ locale/programs/charmap.c
+ locale/programs/charmap.h
+ locale/programs/config.h
+ locale/programs/ld-address.c
+ locale/programs/ld-collate.c
+ locale/programs/ld-ctype.c
+ locale/programs/ld-identification.c
+ locale/programs/ld-measurement.c
+ locale/programs/ld-messages.c
+ locale/programs/ld-monetary.c
+ locale/programs/ld-name.c
+ locale/programs/ld-numeric.c
+ locale/programs/ld-paper.c
+ locale/programs/ld-telephone.c
+ locale/programs/ld-time.c
+ locale/programs/linereader.c
+ locale/programs/linereader.h
+ locale/programs/locale-spec.c
+ locale/programs/locale.c
+ locale/programs/localedef.c
+ locale/programs/localedef.h
+ locale/programs/locarchive.c
+ locale/programs/locfile-kw.gperf
+ locale/programs/locfile-kw.h
+ locale/programs/locfile-token.h
+ locale/programs/locfile.c
+ locale/programs/locfile.h
+ locale/programs/record-status.c
+ locale/programs/record-status.h
+ locale/programs/repertoire.c
+ locale/programs/repertoire.h
+ locale/programs/simple-hash.c
+ locale/programs/simple-hash.h
+ locale/programs/xasprintf.c
+ locale/programs/xmalloc.c
+ locale/programs/xstrdup.c
+ localedata/tst-rpmatch.sh
+ malloc/memusagestat.c
+ nscd/aicache.c
+ nscd/cache.c
+ nscd/cachedumper.c
+ nscd/connections.c
+ nscd/dbg_log.c
+ nscd/getgrgid_r.c
+ nscd/getgrnam_r.c
+ nscd/gethstbyad_r.c
+ nscd/gethstbynm3_r.c
+ nscd/getpwnam_r.c
+ nscd/getpwuid_r.c
+ nscd/getsrvbynm_r.c
+ nscd/getsrvbypt_r.c
+ nscd/grpcache.c
+ nscd/hstcache.c
+ nscd/initgrcache.c
+ nscd/mem.c
+ nscd/netgroupcache.c
+ nscd/nscd.c
+ nscd/nscd_conf.c
+ nscd/nscd_setup_thread.c
+ nscd/pwdcache.c
+ nscd/servicescache.c
+ posix/getconf.c
+ scripts/rellns-sh
+ sysdeps/unix/sysv/linux/nscd_setup_thread.c
+ sysdeps/unix/sysv/linux/tst-ofdlocks-compat.c
+ sysdeps/unix/sysv/linux/tst-ofdlocks.c
+Copyright: 1991-2025 Free Software Foundation, Inc.
+License: GPL-2+
+
+Files: sysdeps/arm/unwind.h
+Copyright: 2003-2025 Free Software Foundation, Inc.
+License: GPL-2+-with-link-exception
+
+Files: sysdeps/unix/sysv/linux/mips/sys/user.h
+Copyright:
+ 1995, 1999 by Ralf Baechle
+ 2002-2025 Free Software Foundation
+License: LGPL-2.1+ and GPL-2
+
+Files: scripts/move-if-change
+Copyright: 2002-2022 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files:
+ libio/tst-fgetc-after-eof.c
+ malloc/tst-malloc-stats-cancellation.c
+ wcsmbs/tst-fgetwc-after-eof.c
+Copyright: 2018 Free Software Foundation
+License: FSFAP
+
+Files:
+ hurd/hurdmalloc.c
+ mach/err_boot.sub
+ mach/err_ipc.sub
+ mach/err_kern.sub
+ mach/err_mach.sub
+ mach/err_server.sub
+ mach/err_us.sub
+ mach/error_compat.c
+ mach/errorlib.h
+ mach/errstring.c
+ mach/mac…56025 tokens truncated…rovided that the following conditions
+   are met:
+
+   1. Redistributions of source code must retain the above
+      copyright notice, this list of conditions and the following
+      disclaimer.
+
+   2. Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+
+   THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+   TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+   PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR
+   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+   LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+   USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+   ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+   SUCH DAMAGE.
+
+   Copyright (C) 1994 by the University of Southern California
+
+      EXPORT OF THIS SOFTWARE from the United States of America may
+      require a specific license from the United States Government. It
+      is the responsibility of any person or organization
+      contemplating export to obtain such a license before exporting.
+
+   WITHIN THAT CONSTRAINT, permission to copy, modify, and distribute
+   this software and its documentation in source and binary forms is
+   hereby granted, provided that any documentation or other materials
+   related to such distribution or use acknowledge that the software
+   was developed by the University of Southern California.
+
+   DISCLAIMER OF WARRANTY.  THIS SOFTWARE IS PROVIDED "AS IS".  The
+   University of Southern California MAKES NO REPRESENTATIONS OR
+   WARRANTIES, EXPRESS OR IMPLIED.  By way of example, but not
+   limitation, the University of Southern California MAKES NO
+   REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+   PARTICULAR PURPOSE. The University of Southern California shall not
+   be held liable for any liability nor for any direct, indirect, or
+   consequential damages with respect to any claim by the user or
+   distributor of the ksu software.
+
+======================================================================
+
+   Copyright (C) 1995
+   The President and Fellows of Harvard University
+
+   This code is derived from software contributed to Harvard by Jeremy
+   Rassen.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+
+   1. Redistributions of source code must retain the above
+      copyright notice, this list of conditions and the following
+      disclaimer.
+
+   2. Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+
+   3. All advertising materials mentioning features or use of this
+      software must display the following acknowledgement:
+
+         This product includes software developed by the University of
+         California, Berkeley and its contributors.
+
+   4. Neither the name of the University nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+   TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+   PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS
+   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+   LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+   USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+   ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+   SUCH DAMAGE.
+
+======================================================================
+
+   Copyright (C) 2008 by the Massachusetts Institute of Technology.
+   Copyright 1995 by Richard P. Basch.  All Rights Reserved.
+   Copyright 1995 by Lehman Brothers, Inc.  All Rights Reserved.
+
+      Export of this software from the United States of America may
+      require a specific license from the United States Government. It
+      is the responsibility of any person or organization
+      contemplating export to obtain such a license before exporting.
+
+   WITHIN THAT CONSTRAINT, permission to use, copy, modify, and
+   distribute this software and its documentation for any purpose and
+   without fee is hereby granted, provided that the above copyright
+   notice appear in all copies and that both that copyright notice and
+   this permission notice appear in supporting documentation, and that
+   the name of Richard P. Basch, Lehman Brothers and M.I.T. not be
+   used in advertising or publicity pertaining to distribution of the
+   software without specific, written prior permission.  Richard P.
+   Basch, Lehman Brothers and M.I.T. make no representations about the
+   suitability of this software for any purpose.  It is provided "as
+   is" without express or implied warranty.
+
+======================================================================
+
+The following notice applies to "src/lib/krb5/krb/strptime.c" and
+"src/include/k5-queue.h".
+
+   Copyright (C) 1997, 1998 The NetBSD Foundation, Inc.
+   All rights reserved.
+
+   This code was contributed to The NetBSD Foundation by Klaus Klein.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+
+   1. Redistributions of source code must retain the above
+      copyright notice, this list of conditions and the following
+      disclaimer.
+
+   2. Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+
+   3. All advertising materials mentioning features or use of this
+      software must display the following acknowledgement:
+
+         This product includes software developed by the NetBSD
+         Foundation, Inc. and its contributors.
+
+   4. Neither the name of The NetBSD Foundation nor the names of
+      its contributors may be used to endorse or promote products
+      derived from this software without specific prior written
+      permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE NETBSD FOUNDATION, INC. AND
+   CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+   MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+   DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR CONTRIBUTORS BE
+   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+   OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+   BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+   USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+   DAMAGE.
+
+======================================================================
+
+The following notice applies to Unicode library files in
+"src/lib/krb5/unicode":
+
+   Copyright 1997, 1998, 1999 Computing Research Labs,
+   New Mexico State University
+
+   Permission is hereby granted, free of charge, to any person
+   obtaining a copy of this software and associated documentation
+   files (the "Software"), to deal in the Software without
+   restriction, including without limitation the rights to use, copy,
+   modify, merge, publish, distribute, sublicense, and/or sell copies
+   of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be
+   included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+   NONINFRINGEMENT.  IN NO EVENT SHALL THE COMPUTING RESEARCH LAB OR
+   NEW MEXICO STATE UNIVERSITY BE LIABLE FOR ANY CLAIM, DAMAGES OR
+   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+   OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+   OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+======================================================================
+
+The following notice applies to "src/util/support/strlcpy.c":
+
+   Copyright (C) 1998 Todd C. Miller "Todd.Miller@courtesan.com"
+
+   Permission to use, copy, modify, and distribute this software for
+   any purpose with or without fee is hereby granted, provided that
+   the above copyright notice and this permission notice appear in all
+   copies.
+
+   THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
+   WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED
+   WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE
+   AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR
+   CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+   OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
+   NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+   CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+======================================================================
+
+The following notice applies to "src/util/profile/argv_parse.c" and
+"src/util/profile/argv_parse.h":
+
+   Copyright 1999 by Theodore Ts'o.
+
+   Permission to use, copy, modify, and distribute this software for
+   any purpose with or without fee is hereby granted, provided that
+   the above copyright notice and this permission notice appear in all
+   copies.  THE SOFTWARE IS PROVIDED "AS IS" AND THEODORE TS'O (THE
+   AUTHOR) DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+   INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN
+   NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+   INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER
+   RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION
+   OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+   IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.  (Isn't
+   it sick that the U.S. culture of lawsuit-happy lawyers requires
+   this kind of disclaimer?)
+
+======================================================================
+
+The following notice applies to SWIG-generated code in
+"src/util/profile/profile_tcl.c":
+
+   Copyright (C) 1999-2000, The University of Chicago
+
+   This file may be freely redistributed without license or fee
+   provided this copyright message remains intact.
+
+======================================================================
+
+The following notice applies to portiions of "src/lib/rpc" and
+"src/include/gssrpc":
+
+   Copyright (C) 2000 The Regents of the University of Michigan. All
+   rights reserved.
+
+   Copyright (C) 2000 Dug Song "dugsong@UMICH.EDU". All rights
+   reserved, all wrongs reversed.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+
+   1. Redistributions of source code must retain the above
+      copyright notice, this list of conditions and the following
+      disclaimer.
+
+   2. Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+
+   3. Neither the name of the University nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+   THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+   WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+   OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+   DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+   FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+   OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+   BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+   USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+   DAMAGE.
+
+======================================================================
+
+Implementations of the MD4 algorithm are subject to the following
+notice:
+
+   Copyright (C) 1990, RSA Data Security, Inc. All rights reserved.
+
+   License to copy and use this software is granted provided that it
+   is identified as the "RSA Data Security, Inc. MD4 Message Digest
+   Algorithm" in all material mentioning or referencing this software
+   or this function.
+
+   License is also granted to make and use derivative works provided
+   that such works are identified as "derived from the RSA Data
+   Security, Inc. MD4 Message Digest Algorithm" in all material
+   mentioning or referencing the derived work.
+
+   RSA Data Security, Inc. makes no representations concerning either
+   the merchantability of this software or the suitability of this
+   software for any particular purpose.  It is provided "as is"
+   without express or implied warranty of any kind.
+
+   These notices must be retained in any copies of any part of this
+   documentation and/or software.
+
+======================================================================
+
+Implementations of the MD5 algorithm are subject to the following
+notice:
+
+   Copyright (C) 1990, RSA Data Security, Inc. All rights reserved.
+
+   License to copy and use this software is granted provided that it
+   is identified as the "RSA Data Security, Inc. MD5 Message- Digest
+   Algorithm" in all material mentioning or referencing this software
+   or this function.
+
+   License is also granted to make and use derivative works provided
+   that such works are identified as "derived from the RSA Data
+   Security, Inc. MD5 Message-Digest Algorithm" in all material
+   mentioning or referencing the derived work.
+
+   RSA Data Security, Inc. makes no representations concerning either
+   the merchantability of this software or the suitability of this
+   software for any particular purpose.  It is provided "as is"
+   without express or implied warranty of any kind.
+
+   These notices must be retained in any copies of any part of this
+   documentation and/or software.
+
+======================================================================
+
+The following notice applies to
+"src/lib/crypto/crypto_tests/t_mddriver.c":
+
+   Copyright (C) 1990-2, RSA Data Security, Inc. Created 1990. All
+   rights reserved.
+
+   RSA Data Security, Inc. makes no representations concerning either
+   the merchantability of this software or the suitability of this
+   software for any particular purpose. It is provided "as is" without
+   express or implied warranty of any kind.
+
+   These notices must be retained in any copies of any part of this
+   documentation and/or software.
+
+======================================================================
+
+Portions of "src/lib/krb5" are subject to the following notice:
+
+   Copyright (C) 1994 CyberSAFE Corporation.
+   Copyright 1990,1991,2007,2008 by the Massachusetts Institute of Technology.
+   All Rights Reserved.
+
+      Export of this software from the United States of America may
+      require a specific license from the United States Government. It
+      is the responsibility of any person or organization
+      contemplating export to obtain such a license before exporting.
+
+   WITHIN THAT CONSTRAINT, permission to use, copy, modify, and
+   distribute this software and its documentation for any purpose and
+   without fee is hereby granted, provided that the above copyright
+   notice appear in all copies and that both that copyright notice and
+   this permission notice appear in supporting documentation, and that
+   the name of M.I.T. not be used in advertising or publicity
+   pertaining to distribution of the software without specific,
+   written prior permission.  Furthermore if you modify this software
+   you must label your software as modified software and not
+   distribute it in such a fashion that it might be confused with the
+   original M.I.T. software. Neither M.I.T., the Open Computing
+   Security Group, nor CyberSAFE Corporation make any representations
+   about the suitability of this software for any purpose.  It is
+   provided "as is" without express or implied warranty.
+
+======================================================================
+
+Portions contributed by PADL Software are subject to the following
+license:
+
+   Copyright (c) 2011, PADL Software Pty Ltd. All rights reserved.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+
+   1. Redistributions of source code must retain the above
+      copyright notice, this list of conditions and the following
+      disclaimer.
+
+   2. Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+
+   3. Neither the name of PADL Software nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+   THIS SOFTWARE IS PROVIDED BY PADL SOFTWARE AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+   TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+   PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL PADL SOFTWARE
+   OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+   LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+   USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+   ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+   SUCH DAMAGE.
+
+======================================================================
+
+The bundled libev source code is subject to the following license:
+
+   All files in libev are Copyright (C)2007,2008,2009 Marc Alexander
+   Lehmann.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+
+   * Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+
+   * Redistributions in binary form must reproduce the above
+     copyright notice, this list of conditions and the following
+     disclaimer in the documentation and/or other materials provided
+     with the distribution.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+   FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+   COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+   INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+   (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+   SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+   HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+   OF THE POSSIBILITY OF SUCH DAMAGE.
+
+   Alternatively, the contents of this package may be used under the
+   terms of the GNU General Public License ("GPL") version 2 or any
+   later version, in which case the provisions of the GPL are
+   applicable instead of the above. If you wish to allow the use of
+   your version of this package only under the terms of the GPL and
+   not to allow others to use your version of this file under the BSD
+   license, indicate your decision by deleting the provisions above
+   and replace them with the notice and other provisions required by
+   the GPL in this and the other files of this package. If you do not
+   delete the provisions above, a recipient may use your version of
+   this file under either the BSD or the GPL.
+
+   On Debian systems, the complete text of the GNU General Public License
+   version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+======================================================================
+
+Files copied from the Intel AESNI Sample Library are subject to the
+following license:
+
+   Copyright (C) 2010, Intel Corporation
+   All rights reserved.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+
+      * Redistributions of source code must retain the above
+        copyright notice, this list of conditions and the following
+        disclaimer.
+
+      * Redistributions in binary form must reproduce the above
+        copyright notice, this list of conditions and the following
+        disclaimer in the documentation and/or other materials
+        provided with the distribution.
+
+      * Neither the name of Intel Corporation nor the names of its
+        contributors may be used to endorse or promote products
+        derived from this software without specific prior written
+        permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+   FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE
+   COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+   INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+   (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+   SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+   HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+   OF THE POSSIBILITY OF SUCH DAMAGE.
+
+======================================================================
+
+The following notice applies to
+"src/ccapi/common/win/OldCC/autolock.hxx":
+
+   Copyright (C) 1998 by Danilo Almeida.  All rights reserved.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+
+   * Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+
+   * Redistributions in binary form must reproduce the above
+     copyright notice, this list of conditions and the following
+     disclaimer in the documentation and/or other materials provided
+     with the distribution.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+   FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+   COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+   INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+   (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+   SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+   HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+   STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+   OF THE POSSIBILITY OF SUCH DAMAGE.
+
+======================================================================
+
+The following notice applies to portions of
+"src/plugins/preauth/spake/edwards25519.c" and
+"src/plugins/preauth/spake/edwards25519_tables.h":
+
+The MIT License (MIT)
+
+Copyright (c) 2015-2016 the fiat-crypto authors (see the AUTHORS
+file).
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+======================================================================
+
+The following notice applies to portions of
+"src/plugins/preauth/spake/edwards25519.c":
+
+Copyright (c) 2015-2016, Google Inc.
+
+Permission to use, copy, modify, and/or distribute this software for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all
+copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
+WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+======================================================================
+
+The Debian Packaging is licensed under the same terms as MIT Kerberos.

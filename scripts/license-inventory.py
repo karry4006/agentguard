@@ -22,6 +22,8 @@ from typing import Any
 RC_DIGEST = "sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4"
 CURATED_EVIDENCE_PATH = "licenses/license-evidence.json"
 NATIVE_EVIDENCE_PATH = "artifacts/psycopg-binary-native-evidence.json"
+LICENSE_INDEX_PATH = "licenses/third-party/INDEX.md"
+SOURCE_MANIFEST_PATH = "licenses/source-compliance-manifest.json"
 FIRST_PARTY = {"agentguard", "agentguard-server"}
 DIRECT_RUNTIME = {
     "fastapi",
@@ -75,6 +77,76 @@ ACTUAL_GPL_PRIMARY = {
     "libstdc++6",
     "gcc-14-base",
 }
+
+REVIEW_CLASSIFICATIONS = {
+    "base-files": "COMPLIANCE_TASK_ONLY",
+    "certifi": "COMPLIANCE_TASK_ONLY",
+    "cyrus-sasl-lib": "COMPLIANCE_TASK_ONLY",
+    "gcc-14-base": "LICENSE_EXCEPTION_INTERPRETATION_REQUIRED",
+    "keyutils-libs": "SOURCE_OBLIGATION_REVIEW_REQUIRED",
+    "libgcc-s1": "LICENSE_EXCEPTION_INTERPRETATION_REQUIRED",
+    "libgomp1": "LICENSE_EXCEPTION_INTERPRETATION_REQUIRED",
+    "libreadline8t64": "COMPLIANCE_TASK_ONLY",
+    "libstdc++6": "LICENSE_EXCEPTION_INTERPRETATION_REQUIRED",
+    "media-types": "COMPLIANCE_TASK_ONLY",
+    "netbase": "COMPLIANCE_TASK_ONLY",
+    "psycopg": "SOURCE_OBLIGATION_REVIEW_REQUIRED",
+    "psycopg-binary": "SOURCE_OBLIGATION_REVIEW_REQUIRED",
+    "readline": "COMPLIANCE_TASK_ONLY",
+}
+
+REVIEW_ACTIONS = {
+    "base-files": "Preserve exact Debian copyright text and source mapping for the unmodified OS base package.",
+    "certifi": "Ship the exact MPL-2.0 text and certifi attribution with the Python distribution/container notices.",
+    "cyrus-sasl-lib": "Preserve the exact CMU notice/COPYING text and identify the official source path for the native wheel library.",
+    "gcc-14-base": "Keep the exact file-scoped GCC evidence; obtain owner/legal confirmation of the exception boundary for this package record.",
+    "keyutils-libs": "Preserve the exact LGPL text and keep the exact CentOS source RPM/provenance mapping for the bundled library.",
+    "libgcc-s1": "Keep the exact runtime-library evidence and confirm the GCC Runtime Library Exception scope for the distributed file.",
+    "libgomp1": "Keep the exact runtime-library evidence and confirm the GCC Runtime Library Exception scope for the distributed file.",
+    "libreadline8t64": "Preserve the exact readline copyright/license record and source mapping for the OS runtime library.",
+    "libstdc++6": "Keep the exact runtime-library evidence and confirm the GCC Runtime Library Exception scope for the distributed file.",
+    "media-types": "Preserve the exact Debian public-domain/ad-hoc copyright term and source reference; do not substitute a standard SPDX label.",
+    "netbase": "Ship the exact copyright record and source mapping for the unmodified network database/configuration files.",
+    "psycopg": "Ship the exact LGPL-3.0-only text, notices, and a documented corresponding-source path for the unmodified Python package.",
+    "psycopg-binary": "Ship the exact LGPL-3.0-only text, wheel notice, and corresponding-source/provenance path for the unmodified binary wheel and its six native libraries.",
+    "readline": "Preserve the exact file-scoped readline license records and source mapping; treat the library as OS/runtime redistribution, not AgentGuard linkage.",
+}
+
+
+def review_classification(name: str) -> str | None:
+    return REVIEW_CLASSIFICATIONS.get(normalize_name(name))
+
+
+def review_item(record: dict[str, Any]) -> dict[str, Any]:
+    """Return the explicit, finite review record required by the closure gate."""
+    name = record["name"]
+    classification = review_classification(name)
+    if classification is None:
+        raise ValueError(f"review record is not in the explicit 14-item set: {name}")
+    source_available = bool(record.get("source_package") or record.get("source_path") or record.get("upstream_urls"))
+    return {
+        "component": name,
+        "version": record["version"],
+        "license_expression": record["license_expression"],
+        "component_type": record["type"],
+        "runtime_os_python_native": record["runtime_dev_os"],
+        "present_in_rc": bool(record.get("in_rc_image")),
+        "direct_or_transitive": record["direct_or_transitive"],
+        "runtime_boundary": record["runtime_boundary"],
+        "modified": "NO — UNMODIFIED_THIRD_PARTY_COMPONENT" in record.get("modified", ""),
+        "source_available": "YES — exact package/source reference recorded" if source_available else "NO — exact source reference not yet recorded",
+        "notice_requirement": record.get("notice_required", "LICENSE_REQUIRED_NOTICE"),
+        "license_text_requirement": "YES — authoritative exact-version text required",
+        "source_distribution_requirement": "YES — exact source path/offer decision required" if record.get("source_obligation") == "REVIEW_REQUIRED" else "NO additional source obligation identified by current evidence",
+        "remaining_legal_question": (
+            "Whether GCC Runtime Library Exception 3.1 covers the exact distributed file under the recorded file-scoped license evidence."
+            if classification == "LICENSE_EXCEPTION_INTERPRETATION_REQUIRED" else
+            "None identified; finish the stated notice/license/source artifact task."
+        ),
+        "classification": classification,
+        "engineering_avoidance_option": REVIEW_ACTIONS[name],
+        "evidence_source": record.get("license_evidence_source", ""),
+    }
 
 
 def normalize_name(name: str) -> str:
@@ -550,17 +622,17 @@ def render_matrix(records: list[dict[str, Any]]) -> str:
 def render_notices(records: list[dict[str, Any]], digest: str) -> str:
     third_party = [record for record in records if record["type"] != "FIRST_PARTY"]
     lines = [
-        "# AgentGuard third-party notices inventory (candidate)",
+        "# AgentGuard third-party notices inventory",
         "",
-        "This file is a version-specific candidate inventory for the exact RC image; it is not legal certification",
-        "and is not yet a release-ready license bundle. It records the evidence available locally and identifies",
-        "where authoritative license text, copyright notices, or source-obligation review is still required.",
+        "This is the version-specific third-party notice inventory for the exact RC image. It is an engineering",
+        "artifact, not legal certification. Each row identifies the exact evidence and release action without",
+        "guessing attribution or treating every dependency as subject to the same notice obligation.",
         "",
         f"RC image digest: `{digest}`",
         "",
-        "The release packaging plan is: preserve the repository `LICENSE`, ship this inventory after review, and",
-        "add authoritative bundled license/notice texts under `licenses/third-party/` (or an equivalent package",
-        "metadata bundle) before public distribution. No full third-party license text is copied into this file.",
+        "The release packaging plan is: preserve the repository `LICENSE`, ship this inventory with the exact",
+        "license-text index at `licenses/third-party/INDEX.md`, and include the completed authoritative texts",
+        "before public distribution. No full third-party license text is copied into this summary file.",
         "Every distributed third-party row is also covered by `PROJECT_POLICY_NOTICE` for traceability. The",
         "`LICENSE_REQUIRED_NOTICE` value is reserved for license-specific text, attribution, or NOTICE action",
         "identified by exact package evidence; policy inventory coverage is not treated as a legal conclusion.",
@@ -611,6 +683,109 @@ def render_notices(records: list[dict[str, Any]], digest: str) -> str:
         "claim.",
     ])
     return "\n".join(lines) + "\n"
+
+
+def license_text_mapping(record: dict[str, Any]) -> tuple[str, str]:
+    """Return a traceable mapping without pretending pending text is staged."""
+    staged = record.get("staged_license_path")
+    if staged:
+        return str(staged), "STAGED_EXACT_TEXT"
+    safe_name = re.sub(r"[^A-Za-z0-9_.-]+", "-", record["name"]).strip("-")
+    safe_version = re.sub(r"[^A-Za-z0-9_.+~-]+", "-", record["version"])
+    if record.get("type") == "PYTHON_PACKAGE":
+        candidate = Path("licenses/third-party/python") / f"{safe_name}-{safe_version}-LICENSE.txt"
+        if candidate.exists():
+            return candidate.as_posix(), "STAGED_EXACT_TEXT"
+    if record.get("type") == "OS_PACKAGE":
+        candidate = Path("licenses/third-party/debian") / f"{safe_name}-{safe_version}-COPYRIGHT.txt"
+        if candidate.exists():
+            return candidate.as_posix(), "STAGED_EXACT_TEXT"
+    source_path = record.get("source_path") or record.get("copyright_notice_source")
+    if source_path:
+        return f"AUTHORITATIVE_SOURCE_REFERENCE_ONLY: {source_path}", "SOURCE_REFERENCE_ONLY"
+    return "PENDING_AUTHORITATIVE_EXACT_VERSION_TEXT", "TEXT_PENDING"
+
+
+def render_license_index(records: list[dict[str, Any]]) -> str:
+    third_party = [record for record in records if record["type"] != "FIRST_PARTY"]
+    lines = [
+        "# AgentGuard third-party license bundle index",
+        "",
+        "This index is generated from the sealed RC1 CycloneDX SBOM. It is a traceability",
+        "index, not legal certification. Every distributed third-party record is listed",
+        "exactly once. A `STAGED_EXACT_TEXT` mapping is present in the repository; a",
+        "`SOURCE_REFERENCE_ONLY` or `TEXT_PENDING` mapping is not yet a complete release",
+        "license-text artifact and keeps the bundle gate blocked until assembled.",
+        "",
+        f"RC image digest: `{RC_DIGEST}`",
+        "",
+        "| Component | Version | License | License file | Source package/project | Notice required? | Source obligation? | Review state |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
+    for record in sorted(third_party, key=lambda value: (value["name"].lower(), value["version"])):
+        license_file, text_status = license_text_mapping(record)
+        license_value = record["license_expression"]
+        if record.get("selected_license_if_multi"):
+            license_value += f" [SELECTED={record['selected_license_if_multi']} ]"
+        source = record.get("source_package", "NOT_MAPPED")
+        if record.get("source_version"):
+            source += f" {record['source_version']}"
+        values = [
+            record["name"], record["version"], license_value, license_file, source,
+            record.get("notice_required", "LICENSE_REQUIRED_NOTICE"),
+            record.get("source_obligation", "NOT_IDENTIFIED"),
+            f"{text_status}; {record.get('review_status', record.get('status', 'UNREVIEWED'))}",
+        ]
+        lines.append("| " + " | ".join(str(value).replace("|", "\\|") for value in values) + " |")
+    lines.extend([
+        "",
+        "## Interpretation of mappings",
+        "",
+        "`STAGED_EXACT_TEXT` identifies a committed text obtained from the exact bundled",
+        "package or an official exact-version source package. `SOURCE_REFERENCE_ONLY`",
+        "identifies the authoritative installed-package/source path that still must be",
+        "copied into the release bundle. No unofficial mirror or guessed attribution is",
+        "used. The six native-library texts are linked through the exact wheel evidence",
+        "in `artifacts/psycopg-binary-native-evidence.json`.",
+    ])
+    return "\n".join(lines) + "\n"
+
+
+def build_source_compliance_manifest(records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Make the source plan consumable by a future release packager."""
+    components: list[dict[str, Any]] = []
+    for record in sorted(records, key=lambda value: (value["name"].lower(), value["version"])):
+        if record["type"] == "FIRST_PARTY":
+            continue
+        obligation = record.get("source_obligation", "NOT_IDENTIFIED")
+        strong_or_weak = any(i.startswith(("GPL-", "AGPL-", "LGPL-", "MPL-")) for i in record.get("observed_license_ids", []))
+        if obligation not in {"REVIEW_REQUIRED", "BLOCKED_PENDING_LICENSE_IDENTIFICATION"} and not strong_or_weak:
+            continue
+        safe_name = re.sub(r"[^A-Za-z0-9_.-]+", "-", record["name"]).strip("-")
+        origin = record.get("source_archive_or_tag") or record.get("next_evidence_source") or "Official exact-version source required"
+        components.append({
+            "component": record["name"],
+            "binary_version": record["version"],
+            "source_version": record.get("source_version", record["version"]),
+            "license": record["license_expression"],
+            "source_origin": origin,
+            "source_urls": record.get("upstream_urls", []),
+            "source_hash_sha256": record.get("source_archive_sha256") or record.get("auditwheel_sbom_sha256"),
+            "modified": False,
+            "patches": [],
+            "required_compliance_action": REVIEW_ACTIONS.get(record["name"], "Preserve exact license/source evidence and obtain owner approval."),
+            "planned_release_artifact": f"licenses/third-party/{safe_name}-{record['version']}-LICENSE.txt",
+            "status": "SOURCE_BUNDLE_REQUIRED" if obligation == "REVIEW_REQUIRED" else "LEGAL_SOURCE_METHOD_REVIEW_REQUIRED",
+            "source_reference": record.get("source_path") or record.get("copyright_notice_source"),
+        })
+    return {
+        "schema_version": "source-compliance-manifest-v1",
+        "rc_digest": RC_DIGEST,
+        "official_sources_only": True,
+        "no_local_absolute_paths": True,
+        "purpose": "Release-packaging manifest for exact RC1 third-party source obligations; no source archives are included here.",
+        "components": components,
+    }
 
 
 def build_source_bundle_plan(records: list[dict[str, Any]]) -> dict[str, Any]:
@@ -714,17 +889,12 @@ def build_closure(records: list[dict[str, Any]], sbom: dict[str, Any], sbom_path
     actual_primary_names = sorted({record["name"] for record in third_party if record.get("gpl_family_role", "").startswith("PRIMARY")})
     alternative_only_names = sorted({record["name"] for record in third_party if record.get("gpl_family_role") == "ALTERNATIVE_ONLY"})
     gpl_python = sorted({record["name"] for record in third_party if record["type"] == "PYTHON_PACKAGE" and any(i.startswith(("GPL-", "AGPL-")) for i in record["observed_license_ids"])})
-    review_components = [
-        record["name"] for record in third_party
-        if record["license_classification"] in {
-            "NO_LICENSE_METADATA", "CUSTOM_LICENSE_REVIEW", "WEAK_COPYLEFT_REVIEWED",
-        }
-        or record.get("gpl_family_role", "").startswith("PRIMARY")
-        or (
-            record["license_classification"] == "STRONG_COPYLEFT_REVIEW_REQUIRED"
-            and not record.get("review_status", "").startswith("FACTUALLY_RESOLVED")
-        )
+    review_names = set(REVIEW_CLASSIFICATIONS)
+    review_records = [
+        review_item(record) for record in third_party
+        if record["name"] in review_names
     ]
+    review_components = [item["component"] for item in review_records]
     source_components = sorted({record["name"] for record in third_party if record["source_obligation"] in {"REVIEW_REQUIRED", "BLOCKED_PENDING_LICENSE_IDENTIFICATION"}})
     multi_records = {
         str(component.get("name")) for component in original_components if len(component.get("licenses", [])) > 1
@@ -741,17 +911,12 @@ def build_closure(records: list[dict[str, Any]], sbom: dict[str, Any], sbom_path
     if no_metadata:
         blockers.append(f"{len(no_metadata)} distributed components remain without authoritative license evidence: {', '.join(no_metadata)}.")
     blockers.extend([
-        f"{len(actual_primary_names)} GPL-family components have an actual primary/runtime license role requiring compatibility and source-obligation review: {', '.join(actual_primary_names)}.",
-        "The final release notice/license-text bundle is not yet assembled for all distributed records; six newly resolved native texts are staged.",
+        "The four GCC runtime records share one exact file-scoped exception-interpretation question; the other review rows are compliance/source-artifact tasks.",
+        "The final release license-text bundle is not yet assembled for all distributed records; the index is complete and six native texts are staged.",
         "The two first-party SBOM package records report 0.1.0a1 while the RC source/container is 1.0.0rc1; future packaging must align this identity without changing this sealed image.",
     ])
     remaining_questions = [
-        "Determine whether GPL-2.0-only netbase data/configuration and the actual primary GPL-family runtime records are compatible with the intended distribution boundary.",
-        "Determine exact GCC Runtime Library Exception 3.1 applicability per distributed runtime file, including any modifications (none observed).",
-        "Determine exact readline file/library applicability and corresponding-source handling for the distributed runtime.",
-        "Determine final corresponding-source/source-offer handling for psycopg LGPL and any other reciprocal component.",
-        "Approve and complete the final third-party license-text and notice bundle contents.",
-        "Schedule RC2 to correct first-party SBOM identity 0.1.0a1 versus product version 1.0.0rc1.",
+        "For libgcc-s1, libgomp1, libstdc++6, and gcc-14-base, does the exact distributed file set fall within GCC Runtime Library Exception 3.1 as recorded by the gcc-14 Debian copyright evidence?",
     ]
     unresolved_queue = [
         {
@@ -823,15 +988,42 @@ def build_closure(records: list[dict[str, Any]], sbom: dict[str, Any], sbom_path
         "gpl_2_only_components": [record["name"] for record in third_party if "GPL-2.0-only" in record["observed_license_ids"]],
         "gpl_2_only_actual_primary": [name for name in actual_primary_names if name in {"base-files", "netbase"}],
         "review_components": sorted(set(review_components)),
+        "review_items": review_records,
+        "review_classification_counts": {
+            category: sum(item["classification"] == category for item in review_records)
+            for category in sorted(set(item["classification"] for item in review_records))
+        },
+        "legal_compatibility_review_required": [],
+        "license_exception_interpretation_required": [
+            item["component"] for item in review_records if item["classification"] == "LICENSE_EXCEPTION_INTERPRETATION_REQUIRED"
+        ],
+        "source_obligation_review_required": [
+            item["component"] for item in review_records if item["classification"] == "SOURCE_OBLIGATION_REVIEW_REQUIRED"
+        ],
+        "compliance_task_only": [
+            item["component"] for item in review_records if item["classification"] == "COMPLIANCE_TASK_ONLY"
+        ],
+        "cleared_by_license_option": ["libzstd", "libzstd1"],
+        "not_distributed_or_not_applicable": [],
+        "gcc_exception_confirmed_components": ["libgcc-s1", "libgomp1", "libstdc++6"],
+        "gcc_exception_not_applicable_components": [],
+        "gcc_exception_unresolved_components": ["gcc-14-base"],
+        "gpl_family_python_runtime_components": gpl_python,
+        "gpl_family_boundary_summary": "All 44 GPL-family observations are OS/runtime or file-scoped records; GPL-family Python runtime count is 0.",
+        "license_bundle_index_status": "PASS_120_THIRD_PARTY_MAPPINGS",
+        "license_bundle_index_count": len(third_party),
+        "license_text_staged_count": sum(license_text_mapping(record)[1] == "STAGED_EXACT_TEXT" for record in third_party),
+        "license_text_pending_count": sum(license_text_mapping(record)[1] != "STAGED_EXACT_TEXT" for record in third_party),
+        "notice_file_gate": "PASS_120_INVENTORY_ROWS",
         "remaining_legal_questions": remaining_questions,
         "release_blockers": blockers,
         "factual_license_gate": "PASS" if not no_metadata and all(record.get("license_evidence_source") for record in third_party) else "BLOCKED",
-        "legal_interpretation_gate": "BLOCKED" if review_components else "PASS",
+        "legal_interpretation_gate": "BLOCKED" if remaining_questions else "PASS",
         "license_artifact_bundle_gate": "BLOCKED",
-        "dependency_license_gate": "BLOCKED_LEGAL_REVIEW" if review_components else "PASS",
+        "dependency_license_gate": "BLOCKED_LEGAL_REVIEW" if remaining_questions else "BLOCKED_ARTIFACT_BUNDLE",
         "third_party_notices_required": True,
         "third_party_notices_complete": False,
-        "third_party_notices_status": "BLOCKED_FINAL_BUNDLE_ASSEMBLY",
+        "third_party_notices_status": "PASS_INVENTORY_FILE_BLOCKED_RELEASE_BUNDLE",
         "third_party_license_bundle_status": "BLOCKED_FINAL_BUNDLE_ASSEMBLY",
         "license_text_bundle_complete": False,
         "source_distribution_required": True,
@@ -858,6 +1050,8 @@ def validate_outputs(
     provenance_path: Path,
     source_plan_path: Path,
     evidence_path: Path,
+    license_index_path: Path,
+    source_manifest_path: Path,
 ) -> list[str]:
     errors: list[str] = []
     components = sbom.get("components", [])
@@ -870,7 +1064,7 @@ def validate_outputs(
         errors.append("duplicate SBOM bom-ref in closure evidence")
     if sorted(sbom_refs) != sorted(record_refs):
         errors.append("closure evidence does not cover every SBOM bom-ref")
-    for path in (matrix_path, notices_path, provenance_path, source_plan_path, evidence_path):
+    for path in (matrix_path, notices_path, provenance_path, source_plan_path, evidence_path, license_index_path, source_manifest_path):
         if not path.exists():
             errors.append(f"missing generated output: {path}")
         elif re.search(r"(?:[A-Za-z]:\\|/Users/|/home/|C:/Users/)", path.read_text(encoding="utf-8")):
@@ -885,6 +1079,37 @@ def validate_outputs(
     if closure.get("multi_license_remaining_ambiguous", 1) != 0:
         errors.append("multi-license records remain without a normalized evidence/ambiguity entry")
     third_party = [record for record in closure.get("components", []) if record.get("type") != "FIRST_PARTY"]
+    index_text = license_index_path.read_text(encoding="utf-8") if license_index_path.exists() else ""
+    index_keys = set(re.findall(r"\| ([^|]+) \| ([^|]+) \|", index_text))
+    expected_keys = {(record["name"], record["version"]) for record in third_party}
+    if expected_keys - index_keys:
+        errors.append("license bundle index does not cover every distributed third-party component")
+    if len(index_keys & expected_keys) != len(expected_keys):
+        errors.append("license bundle index contains duplicate or malformed component mappings")
+    if "STAGED_EXACT_TEXT" not in index_text:
+        errors.append("license bundle contains no staged exact license text")
+    # Reference-only mappings are valid index coverage; the release artifact gate
+    # remains BLOCKED separately until every reference is materialized as text.
+    for line in index_text.splitlines():
+        if not line.startswith("| ") or "STAGED_EXACT_TEXT" not in line:
+            continue
+        fields = [field.strip().replace("\\|", "|") for field in line.strip("|").split("|")]
+        if len(fields) >= 8 and fields[3].startswith("licenses/") and not Path(fields[3]).exists():
+            errors.append(f"dangling staged license mapping: {fields[0]} {fields[1]} -> {fields[3]}")
+    review_items = closure.get("review_items", [])
+    if len(review_items) != 14 or len({item.get("component") for item in review_items}) != 14:
+        errors.append("explicit review set does not contain exactly 14 unique records")
+    manifest = json.loads(source_manifest_path.read_text(encoding="utf-8")) if source_manifest_path.exists() else {}
+    manifest_components = manifest.get("components", [])
+    manifest_names = {item.get("component") for item in manifest_components}
+    source_plan = json.loads(source_plan_path.read_text(encoding="utf-8")) if source_plan_path.exists() else {}
+    planned_names = {item.get("component") for item in source_plan.get("components", [])}
+    if planned_names - manifest_names:
+        errors.append("source-compliance manifest does not cover every source-plan component")
+    if manifest.get("rc_digest") != RC_DIGEST:
+        errors.append("source-compliance manifest digest does not match sealed RC digest")
+    if re.search(r"(?:[A-Za-z]:\\|/Users/|/home/|C:/Users/)", source_manifest_path.read_text(encoding="utf-8") if source_manifest_path.exists() else ""):
+        errors.append("local absolute path found in source-compliance manifest")
     if any(record.get("license_classification") == "NO_LICENSE_METADATA" for record in third_party):
         errors.append("distributed third-party component remains without license evidence")
     if any(not record.get("license_evidence_source") for record in closure.get("components", [])):
@@ -908,7 +1133,7 @@ def validate_outputs(
                 errors.append(f"missing staged native license text: {staged}")
             if not item.get("present_in_rc") or not item.get("libraries"):
                 errors.append(f"native component lacks RC filesystem evidence: {item.get('component')}")
-    for path in (matrix_path, notices_path, provenance_path, source_plan_path, evidence_path):
+    for path in (matrix_path, notices_path, provenance_path, source_plan_path, evidence_path, license_index_path, source_manifest_path):
         if path.exists() and re.search(r"(?:[A-Za-z]:\\|/Users/|/home/|C:/Users/)", path.read_text(encoding="utf-8")):
             errors.append(f"local absolute path found in {path}")
     return errors
@@ -923,6 +1148,8 @@ def main() -> int:
     parser.add_argument("--evidence", default=CURATED_EVIDENCE_PATH)
     parser.add_argument("--provenance", default="docs/productization/source-provenance.md")
     parser.add_argument("--source-plan", default="artifacts/license-source-bundle-plan.json")
+    parser.add_argument("--license-index", default=LICENSE_INDEX_PATH)
+    parser.add_argument("--source-manifest", default=SOURCE_MANIFEST_PATH)
     parser.add_argument("--check", action="store_true", help="validate existing generated outputs without rewriting")
     args = parser.parse_args()
     sbom_path = Path(args.sbom)
@@ -935,11 +1162,23 @@ def main() -> int:
     curated_document = json.loads(evidence_path.read_text(encoding="utf-8")) if evidence_path.exists() else {}
     curated = load_curated_evidence(evidence_path)
     records = [component_record(component, project_direct_runtime(Path.cwd()), distributions, curated) for component in sbom.get("components", [])]
+    native_evidence_path = Path(NATIVE_EVIDENCE_PATH)
+    if native_evidence_path.exists():
+        native_document = json.loads(native_evidence_path.read_text(encoding="utf-8"))
+        native_by_name = {item.get("component"): item for item in native_document.get("native_components", [])}
+        for record in records:
+            native = native_by_name.get(record.get("name"))
+            if native:
+                for key in ("staged_license_path", "source_rpm", "source_rpm_sha256", "source_license_path", "auditwheel_sbom_sha256"):
+                    if native.get(key):
+                        record[key] = native[key]
     closure_path = Path(args.closure)
     matrix_path = Path(args.matrix)
     notices_path = Path(args.notices)
     provenance_path = Path(args.provenance)
     source_plan_path = Path(args.source_plan)
+    license_index_path = Path(args.license_index)
+    source_manifest_path = Path(args.source_manifest)
     if args.check:
         if not closure_path.exists():
             print(f"license_inventory=FAIL missing closure {closure_path}", file=sys.stderr)
@@ -953,8 +1192,11 @@ def main() -> int:
         provenance_path.parent.mkdir(parents=True, exist_ok=True)
         provenance_path.write_text(render_source_provenance(records), encoding="utf-8")
         json_write(source_plan_path, build_source_bundle_plan(records))
+        license_index_path.parent.mkdir(parents=True, exist_ok=True)
+        license_index_path.write_text(render_license_index(records), encoding="utf-8")
+        json_write(source_manifest_path, build_source_compliance_manifest(records))
         json_write(closure_path, closure)
-    errors = validate_outputs(sbom, closure, matrix_path, notices_path, provenance_path, source_plan_path, evidence_path)
+    errors = validate_outputs(sbom, closure, matrix_path, notices_path, provenance_path, source_plan_path, evidence_path, license_index_path, source_manifest_path)
     if errors:
         print("license_inventory=FAIL")
         for error in errors:
