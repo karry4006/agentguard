@@ -1,6 +1,22 @@
 # Changelog
 
-## 1.0.0rc2 — Release candidate (unreleased)
+## 1.0.0 — 2026-09-03
+
+- AI-agent flight recording with bounded tracing, redaction, durable delivery,
+  and authenticated multi-tenant trace ingestion.
+- OpenTelemetry and OTLP ingestion for agent telemetry and evaluation data.
+- Deterministic failure analysis, safe dry-run replay, and regression evaluation.
+- Incident management, notifications, and a tenant-scoped operator dashboard.
+- Human identity and RBAC with OIDC, tenant-scoped administration, and API-key
+  authorization boundaries.
+- Verifiable integrity evidence, external witness anchoring, archival and
+  recovery controls, and multi-witness quorum continuity.
+- Production and security hardening, including readiness checks, secret-file
+  configuration, a pinned Distroless Python 3.13 image, and non-root execution.
+- Public documentation, deterministic no-paid-API demos, SDK and benchmark
+  runners, and the third-party license, notice, and source-compliance bundle.
+
+## 1.0.0rc2 — Release candidate (historical)
 
 - Corrected first-party package and SBOM identity to `1.0.0rc2`.
 - Installed first-party package metadata during the production image build so clean
@@ -19,18 +35,6 @@
   troubleshooting, and dependency-license review guidance.
 - Added a distinct `agentguard:1.0.0-rc1` build target; no release, tag,
   PyPI publication, or container publication is implied.
-
-## 1.0.0 — Unreleased
-
-- Added a repository-oriented README and canonical local Docker Compose
-  Quick Start.
-- Added cryptographic local development secret bootstrap with overwrite
-  protection.
-- Added a no-paid-API Python tracing example.
-- Added productization guidance for architecture, configuration, security,
-  deployment, SDK use, OpenTelemetry, replay, evidence integrity, operations,
-  and troubleshooting.
-- Added contribution, public-artifact, and local CI/check guidance.
 
 Historical V0–V20 acceptance chronology remains in the repository's existing
 acceptance artifacts and is not rewritten by productization work.

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agentguard-server"
-version = "1.0.0rc2"
+version = "1.0.0"
 description = "AgentGuard HTTP ingestion and trace query service"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {text = "Apache-2.0"}
