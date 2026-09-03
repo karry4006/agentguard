@@ -13,7 +13,7 @@
   },
   "github_security_capabilities": {
     "dependabot_alerts": "ENABLED",
-    "dependency_graph": "UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION",
+    "dependency_graph": "ENABLED",
     "secret_scanning": "UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION",
     "secret_scanning_push_protection": "UNAVAILABLE_ON_CURRENT_GITHUB_CONFIGURATION"
   },
