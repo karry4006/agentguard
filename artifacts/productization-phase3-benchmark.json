@@ -1,0 +1,23 @@
+{
+  "schema_version": "productization-phase3-benchmark-v1",
+  "recorded_at": "2026-09-03",
+  "python": "3.14.6",
+  "os": "Windows host; exact WMI details unavailable in managed execution context",
+  "cpu": null,
+  "ram_bytes": null,
+  "docker": null,
+  "postgres": "not used; benchmarks use SQLite StaticPool",
+  "commit": "d8d9e37",
+  "reproducibility": [
+    "python benchmarks/run_sdk.py",
+    "python benchmarks/run_ingest.py",
+    "python benchmarks/run_query.py",
+    "python benchmarks/run_quorum.py"
+  ],
+  "results": {
+    "sdk_event_path": {"sample_count": 500, "warmup": 20, "plain_median_ms": 0.0004, "instrumented_median_ms": 0.3646, "instrumented_p95_ms": 1.578, "relative_overhead": 1442.0922},
+    "server_ingestion": {"batches": 10, "traces": 100, "events": 600, "events_per_second": 342.3, "batch_median_ms": 171.8077, "batch_p95_ms": 205.8919},
+    "server_query": {"seeded_traces": 50, "list_median_ms": 0.7648, "detail_median_ms": 0.4965, "span_tree_median_ms": 0.0028},
+    "v20_quorum_evaluation": {"iterations": 200, "state": "QUORUM_MATCH", "median_ms": 0.3895, "p95_ms": 0.7819}
+  }
+}
