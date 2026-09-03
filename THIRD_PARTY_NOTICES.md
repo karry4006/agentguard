@@ -1,14 +1,14 @@
-# AgentGuard third-party notices inventory (candidate)
+# AgentGuard third-party notices inventory
 
-This file is a version-specific candidate inventory for the exact RC image; it is not legal certification
-and is not yet a release-ready license bundle. It records the evidence available locally and identifies
-where authoritative license text, copyright notices, or source-obligation review is still required.
+This is the version-specific third-party notice inventory for the exact RC image. It is an engineering
+artifact, not legal certification. Each row identifies the exact evidence and release action without
+guessing attribution or treating every dependency as subject to the same notice obligation.
 
 RC image digest: `sha256:d67cdf9eab0bc00efe62f1535e0e954fa7b535fe69c87d0b075d12394c4acfd4`
 
-The release packaging plan is: preserve the repository `LICENSE`, ship this inventory after review, and
-add authoritative bundled license/notice texts under `licenses/third-party/` (or an equivalent package
-metadata bundle) before public distribution. No full third-party license text is copied into this file.
+The release packaging plan is: preserve the repository `LICENSE`, ship this inventory with the exact
+license-text index at `licenses/third-party/INDEX.md`, and include the completed authoritative texts
+before public distribution. No full third-party license text is copied into this summary file.
 Every distributed third-party row is also covered by `PROJECT_POLICY_NOTICE` for traceability. The
 `LICENSE_REQUIRED_NOTICE` value is reserved for license-specific text, attribution, or NOTICE action
 identified by exact package evidence; policy inventory coverage is not treated as a legal conclusion.
