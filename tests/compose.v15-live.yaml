@@ -1,0 +1,41 @@
+# Test-only overlay, used with compose.yaml. PostgreSQL and agentguard-migrate
+# are inherited from the base file; the witness owns the only private key.
+services:
+  agentguard-server-a:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    environment:
+      AGENTGUARD_INSTANCE_ID: v15-server-a
+      AGENTGUARD_ANCHOR_ENABLED: ${AGENTGUARD_ANCHOR_ENABLED:-true}
+      AGENTGUARD_ANCHOR_ENDPOINT: http://v15-witness:8080/anchor
+      AGENTGUARD_ALLOW_PRIVATE_ANCHOR_TESTS: "true"
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET: ${AGENTGUARD_NOTIFICATION_SIGNING_SECRET:-}
+      AGENTGUARD_ENVIRONMENT: test
+    ports: !override
+      - "127.0.0.1:18000:8000"
+  agentguard-server-b:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    environment:
+      AGENTGUARD_INSTANCE_ID: v15-server-b
+      AGENTGUARD_ANCHOR_ENABLED: ${AGENTGUARD_ANCHOR_ENABLED:-true}
+      AGENTGUARD_ANCHOR_ENDPOINT: http://v15-witness:8080/anchor
+      AGENTGUARD_ALLOW_PRIVATE_ANCHOR_TESTS: "true"
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET: ${AGENTGUARD_NOTIFICATION_SIGNING_SECRET:-}
+      AGENTGUARD_ENVIRONMENT: test
+    ports: !override
+      - "127.0.0.1:18001:8000"
+  v15-witness:
+    build:
+      context: ./tests/v15_witness
+    volumes:
+      - v15-witness-state:/data
+    networks: [backend]
+    ports: !override
+      - "127.0.0.1:18080:8080"
+    mem_limit: 256m
+
+volumes:
+  v15-witness-state:

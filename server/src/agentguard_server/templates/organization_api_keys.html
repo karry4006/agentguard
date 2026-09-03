@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Machine API keys · AgentGuard{% endblock %}
+{% block content %}
+<section class="panel"><p class="eyebrow">MACHINE CREDENTIALS</p><h1>API keys</h1>
+<p>Existing secrets are never recoverable or displayed.</p><table><thead><tr><th>Name</th><th>Public ID</th><th>Scopes</th><th>Status</th><th>Action</th></tr></thead><tbody>
+{% for key in api_keys %}<tr><td>{{ key.name }}</td><td>{{ key.public_id }}</td><td>{{ key.scopes|join(', ') }}</td>
+<td>{{ 'revoked' if key.revoked_at else 'active' }}</td><td>{% if not key.revoked_at %}<form method="post" action="/ui/organization/api-keys/{{ key.public_id }}/revoke">
+<input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit">Revoke</button></form>{% endif %}</td></tr>{% endfor %}
+</tbody></table></section>
+<section class="panel"><h2>Create machine API key</h2><form method="post" action="/ui/organization/api-keys">
+<input type="hidden" name="csrf_token" value="{{ csrf_token }}"><label>Name <input name="name" maxlength="255" required></label>
+<label>Scopes <input name="scopes" placeholder="ingest:write,traces:read" required></label><button type="submit">Create once</button></form></section>
+{% endblock %}

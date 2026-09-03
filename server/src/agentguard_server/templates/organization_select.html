@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Select organization · AgentGuard{% endblock %}
+{% block content %}
+<section class="panel"><p class="eyebrow">ACTIVE MEMBERSHIP REQUIRED</p><h1>Select organization</h1>
+<p>Authority is scoped to the selected, server-validated membership.</p>
+{% for membership, organization in organizations %}
+<form method="post" action="/ui/organization/select">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+  <input type="hidden" name="organization_id" value="{{ organization.id }}">
+  <button type="submit">{{ organization.name }} · {{ membership.role }}</button>
+</form>
+{% else %}<p>Access denied: no active organization membership.</p>{% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}System · AgentGuard{% endblock %}
+{% block content %}<div class="page-heading"><div><p class="eyebrow">RUNTIME HEALTH</p><h1>System</h1><p class="muted">Non-secret health metadata only.</p></div></div><section class="panel"><dl class="facts">{% for key, value in metadata.items() %}<div><dt>{{ key }}</dt><dd>{{ value }}</dd></div>{% endfor %}<div><dt>database_status</dt><dd>{{ db_status }}</dd></div><div><dt>database_current_user</dt><dd>{{ current_user }}</dd></div></dl></section><section class="panel"><h2>Security boundary</h2><p>Secrets, API-key hashes, database URLs, Docker environment, prompt content, and integrity keys are intentionally not exposed.</p></section>{% endblock %}

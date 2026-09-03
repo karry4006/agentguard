@@ -1,0 +1,57 @@
+# V14 live overlay. Use with:
+# docker compose -f compose.yaml -f tests/compose.v14-live.yaml up --build
+services:
+  postgres:
+    ports: !override
+      - "127.0.0.1:55432:5432"
+
+  agentguard-server:
+    profiles: ["v14-disabled"]
+
+  agentguard-server-a:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    environment:
+      AGENTGUARD_INSTANCE_ID: agentguard-a
+      AGENTGUARD_OIDC_ENABLED: "true"
+      AGENTGUARD_OIDC_ISSUER: http://host.docker.internal:18765
+      AGENTGUARD_OIDC_REDIRECT_URI: http://127.0.0.1:8001/ui/oidc/callback
+      AGENTGUARD_OIDC_CLIENT_ID: agentguard-v13-live
+      AGENTGUARD_OIDC_ALLOWED_AUDIENCES: agentguard-v13-live
+      AGENTGUARD_OIDC_REQUIRED_CLAIMS: sub,name
+      AGENTGUARD_DASHBOARD_API_KEY_LOGIN_ENABLED: "true"
+      AGENTGUARD_DASHBOARD_LOGIN_RATE_LIMIT: "1000"
+      AGENTGUARD_NOTIFICATION_ALLOWED_WEBHOOK_HOSTS: host.docker.internal
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET: v14-live-test-signing-secret-32-bytes!!
+    ports: !override
+      - "127.0.0.1:8001:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      agentguard-migrate:
+        condition: service_completed_successfully
+
+  agentguard-server-b:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    environment:
+      AGENTGUARD_INSTANCE_ID: agentguard-b
+      AGENTGUARD_OIDC_ENABLED: "true"
+      AGENTGUARD_OIDC_ISSUER: http://host.docker.internal:18765
+      AGENTGUARD_OIDC_REDIRECT_URI: http://127.0.0.1:8002/ui/oidc/callback
+      AGENTGUARD_OIDC_CLIENT_ID: agentguard-v13-live
+      AGENTGUARD_OIDC_ALLOWED_AUDIENCES: agentguard-v13-live
+      AGENTGUARD_OIDC_REQUIRED_CLAIMS: sub,name
+      AGENTGUARD_DASHBOARD_API_KEY_LOGIN_ENABLED: "true"
+      AGENTGUARD_DASHBOARD_LOGIN_RATE_LIMIT: "1000"
+      AGENTGUARD_NOTIFICATION_ALLOWED_WEBHOOK_HOSTS: host.docker.internal
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET: v14-live-test-signing-secret-32-bytes!!
+    ports: !override
+      - "127.0.0.1:8002:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      agentguard-migrate:
+        condition: service_completed_successfully

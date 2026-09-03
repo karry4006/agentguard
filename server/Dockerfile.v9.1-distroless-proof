@@ -1,0 +1,16 @@
+FROM python:3.13-slim-trixie AS build
+WORKDIR /build
+COPY requirements.lock ./requirements.lock
+RUN python -m pip install --no-cache-dir --target /opt/site --requirement ./requirements.lock
+COPY VERSION /opt/app/VERSION
+COPY server/src /opt/app/src
+COPY sdk/python/src /opt/app/sdk/python/src
+
+FROM gcr.io/distroless/python3-debian13:nonroot
+WORKDIR /app
+COPY --from=build /opt/site /opt/site
+COPY --from=build /opt/app /app
+ENV PYTHONPATH=/app/src:/app/sdk/python/src:/opt/site
+USER 65532:65532
+EXPOSE 8000
+CMD ["-m", "uvicorn", "agentguard_server.main:app", "--host", "0.0.0.0", "--port", "8000"]

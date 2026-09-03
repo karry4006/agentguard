@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}Evaluations · AgentGuard{% endblock %}
+{% block content %}<div class="page-heading"><div><p class="eyebrow">V8 REGRESSION EVALUATION</p><h1>Evaluations</h1><p class="muted">Read-only gate outcomes for the current tenant.</p></div></div><section class="panel"><table><thead><tr><th>Comparison</th><th>Status</th><th>Created</th><th>Engine</th></tr></thead><tbody>{% for row in comparisons %}<tr><td>{{ row.id }}</td><td><span class="badge {{ row.status|lower }}">{{ row.status }}</span></td><td>{{ row.created_at }}</td><td>{{ row.engine_version }}</td></tr>{% else %}<tr><td colspan="4" class="muted">No evaluation comparisons.</td></tr>{% endfor %}</tbody></table></section>{% endblock %}

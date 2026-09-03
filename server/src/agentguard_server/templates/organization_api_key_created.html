@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}API key created · AgentGuard{% endblock %}
+{% block content %}
+<section class="panel"><p class="eyebrow">SHOW ONCE</p><h1>Machine API key created</h1>
+<p>Copy this value now. AgentGuard stores only its digest and cannot show it again.</p>
+<pre class="secret-once">{{ plaintext_api_key }}</pre><p><a href="/ui/organization/api-keys">Return to API keys</a></p></section>
+{% endblock %}

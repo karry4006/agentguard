@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Traces · AgentGuard{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">V0 FLIGHT RECORDER</p><h1>Traces</h1><p class="muted">{{ total }} tenant-scoped traces · page {{ page }}</p></div></div>
+<form class="filters" method="get" action="/ui/traces"><label>Status<select name="status"><option value="">All</option><option>running</option><option>success</option><option>failed</option><option>error</option><option>timeout</option></select></label><button class="button" type="submit">Filter</button></form>
+<section class="panel"><table><thead><tr><th>Trace ID</th><th>Status</th><th>Workflow</th><th>Provider</th><th>Started</th></tr></thead><tbody>{% for row in traces %}<tr><td><a href="/ui/traces/{{ row.trace_id }}">{{ row.trace_id }}</a></td><td>{{ row.status }}</td><td>{{ row.workflow_name or '—' }}</td><td>{{ row.provider or '—' }}</td><td>{{ row.started_at or '—' }}</td></tr>{% else %}<tr><td colspan="5" class="muted">No traces match this filter.</td></tr>{% endfor %}</tbody></table></section>
+{% endblock %}

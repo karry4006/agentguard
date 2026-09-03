@@ -1,0 +1,24 @@
+name: AgentGuard Security Regression
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install locked dependencies
+        run: |
+          python -m pip install --requirement requirements.lock --requirement requirements-dev.lock
+          python -m pip install --no-deps --editable server --editable sdk/python
+      - name: Run canonical security checks
+        shell: pwsh
+        run: ./scripts/ci.ps1 -SkipDocker

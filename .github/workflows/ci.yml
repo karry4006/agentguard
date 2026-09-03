@@ -1,0 +1,65 @@
+name: AgentGuard CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python-313:
+    name: Python 3.13 canonical checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install locked dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --requirement requirements.lock --requirement requirements-dev.lock
+          python -m pip install --no-deps --editable server --editable sdk/python
+      - name: Run canonical checks
+        shell: pwsh
+        run: ./scripts/ci.ps1 -SkipDocker -Python python
+
+  python-312-sdk:
+    name: Python 3.12 SDK compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install SDK test dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --requirement requirements-dev.lock
+          python -m pip install --no-deps --editable sdk/python
+      - name: Compile SDK and examples
+        shell: pwsh
+        run: python -m compileall -q sdk/python/src examples
+      - name: Run SDK compatibility tests
+        shell: pwsh
+        run: python -m pytest -q -p no:cacheprovider tests/test_sdk.py
+
+  docker-build:
+    name: Docker build and Compose configuration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up disposable Compose configuration
+        shell: pwsh
+        run: ./scripts/bootstrap-dev.ps1 -OutputDirectory .docker-local/ci
+      - name: Validate Compose configuration
+        shell: pwsh
+        run: docker compose --env-file .docker-local/ci/.env config --quiet
+      - name: Build production candidate image
+        run: docker build --file server/Dockerfile --tag agentguard-ci:local .

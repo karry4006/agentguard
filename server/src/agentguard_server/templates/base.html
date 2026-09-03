@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AgentGuard Operator Console{% endblock %}</title>
+  <link rel="stylesheet" href="/ui/static/agentguard.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/ui">AgentGuard <span>OPERATOR CONSOLE</span></a>
+  {% if identity %}
+  {% if identity.context.principal_type == 'HUMAN_SESSION' %}
+  <p class="identity">{{ identity.context.display_name }} · {{ identity.context.organization_name }} · {{ identity.context.role }}</p>
+  {% endif %}
+  <nav aria-label="Primary navigation">
+    <a href="/ui">Overview</a>
+    {% if 'incidents:read' in scopes %}<a href="/ui/incidents">Incidents</a>{% endif %}
+    {% if 'traces:read' in scopes %}<a href="/ui/traces">Traces</a>{% endif %}
+    {% if 'evaluations:read' in scopes %}<a href="/ui/evaluations">Evaluations</a>{% endif %}
+    {% if 'notifications:read' in scopes %}<a href="/ui/notifications">Notifications</a>{% endif %}
+    {% if identity.context.principal_type == 'HUMAN_SESSION' %}<a href="/ui/organization">Organization</a>{% endif %}
+    {% if 'members:read' in scopes %}<a href="/ui/organization/members">Members</a>{% endif %}
+    {% if 'keys:manage' in scopes %}<a href="/ui/organization/api-keys">API keys</a>{% endif %}
+    <a href="/ui/system">System</a>
+  </nav>
+  <form method="post" action="/ui/logout" class="logout-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <button type="submit">Log out</button>
+  </form>
+  {% endif %}
+</header>
+<main class="shell">
+  {% block content %}{% endblock %}
+</main>
+<footer class="footer">Tenant-scoped observation and explicitly authorized control plane.</footer>
+</body>
+</html>

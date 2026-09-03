@@ -1,0 +1,7 @@
+# Development/security lock snapshot. Runtime packages are pinned in
+# requirements.lock and are intentionally not duplicated here.
+bandit==1.9.1
+coverage==7.10.6
+pip-audit==2.9.0
+pytest==9.0.3
+pytest-cov==6.2.1

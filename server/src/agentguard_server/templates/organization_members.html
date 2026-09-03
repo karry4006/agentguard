@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Members · AgentGuard{% endblock %}
+{% block content %}
+<section class="panel"><p class="eyebrow">ORGANIZATION RBAC</p><h1>Members</h1>
+<table><thead><tr><th>Identity</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody>
+{% for membership, user in members %}<tr><td>{{ user.display_name or user.external_subject }}</td><td>{{ membership.role }}</td>
+<td>{{ 'disabled' if membership.disabled_at else 'active' }}</td><td>{% if 'members:manage' in scopes and not membership.disabled_at %}
+<form method="post" action="/ui/organization/members/{{ membership.id }}/role"><input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+<select name="role"><option>VIEWER</option><option>ENGINEER</option><option>ADMIN</option></select><button type="submit">Change role</button></form>
+<form method="post" action="/ui/organization/members/{{ membership.id }}/disable"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit">Disable</button></form>
+{% endif %}</td></tr>{% endfor %}</tbody></table></section>
+{% if 'members:manage' in scopes %}<section class="panel"><h2>Provision member</h2>
+<form method="post" action="/ui/organization/members"><input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+<label>OIDC subject <input name="subject" maxlength="255" required></label><label>Display name <input name="display_name" maxlength="255"></label>
+<label>Email <input name="email" maxlength="320"></label><label>Role <select name="role"><option>VIEWER</option><option>ENGINEER</option><option>ADMIN</option></select></label>
+<button type="submit">Provision</button></form></section>{% endif %}
+{% endblock %}

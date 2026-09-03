@@ -1,0 +1,171 @@
+# Test-only V16 topology. Run with compose.yaml and this overlay. MinIO is
+# disposable test storage; production deployments must use an external HTTPS
+# S3-compatible endpoint and externally injected credentials.
+services:
+  postgres:
+    ports: !override
+      - "127.0.0.1:55433:5432"
+    volumes: !override
+      - v16-postgres-data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+
+  # The base services remain available for normal Compose use, but this
+  # overlay starts only the two explicitly named server/worker replicas.
+  agentguard-server:
+    profiles: [v16-disabled]
+  agentguard-retention:
+    profiles: [v16-disabled]
+
+  v15-witness:
+    build:
+      context: ./tests/v15_witness
+    volumes:
+      - v16-witness-state:/data
+    networks: [backend]
+    ports: !override
+      - "127.0.0.1:18083:8080"
+    mem_limit: 256m
+
+  minio:
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-agentguard-test}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-agentguard-test-password}
+    networks: [backend]
+    ports: !override
+      - "127.0.0.1:19000:9000"
+    volumes:
+      - v16-minio-data:/data
+    mem_limit: 512m
+
+  agentguard-server-a:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    environment:
+      AGENTGUARD_INSTANCE_ID: v16-server-a
+      AGENTGUARD_ANCHOR_ENABLED: "true"
+      AGENTGUARD_ANCHOR_ENDPOINT: http://v15-witness:8080/anchor
+      AGENTGUARD_ANCHOR_NAMESPACE: v16-live
+      AGENTGUARD_ANCHOR_INTERVAL_SECONDS: "1"
+      AGENTGUARD_ANCHOR_VERIFY_KEYS: ${AGENTGUARD_ANCHOR_VERIFY_KEYS:-}
+      AGENTGUARD_ALLOW_PRIVATE_ANCHOR_TESTS: "true"
+      AGENTGUARD_ALLOW_PRIVATE_WEBHOOK_TESTS: "true"
+      AGENTGUARD_NOTIFICATION_ALLOWED_WEBHOOK_HOSTS: host.docker.internal
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET: ${AGENTGUARD_TEST_NOTIFICATION_SIGNING_SECRET:-closure-notification-signing-secret-32-bytes!}
+      AGENTGUARD_DASHBOARD_API_KEY_LOGIN_ENABLED: "true"
+      AGENTGUARD_OIDC_ENABLED: "true"
+      AGENTGUARD_OIDC_ISSUER: http://host.docker.internal:18765
+      AGENTGUARD_OIDC_CLIENT_ID: agentguard-v13-live
+      AGENTGUARD_OIDC_REDIRECT_URI: http://127.0.0.1:18100/ui/oidc/callback
+      AGENTGUARD_OIDC_ALLOWED_AUDIENCES: agentguard-v13-live
+      AGENTGUARD_OIDC_REQUIRED_CLAIMS: sub,name
+      AGENTGUARD_ARCHIVE_ENABLED: "true"
+      AGENTGUARD_RETENTION_PURGE_ENABLED: "true"
+      AGENTGUARD_ARCHIVE_AFTER_DAYS: "0"
+      AGENTGUARD_PURGE_AFTER_DAYS: "0"
+      AGENTGUARD_ARCHIVE_STORE_ENDPOINT: http://minio:9000
+      AGENTGUARD_ARCHIVE_STORE_BUCKET: agentguard-archives
+      AGENTGUARD_ARCHIVE_STORE_ACCESS_KEY: ${MINIO_ROOT_USER:-agentguard-test}
+      AGENTGUARD_ARCHIVE_STORE_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-agentguard-test-password}
+      AGENTGUARD_ALLOW_PRIVATE_ARCHIVE_TESTS: "true"
+      AGENTGUARD_ENVIRONMENT: test
+    ports: !override
+      - "127.0.0.1:18100:8000"
+    depends_on:
+      minio:
+        condition: service_started
+      v15-witness:
+        condition: service_started
+
+  agentguard-server-b:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    environment:
+      AGENTGUARD_INSTANCE_ID: v16-server-b
+      AGENTGUARD_ANCHOR_ENABLED: "true"
+      AGENTGUARD_ANCHOR_ENDPOINT: http://v15-witness:8080/anchor
+      AGENTGUARD_ANCHOR_NAMESPACE: v16-live
+      AGENTGUARD_ANCHOR_INTERVAL_SECONDS: "1"
+      AGENTGUARD_ANCHOR_VERIFY_KEYS: ${AGENTGUARD_ANCHOR_VERIFY_KEYS:-}
+      AGENTGUARD_ALLOW_PRIVATE_ANCHOR_TESTS: "true"
+      AGENTGUARD_ALLOW_PRIVATE_WEBHOOK_TESTS: "true"
+      AGENTGUARD_NOTIFICATION_ALLOWED_WEBHOOK_HOSTS: host.docker.internal
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET: ${AGENTGUARD_TEST_NOTIFICATION_SIGNING_SECRET:-closure-notification-signing-secret-32-bytes!}
+      AGENTGUARD_DASHBOARD_API_KEY_LOGIN_ENABLED: "true"
+      AGENTGUARD_OIDC_ENABLED: "true"
+      AGENTGUARD_OIDC_ISSUER: http://host.docker.internal:18765
+      AGENTGUARD_OIDC_CLIENT_ID: agentguard-v13-live
+      AGENTGUARD_OIDC_REDIRECT_URI: http://127.0.0.1:18101/ui/oidc/callback
+      AGENTGUARD_OIDC_ALLOWED_AUDIENCES: agentguard-v13-live
+      AGENTGUARD_OIDC_REQUIRED_CLAIMS: sub,name
+      AGENTGUARD_ARCHIVE_ENABLED: "true"
+      AGENTGUARD_RETENTION_PURGE_ENABLED: "true"
+      AGENTGUARD_ARCHIVE_AFTER_DAYS: "0"
+      AGENTGUARD_PURGE_AFTER_DAYS: "0"
+      AGENTGUARD_ARCHIVE_STORE_ENDPOINT: http://minio:9000
+      AGENTGUARD_ARCHIVE_STORE_BUCKET: agentguard-archives
+      AGENTGUARD_ARCHIVE_STORE_ACCESS_KEY: ${MINIO_ROOT_USER:-agentguard-test}
+      AGENTGUARD_ARCHIVE_STORE_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-agentguard-test-password}
+      AGENTGUARD_ALLOW_PRIVATE_ARCHIVE_TESTS: "true"
+      AGENTGUARD_ENVIRONMENT: test
+    ports: !override
+      - "127.0.0.1:18101:8000"
+    depends_on:
+      minio:
+        condition: service_started
+      v15-witness:
+        condition: service_started
+
+  agentguard-retention-a:
+    extends:
+      file: compose.yaml
+      service: agentguard-retention
+    environment:
+      AGENTGUARD_INSTANCE_ID: v16-retention-a
+      AGENTGUARD_ARCHIVE_ENABLED: "true"
+      AGENTGUARD_RETENTION_PURGE_ENABLED: "true"
+      AGENTGUARD_ARCHIVE_AFTER_DAYS: "0"
+      AGENTGUARD_PURGE_AFTER_DAYS: "0"
+      AGENTGUARD_ARCHIVE_STORE_ENDPOINT: http://minio:9000
+      AGENTGUARD_ARCHIVE_STORE_BUCKET: agentguard-archives
+      AGENTGUARD_ARCHIVE_STORE_ACCESS_KEY: ${MINIO_ROOT_USER:-agentguard-test}
+      AGENTGUARD_ARCHIVE_STORE_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-agentguard-test-password}
+      AGENTGUARD_ALLOW_PRIVATE_ARCHIVE_TESTS: "true"
+      AGENTGUARD_ENVIRONMENT: test
+    ports: !override []
+    depends_on:
+      minio:
+        condition: service_started
+      v15-witness:
+        condition: service_started
+
+  agentguard-retention-b:
+    extends:
+      file: compose.yaml
+      service: agentguard-retention
+    environment:
+      AGENTGUARD_INSTANCE_ID: v16-retention-b
+      AGENTGUARD_ARCHIVE_ENABLED: "true"
+      AGENTGUARD_RETENTION_PURGE_ENABLED: "true"
+      AGENTGUARD_ARCHIVE_AFTER_DAYS: "0"
+      AGENTGUARD_PURGE_AFTER_DAYS: "0"
+      AGENTGUARD_ARCHIVE_STORE_ENDPOINT: http://minio:9000
+      AGENTGUARD_ARCHIVE_STORE_BUCKET: agentguard-archives
+      AGENTGUARD_ARCHIVE_STORE_ACCESS_KEY: ${MINIO_ROOT_USER:-agentguard-test}
+      AGENTGUARD_ARCHIVE_STORE_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-agentguard-test-password}
+      AGENTGUARD_ALLOW_PRIVATE_ARCHIVE_TESTS: "true"
+      AGENTGUARD_ENVIRONMENT: test
+    ports: !override []
+    depends_on:
+      minio:
+        condition: service_started
+      v15-witness:
+        condition: service_started
+
+volumes:
+  v16-postgres-data:
+  v16-witness-state:
+  v16-minio-data:

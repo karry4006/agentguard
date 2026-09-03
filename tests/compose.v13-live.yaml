@@ -1,0 +1,24 @@
+services:
+  agentguard-server:
+    environment:
+      AGENTGUARD_ENVIRONMENT: test
+      AGENTGUARD_OIDC_ENABLED: "true"
+      AGENTGUARD_OIDC_ISSUER: ${AGENTGUARD_TEST_OIDC_ISSUER:-http://host.docker.internal:18765}
+      AGENTGUARD_OIDC_CLIENT_ID: agentguard-v13-live
+      AGENTGUARD_OIDC_REDIRECT_URI: http://127.0.0.1:8000/ui/oidc/callback
+      AGENTGUARD_OIDC_ALLOWED_AUDIENCES: agentguard-v13-live
+      AGENTGUARD_OIDC_ALLOWED_ALGORITHMS: RS256
+      AGENTGUARD_OIDC_REQUIRED_CLAIMS: sub,name
+      AGENTGUARD_DASHBOARD_API_KEY_LOGIN_ENABLED: "true"
+      AGENTGUARD_DASHBOARD_LOGIN_RATE_LIMIT: "1000"
+      AGENTGUARD_ALLOW_PRIVATE_WEBHOOK_TESTS: "true"
+      AGENTGUARD_NOTIFICATION_ALLOWED_WEBHOOK_HOSTS: host.docker.internal
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET: ""
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET_FILE: /run/secrets/v13_test_notification_signing_secret
+    secrets:
+      - source: v13_test_notification_signing_secret
+        target: v13_test_notification_signing_secret
+
+secrets:
+  v13_test_notification_signing_secret:
+    file: ${AGENTGUARD_TEST_NOTIFICATION_SIGNING_SECRET_HOST_FILE:?Set test notification signing secret file}

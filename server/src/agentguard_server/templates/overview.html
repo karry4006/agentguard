@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Overview · AgentGuard{% endblock %}
+{% block content %}
+<div class="page-heading"><div><p class="eyebrow">LIVE OPERATIONS</p><h1>Overview</h1><p class="muted">Bounded operational view for the current tenant.</p></div><a class="button" href="/ui/system">System health</a></div>
+<section class="cards" aria-label="Incident summary">
+  <div class="card"><span class="label">Open incidents</span><strong>{{ counts.open }}</strong></div>
+  <div class="card"><span class="label">Acknowledged</span><strong>{{ counts.acknowledged }}</strong></div>
+  <div class="card"><span class="label">High / Critical</span><strong>{{ counts.critical_high }}</strong></div>
+  <div class="card"><span class="label">Failed traces · 24h</span><strong>{{ failed_traces|length }}</strong></div>
+</section>
+<div class="grid two">
+<section class="panel"><div class="section-heading"><h2>Open incidents</h2>{% if 'incidents:read' in scopes %}<a href="/ui/incidents">View all</a>{% endif %}</div>
+{% if 'incidents:read' in scopes %}<table><thead><tr><th>Title</th><th>Severity</th><th>Trend</th></tr></thead><tbody>{% for row in incidents if row.status != 'RESOLVED' %}<tr><td><a href="/ui/incidents/{{ row.id }}">{{ row.title }}</a></td><td><span class="badge {{ row.severity|lower }}">{{ row.severity }}</span></td><td>{{ row.primary_category }}</td></tr>{% else %}<tr><td colspan="3" class="muted">No open incidents.</td></tr>{% endfor %}</tbody></table>{% else %}<p class="muted">This session does not have incidents:read.</p>{% endif %}</section>
+<section class="panel"><div class="section-heading"><h2>Recent failure traces</h2>{% if 'traces:read' in scopes %}<a href="/ui/traces">View all</a>{% endif %}</div>
+{% if 'traces:read' in scopes %}<table><thead><tr><th>Trace</th><th>Status</th><th>Workflow</th></tr></thead><tbody>{% for row in failed_traces[:10] %}<tr><td><a href="/ui/traces/{{ row.trace_id }}">{{ row.trace_id }}</a></td><td><span class="badge danger">{{ row.status }}</span></td><td>{{ row.workflow_name or '—' }}</td></tr>{% else %}<tr><td colspan="3" class="muted">No recent failures.</td></tr>{% endfor %}</tbody></table>{% else %}<p class="muted">This session does not have traces:read.</p>{% endif %}</section>
+</div>
+<div class="grid two"><section class="panel"><h2>Notification failures</h2>{% if 'notifications:read' in scopes %}<table><thead><tr><th>Status</th><th>Attempts</th><th>Last attempt</th></tr></thead><tbody>{% for row in failed_notifications %}<tr><td>{{ row.status }}</td><td>{{ row.attempt_count }}</td><td>{{ row.last_attempt_at or '—' }}</td></tr>{% else %}<tr><td colspan="3" class="muted">No recent delivery failures.</td></tr>{% endfor %}</tbody></table>{% else %}<p class="muted">Notification details are scope restricted.</p>{% endif %}</section>
+<section class="panel"><h2>Release gates</h2>{% if 'evaluations:read' in scopes %}<table><thead><tr><th>Decision</th><th>Created</th></tr></thead><tbody>{% for gate, comparison in gates %}<tr><td><span class="badge {{ gate.decision|lower }}">{{ gate.decision }}</span></td><td>{{ gate.created_at }}</td></tr>{% else %}<tr><td colspan="2" class="muted">No recent gate outcomes.</td></tr>{% endfor %}</tbody></table>{% else %}<p class="muted">Evaluation details are scope restricted.</p>{% endif %}</section></div>
+<section class="panel"><div class="section-heading"><h2>V19 integrity segmentation</h2><span class="muted">{{ counts.integrity_compacted }} compacted · {{ counts.integrity_blocked }} blocked/failed</span></div>
+{% if 'integrity:read' in scopes %}<table><thead><tr><th>Trace</th><th>Range</th><th>Records</th><th>State</th><th>V15 continuity</th></tr></thead><tbody>{% for row in integrity_segments[:10] %}<tr><td>{{ row.trace_id }}</td><td>{{ row.source_start_sequence }}–{{ row.source_end_sequence }}</td><td>{{ row.record_count }}</td><td><span class="badge {{ row.state|lower }}">{{ row.state }}</span></td><td>{{ row.v15_continuity_status }}</td></tr>{% else %}<tr><td colspan="5" class="muted">No V19 integrity segments.</td></tr>{% endfor %}</tbody></table>{% else %}<p class="muted">Integrity segmentation details are scope restricted.</p>{% endif %}</section>
+{% endblock %}

@@ -1,0 +1,179 @@
+# Disposable V20 topology. Witness private keys are generated inside each
+# witness container's private volume and are never mounted into AgentGuard.
+services:
+  postgres:
+    ports: !override
+      - "127.0.0.1:55437:5432"
+    volumes: !override
+      - v20-postgres-data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+
+  agentguard-server:
+    profiles: [v20-disabled]
+
+  agentguard-server-v20:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    environment:
+      AGENTGUARD_INSTANCE_ID: v20-server
+      AGENTGUARD_ENVIRONMENT: test
+      AGENTGUARD_ANCHOR_ENABLED: "true"
+      AGENTGUARD_ANCHOR_NAMESPACE: v20-live
+      AGENTGUARD_ANCHOR_INTERVAL_SECONDS: "1"
+      AGENTGUARD_ALLOW_PRIVATE_ANCHOR_TESTS: "true"
+      AGENTGUARD_ALLOW_PRIVATE_WEBHOOK_TESTS: "true"
+      AGENTGUARD_NOTIFICATION_ALLOWED_WEBHOOK_HOSTS: host.docker.internal
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET: ""
+      AGENTGUARD_NOTIFICATION_SIGNING_SECRET_FILE: /run/secrets/v20_notification_signing_secret
+      AGENTGUARD_OIDC_ENABLED: "true"
+      AGENTGUARD_OIDC_ISSUER: ${AGENTGUARD_TEST_OIDC_ISSUER:-http://host.docker.internal:18765}
+      AGENTGUARD_OIDC_CLIENT_ID: agentguard-v13-live
+      AGENTGUARD_OIDC_REDIRECT_URI: http://127.0.0.1:18020/ui/oidc/callback
+      AGENTGUARD_OIDC_ALLOWED_AUDIENCES: agentguard-v13-live
+      AGENTGUARD_OIDC_REQUIRED_CLAIMS: sub,name
+      # Preserve the established V12/V13 live fixture contract while the
+      # V20 quorum topology is used for the shared service lane.
+      AGENTGUARD_DASHBOARD_API_KEY_LOGIN_ENABLED: "true"
+      AGENTGUARD_QUORUM_ENABLED: "true"
+      AGENTGUARD_QUORUM_THRESHOLD: "2"
+      AGENTGUARD_QUORUM_POLICY_EPOCH: "1"
+      AGENTGUARD_QUORUM_WITNESS_REGISTRY: ${AGENTGUARD_QUORUM_WITNESS_REGISTRY:?Set AGENTGUARD_QUORUM_WITNESS_REGISTRY}
+    ports: !override
+      - "127.0.0.1:18020:8000"
+    secrets:
+      - source: v20_notification_signing_secret
+        target: v20_notification_signing_secret
+
+  agentguard-quorum-worker-a:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    command: ["-m", "agentguard_server.quorum_worker"]
+    environment:
+      AGENTGUARD_INSTANCE_ID: v20-quorum-worker-a
+      AGENTGUARD_ENVIRONMENT: test
+      AGENTGUARD_ANCHOR_ENABLED: "true"
+      AGENTGUARD_ANCHOR_NAMESPACE: v20-live
+      AGENTGUARD_ALLOW_PRIVATE_ANCHOR_TESTS: "true"
+      AGENTGUARD_QUORUM_ENABLED: "true"
+      AGENTGUARD_QUORUM_THRESHOLD: "2"
+      AGENTGUARD_QUORUM_POLICY_EPOCH: "1"
+      AGENTGUARD_QUORUM_WITNESS_REGISTRY: ${AGENTGUARD_QUORUM_WITNESS_REGISTRY:?Set AGENTGUARD_QUORUM_WITNESS_REGISTRY}
+    ports: !override []
+    healthcheck:
+      disable: true
+    restart: unless-stopped
+
+  agentguard-quorum-worker-b:
+    extends:
+      file: compose.yaml
+      service: agentguard-server
+    command: ["-m", "agentguard_server.quorum_worker"]
+    environment:
+      AGENTGUARD_INSTANCE_ID: v20-quorum-worker-b
+      AGENTGUARD_ENVIRONMENT: test
+      AGENTGUARD_ANCHOR_ENABLED: "true"
+      AGENTGUARD_ANCHOR_NAMESPACE: v20-live
+      AGENTGUARD_ALLOW_PRIVATE_ANCHOR_TESTS: "true"
+      AGENTGUARD_QUORUM_ENABLED: "true"
+      AGENTGUARD_QUORUM_THRESHOLD: "2"
+      AGENTGUARD_QUORUM_POLICY_EPOCH: "1"
+      AGENTGUARD_QUORUM_WITNESS_REGISTRY: ${AGENTGUARD_QUORUM_WITNESS_REGISTRY:?Set AGENTGUARD_QUORUM_WITNESS_REGISTRY}
+    ports: !override []
+    healthcheck:
+      disable: true
+    restart: unless-stopped
+
+  v20-witness-a:
+    build:
+      context: ./tests/v20_witness
+    environment:
+      WITNESS_ID: v20-witness-a
+      WITNESS_KEY_ID: v20-witness-a-key-v1
+      WITNESS_PRIVATE_KEY_FILE: /run/secrets/v20_witness_a_private_key
+      V20_TEST_CONTROL_TOKEN: ${V20_TEST_CONTROL_TOKEN:-v20-harness-control}
+    secrets:
+      - source: v20_witness_a_private_key
+        target: v20_witness_a_private_key
+    volumes:
+      - v20-witness-a-state:/data
+    networks: [backend]
+    ports: !override
+      - "127.0.0.1:18090:8080"
+
+  v20-witness-b:
+    build:
+      context: ./tests/v20_witness
+    environment:
+      WITNESS_ID: v20-witness-b
+      WITNESS_KEY_ID: v20-witness-b-key-v1
+      WITNESS_PRIVATE_KEY_FILE: /run/secrets/v20_witness_b_private_key
+      V20_TEST_CONTROL_TOKEN: ${V20_TEST_CONTROL_TOKEN:-v20-harness-control}
+    secrets:
+      - source: v20_witness_b_private_key
+        target: v20_witness_b_private_key
+    volumes:
+      - v20-witness-b-state:/data
+    networks: [backend]
+    ports: !override
+      - "127.0.0.1:18091:8080"
+
+  v20-witness-c:
+    build:
+      context: ./tests/v20_witness
+    environment:
+      WITNESS_ID: v20-witness-c
+      WITNESS_KEY_ID: v20-witness-c-key-v1
+      WITNESS_PRIVATE_KEY_FILE: /run/secrets/v20_witness_c_private_key
+      V20_TEST_CONTROL_TOKEN: ${V20_TEST_CONTROL_TOKEN:-v20-harness-control}
+    secrets:
+      - source: v20_witness_c_private_key
+        target: v20_witness_c_private_key
+    volumes:
+      - v20-witness-c-state:/data
+    networks: [backend]
+    ports: !override
+      - "127.0.0.1:18092:8080"
+
+  minio-a:
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_A_ROOT_USER:?Set MINIO_A_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_A_ROOT_PASSWORD:?Set MINIO_A_ROOT_PASSWORD}
+    networks: [backend]
+    ports: !override
+      - "127.0.0.1:19010:9000"
+    volumes:
+      - v20-minio-a-data:/data
+
+  minio-b:
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_B_ROOT_USER:?Set MINIO_B_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_B_ROOT_PASSWORD:?Set MINIO_B_ROOT_PASSWORD}
+    networks: [backend]
+    ports: !override
+      - "127.0.0.1:19011:9000"
+    volumes:
+      - v20-minio-b-data:/data
+
+volumes:
+  v20-postgres-data:
+  v20-witness-a-state:
+  v20-witness-b-state:
+  v20-witness-c-state:
+  v20-minio-a-data:
+  v20-minio-b-data:
+
+secrets:
+  v20_notification_signing_secret:
+    file: ${V20_NOTIFICATION_SIGNING_SECRET_HOST_FILE:?Set V20_NOTIFICATION_SIGNING_SECRET_HOST_FILE}
+  v20_witness_a_private_key:
+    file: ${V20_WITNESS_A_PRIVATE_KEY_HOST_FILE:?Set V20_WITNESS_A_PRIVATE_KEY_HOST_FILE}
+  v20_witness_b_private_key:
+    file: ${V20_WITNESS_B_PRIVATE_KEY_HOST_FILE:?Set V20_WITNESS_B_PRIVATE_KEY_HOST_FILE}
+  v20_witness_c_private_key:
+    file: ${V20_WITNESS_C_PRIVATE_KEY_HOST_FILE:?Set V20_WITNESS_C_PRIVATE_KEY_HOST_FILE}
